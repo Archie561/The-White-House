@@ -6,8 +6,22 @@ using TMPro;
 public class Typewriter
 {
     public TextMeshProUGUI Text { get; set; }
-    public float WritingSpeed { get; set; } = 0.02f;
+    public float UpdateTime { get; set; } = 0.02f;
     public bool IsWriting { get; private set; } = false;
+
+    public Typewriter()
+    {
+        Text = null;
+    }
+    public Typewriter(TextMeshProUGUI text)
+    {
+        Text = text;
+    }
+    public Typewriter(TextMeshProUGUI text, float updateTime)
+    {
+        Text = text;
+        UpdateTime = updateTime;
+    }
 
     public void StartWriting()
     {
@@ -41,7 +55,7 @@ public class Typewriter
             Text.maxVisibleCharacters = visibleCharacterAmount;
             counter++;
 
-            yield return new WaitForSeconds(WritingSpeed);
+            yield return new WaitForSeconds(UpdateTime);
         }
 
         IsWriting = false;
