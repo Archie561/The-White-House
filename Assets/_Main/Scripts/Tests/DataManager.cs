@@ -1,18 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    public static DataManager Instance;
+    public static DataManager Instance { get; private set; }
 
-    public Dialogue currentDialogue;
-    public Choice currentChoice;
+    public Dialogue[] Dialogues;
+    public Choice[] Choices;
+
     void Awake()
     {
         if (Instance == null)
         {
+            LoadData();
+
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -20,37 +24,34 @@ public class DataManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
 
-        currentDialogue = new Dialogue();
+    void LoadData()
+    {
+        string dialoguePath = Application.dataPath + "/dialogues.json";
+        string choicesPath = Application.dataPath + "/choices.json";
 
-        string[] characterNames = { "Alice Rothwell", "Alice Rothwell", "Lyle Ellington", "Roberta Horton", "Alice Rothwell", "Lyle Ellington" };
-        string[] imageNames = { "AliceRothwell", "AliceRothwell", "LyleEllington", "RobertaHorton", "AliceRothwell", "LyleEllington" };
-        string[] replicas =
+        if (File.Exists(dialoguePath) && File.Exists(choicesPath))
         {
-            "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
-            "The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.",
-            "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.)",
-            "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
-            "The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.",
-            "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.)"
-        };
-        bool[] isChoices = { false, true, false, true, false, false };
+            string dialoguesJson = File.ReadAllText(dialoguePath);
+            string choicesJson = File.ReadAllText(choicesPath);
 
-        currentDialogue.characterName = characterNames;
-        currentDialogue.imageName = imageNames;
-        currentDialogue.replicas = replicas;
-        currentDialogue.isChoice = isChoices;
+            Dialogues = JsonHelper.FromJson<Dialogue>(dialoguesJson);
+            Choices = JsonHelper.FromJson<Choice>(choicesJson);
+        }
+        else
+        {
+            Debug.LogError($"File(s) does not exist: {dialoguePath} || {choicesPath}");
+        }
+    }
 
-        currentChoice = new Choice();
+    public Dialogue GetFirstDialogue()
+    {
+        return Dialogues[0];
+    }
 
-        string[] choiceNames = { "firstChoice", "secondChoice" };
-        string[] options1 = { "looking block of text", "attributed to an unknown typesetter" };
-        string[] options2 = { "Lorem ipsum, or lipsum as it is", "who is thought to have scrambled" };
-        bool[] mustBeSaved = { false, false };
-
-        currentChoice.choiceName = choiceNames;
-        currentChoice.option1 = options1;
-        currentChoice.option2 = options2;
-        currentChoice.mustBeSaved = mustBeSaved;
+    public Choice GetFirstChoice()
+    {
+        return Choices[0];
     }
 }

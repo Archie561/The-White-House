@@ -40,8 +40,8 @@ public class DialogueManager : MonoBehaviour
         _dialogueIndex = 0;
         _choiceIndex = 0;
 
-        _currentDialogue = DataManager.Instance.currentDialogue;
-        _currentChoice = DataManager.Instance.currentChoice;
+        _currentDialogue = DataManager.Instance.GetFirstDialogue();
+        _currentChoice = DataManager.Instance.GetFirstChoice();
 
         _typewriter = new Typewriter(_dialogueText);
 

@@ -1,0 +1,76 @@
+{
+    "Items": [
+        {
+            "imageName": [
+                "AliceRothwell",
+                "AliceRothwell",
+                "LyleEllington",
+                "RobertaHorton",
+                "AliceRothwell",
+                "LyleEllington",
+                "AliceRothwell"
+            ],
+            "characterName": [
+                "Alice Rothwell",
+                "Alice Rothwell",
+                "Lyle Ellington",
+                "Roberta Horton",
+                "Alice Rothwell",
+                "Lyle Ellington",
+                "Alice Rothwell"
+            ],
+            "replicas": [
+                "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+                "The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.",
+                "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.)",
+                "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+                "The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.",
+                "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.)",
+                "Example of added replica"
+            ],
+            "isChoice": [
+                false,
+                true,
+                false,
+                true,
+                false,
+                false,
+                false
+            ]
+        },
+        {
+            "imageName": [
+                "AliceRothwell",
+                "AliceRothwell",
+                "LyleEllington",
+                "RobertaHorton",
+                "AliceRothwell",
+                "LyleEllington"
+            ],
+            "characterName": [
+                "Alice Rothwell",
+                "Alice Rothwell",
+                "Lyle Ellington",
+                "Roberta Horton",
+                "Alice Rothwell",
+                "Lyle Ellington"
+            ],
+            "replicas": [
+                "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+                "The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.",
+                "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.)",
+                "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+                "The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.",
+                "The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.)"
+            ],
+            "isChoice": [
+                false,
+                true,
+                false,
+                true,
+                false,
+                false
+            ]
+        }
+    ]
+}
