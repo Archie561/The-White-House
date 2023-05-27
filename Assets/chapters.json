@@ -1,0 +1,397 @@
+{
+    "Items": [
+        {
+            "dialogues": [
+                {
+                    "dialogueID": 0,
+                    "condition": {
+                        "isUsed": true,
+                        "characteristicName": "army",
+                        "characteristicValue": 50,
+                        "choiceIndex": -1,
+                        "choiceValue": 0,
+                        "decisionIndex": -1,
+                        "decisionValue": 0
+                    },
+                    "lockedByDecision": -1,
+                    "lockedByLaw": -1,
+                    "imageName": [
+                        "AliceRothwell",
+                        "AliceRothwell",
+                        "AliceRothwell"
+                    ],
+                    "characterName": [
+                        "Alice Rothwell",
+                        "Alice Rothwell",
+                        "Alice Rothwell"
+                    ],
+                    "replicas": [
+                        "dialogue object 1, replica 1",
+                        "dialogue object 1, replica 2",
+                        "dialogue object 1, replica 3"
+                    ],
+                    "choiceID": [
+                        -1,
+                        0,
+                        1
+                    ],
+                    "subDialogueOption1": [
+                        {
+                            "imageName": [
+                                "AliceRothwell",
+                                "AliceRothwell",
+                                "AliceRothwell"
+                            ],
+                            "characterName": [
+                                "Alice Rothwell",
+                                "Alice Rothwell",
+                                "Alice Rothwell"
+                            ],
+                            "replicas": [
+                                "dialogue object 1, subDialogueOption1 object 1, replica 1",
+                                "dialogue object 1, subDialogueOption1 object 1, replica 2",
+                                "dialogue object 1, subDialogueOption1 object 1, replica 3"
+                            ]
+                        },
+                        {
+                            "imageName": [
+                                "AliceRothwell",
+                                "AliceRothwell",
+                                "AliceRothwell"
+                            ],
+                            "characterName": [
+                                "Alice Rothwell",
+                                "Alice Rothwell",
+                                "Alice Rothwell"
+                            ],
+                            "replicas": [
+                                "dialogue object 1, subDialogueOption1 object 2, replica 1",
+                                "dialogue object 1, subDialogueOption1 object 2, replica 2",
+                                "dialogue object 1, subDialogueOption1 object 2, replica 3"
+                            ]
+                        }
+                    ],
+                    "subDialogueOption2": [
+                        {
+                            "imageName": [
+                                "AliceRothwell",
+                                "AliceRothwell",
+                                "AliceRothwell"
+                            ],
+                            "characterName": [
+                                "Alice Rothwell",
+                                "Alice Rothwell",
+                                "Alice Rothwell"
+                            ],
+                            "replicas": [
+                                "dialogue object 1, subDialogueOption2 object 1, replica 1",
+                                "dialogue object 1, subDialogueOption2 object 1, replica 2",
+                                "dialogue object 1, subDialogueOption2 object 1, replica 3"
+                            ]
+                        },
+                        {
+                            "imageName": [
+                                "AliceRothwell",
+                                "AliceRothwell",
+                                "AliceRothwell"
+                            ],
+                            "characterName": [
+                                "Alice Rothwell",
+                                "Alice Rothwell",
+                                "Alice Rothwell"
+                            ],
+                            "replicas": [
+                                "dialogue object 1, subDialogueOption2 object 2, replica 1",
+                                "dialogue object 1, subDialogueOption2 object 2, replica 2",
+                                "dialogue object 1, subDialogueOption2 object 2, replica 3"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "dialogueID": 1,
+                    "condition": {
+                        "isUsed": true,
+                        "characteristicName": "economy",
+                        "characteristicValue": 50,
+                        "choiceIndex": -1,
+                        "choiceValue": 0,
+                        "decisionIndex": -1,
+                        "decisionValue": 0
+                    },
+                    "lockedByDecision": -1,
+                    "lockedByLaw": -1,
+                    "imageName": [
+                        "AliceRothwell",
+                        "AliceRothwell",
+                        "AliceRothwell"
+                    ],
+                    "characterName": [
+                        "Alice Rothwell",
+                        "Alice Rothwell",
+                        "Alice Rothwell"
+                    ],
+                    "replicas": [
+                        "dialogue object 2, replica 1",
+                        "dialogue object 2, replica 2",
+                        "dialogue object 2, replica 3"
+                    ],
+                    "choiceID": [
+                        -1,
+                        2,
+                        3
+                    ],
+                    "subDialogueOption1": [
+                        {
+                            "imageName": [
+                                "AliceRothwell",
+                                "AliceRothwell",
+                                "AliceRothwell"
+                            ],
+                            "characterName": [
+                                "Alice Rothwell",
+                                "Alice Rothwell",
+                                "Alice Rothwell"
+                            ],
+                            "replicas": [
+                                "dialogue object 2, subDialogueOption1 object 1, replica 1",
+                                "dialogue object 2, subDialogueOption1 object 1, replica 2",
+                                "dialogue object 2, subDialogueOption1 object 1, replica 3"
+                            ]
+                        },
+                        {
+                            "imageName": [
+                                "AliceRothwell",
+                                "AliceRothwell",
+                                "AliceRothwell"
+                            ],
+                            "characterName": [
+                                "Alice Rothwell",
+                                "Alice Rothwell",
+                                "Alice Rothwell"
+                            ],
+                            "replicas": [
+                                "dialogue object 2, subDialogueOption1 object 2, replica 1",
+                                "dialogue object 2, subDialogueOption1 object 2, replica 2",
+                                "dialogue object 2, subDialogueOption1 object 2, replica 3"
+                            ]
+                        }
+                    ],
+                    "subDialogueOption2": [
+                        {
+                            "imageName": [
+                                "AliceRothwell",
+                                "AliceRothwell",
+                                "AliceRothwell"
+                            ],
+                            "characterName": [
+                                "Alice Rothwell",
+                                "Alice Rothwell",
+                                "Alice Rothwell"
+                            ],
+                            "replicas": [
+                                "dialogue object 2, subDialogueOption2 object 1, replica 1",
+                                "dialogue object 2, subDialogueOption2 object 1, replica 2",
+                                "dialogue object 2, subDialogueOption2 object 1, replica 3"
+                            ]
+                        },
+                        {
+                            "imageName": [
+                                "AliceRothwell",
+                                "AliceRothwell",
+                                "AliceRothwell"
+                            ],
+                            "characterName": [
+                                "Alice Rothwell",
+                                "Alice Rothwell",
+                                "Alice Rothwell"
+                            ],
+                            "replicas": [
+                                "dialogue object 2, subDialogueOption2 object 2, replica 1",
+                                "dialogue object 2, subDialogueOption2 object 2, replica 2",
+                                "dialogue object 2, subDialogueOption2 object 2, replica 3"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "choices": [
+                {
+                    "choiceID": 0,
+                    "option1": "choice object 1 option 1 text",
+                    "option2": "choice object 1 option 2 text",
+                    "characteristicsUpdateOption1": {
+                        "army": 0,
+                        "economy": 0
+                    },
+                    "characteristicsUpdateOption2": {
+                        "army": 0,
+                        "economy": 0
+                    },
+                    "mustBeSaved": false
+                },
+                {
+                    "choiceID": 1,
+                    "option1": "choice object 2 option 1 text",
+                    "option2": "choice object 2 option 2 text",
+                    "characteristicsUpdateOption1": {
+                        "army": 0,
+                        "economy": 0
+                    },
+                    "characteristicsUpdateOption2": {
+                        "army": 0,
+                        "economy": 0
+                    },
+                    "mustBeSaved": false
+                },
+                {
+                    "choiceID": 2,
+                    "option1": "choice object 3 option 1 text",
+                    "option2": "choice object 3 option 2 text",
+                    "characteristicsUpdateOption1": {
+                        "army": 0,
+                        "economy": 0
+                    },
+                    "characteristicsUpdateOption2": {
+                        "army": 0,
+                        "economy": 0
+                    },
+                    "mustBeSaved": false
+                },
+                {
+                    "choiceID": 3,
+                    "option1": "choice object 4 option 1 text",
+                    "option2": "choice object 4 option 2 text",
+                    "characteristicsUpdateOption1": {
+                        "army": 0,
+                        "economy": 0
+                    },
+                    "characteristicsUpdateOption2": {
+                        "army": 0,
+                        "economy": 0
+                    },
+                    "mustBeSaved": false
+                }
+            ],
+            "laws": [
+                {
+                    "lawID": 0,
+                    "lockedByDecision": -1,
+                    "lockedByDialogue": -1,
+                    "lawName": "law object 1 name text",
+                    "lawText": "law object 1 law text",
+                    "lawType": 0,
+                    "characteristicsUpdateWhenApplied": {
+                        "army": 0,
+                        "economy": 0
+                    },
+                    "characteristicsUpdateWhenDeclined": {
+                        "army": 0,
+                        "economy": 0
+                    }
+                },
+                {
+                    "lawID": 1,
+                    "lockedByDecision": -1,
+                    "lockedByDialogue": -1,
+                    "lawName": "law object 2 name text",
+                    "lawText": "law object 2 law text",
+                    "lawType": 1,
+                    "characteristicsUpdateWhenApplied": {
+                        "army": 0,
+                        "economy": 0
+                    },
+                    "characteristicsUpdateWhenDeclined": {
+                        "army": 0,
+                        "economy": 0
+                    }
+                },
+                {
+                    "lawID": 2,
+                    "lockedByDecision": -1,
+                    "lockedByDialogue": -1,
+                    "lawName": "law object 3 name text",
+                    "lawText": "law object 3 law text",
+                    "lawType": 2,
+                    "characteristicsUpdateWhenApplied": {
+                        "army": 0,
+                        "economy": 0
+                    },
+                    "characteristicsUpdateWhenDeclined": {
+                        "army": 0,
+                        "economy": 0
+                    }
+                }
+            ],
+            "decisions": [
+                {
+                    "decisionID": 0,
+                    "condition": {
+                        "isUsed": false,
+                        "characteristicName": "",
+                        "characteristicValue": 0,
+                        "choiceIndex": -1,
+                        "choiceValue": 0,
+                        "decisionIndex": -1,
+                        "decisionValue": 0
+                    },
+                    "lockedByDialogue": -1,
+                    "lockedByLaw": -1,
+                    "characterName": "Alice Rothwell",
+                    "imageName": "AliceRothwell",
+                    "text": "decision object 1 text",
+                    "options": [
+                        "decision object 1 option 1",
+                        "decision object 1 option 2"
+                    ],
+                    "characteristicUpdates": [
+                        {
+                            "army": 0,
+                            "economy": 0
+                        },
+                        {
+                            "army": 0,
+                            "economy": 0
+                        }
+                    ]
+                },
+                {
+                    "decisionID": 1,
+                    "condition": {
+                        "isUsed": true,
+                        "characteristicName": "",
+                        "characteristicValue": 0,
+                        "choiceIndex": 0,
+                        "choiceValue": 1,
+                        "decisionIndex": -1,
+                        "decisionValue": 0
+                    },
+                    "lockedByDialogue": -1,
+                    "lockedByLaw": -1,
+                    "characterName": "Alice Rothwell",
+                    "imageName": "AliceRothwell",
+                    "text": "decision object 2 text",
+                    "options": [
+                        "decision object 2 option 1",
+                        "decision object 2 option 2",
+                        "decision object 2 option 3"
+                    ],
+                    "characteristicUpdates": [
+                        {
+                            "army": 0,
+                            "economy": 0
+                        },
+                        {
+                            "army": 0,
+                            "economy": 0
+                        },
+                        {
+                            "army": 0,
+                            "economy": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

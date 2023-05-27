@@ -1,0 +1,16 @@
+{
+    "chapterIndex": 0,
+    "dialogueIndex": 0,
+    "lawIndex": 0,
+    "decisionIndex": 0,
+    "madeChoices": [
+        -1,
+        -1,
+        -1,
+        -1
+    ],
+    "madeDecisions": [
+        -1,
+        -1
+    ]
+}

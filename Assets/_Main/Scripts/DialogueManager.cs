@@ -30,18 +30,15 @@ public class DialogueManager : MonoBehaviour
     private Typewriter _typewriter;
 
     private Dialogue _currentDialogue;
-    private Choice _currentChoice;
 
-    private int _dialogueIndex;
-    private int _choiceIndex;
+    private int _phraseIndex;
+
+    private bool _displayChoice;
 
     void Start()
     {
-        _dialogueIndex = 0;
-        _choiceIndex = 0;
-
-        _currentDialogue = DataManager.Instance.GetFirstDialogue();
-        _currentChoice = DataManager.Instance.GetFirstChoice();
+        _phraseIndex = 0;
+        _currentDialogue = GameManager.Instance.GetNextDialogue();
 
         _typewriter = new Typewriter(_dialogueText);
 
@@ -56,25 +53,30 @@ public class DialogueManager : MonoBehaviour
             _typewriter.SkipWriting();
             return;
         }
-
-        if (_currentDialogue.isChoice[_dialogueIndex])
+        else if (_displayChoice)
         {
+            _displayChoice = false;
             ChangeModals();
-            ShowNextChoice();
-        }
-        else
-        {
-            ShowNextReplica();
+
+            return;
         }
 
-        _dialogueIndex += _dialogueIndex < _currentDialogue.replicas.Length - 1 ? 1 : 0;
+        ShowNextReplica();
+
+        if (_currentDialogue.choiceID[_phraseIndex] != -1)
+        {
+            _displayChoice = true;
+            ShowNextChoice(_currentDialogue.choiceID[_phraseIndex]);
+        }
+
+        _phraseIndex += _phraseIndex < _currentDialogue.replicas.Length - 1 ? 1 : 0;
     }
 
     private void ShowNextReplica()
     {
-        _characterImage.sprite = Resources.Load<Sprite>("Textures/Characters/" + _currentDialogue.imageName[_dialogueIndex]);
-        _characterName.text = _currentDialogue.characterName[_dialogueIndex];
-        _dialogueText.text = _currentDialogue.replicas[_dialogueIndex];
+        _characterImage.sprite = Resources.Load<Sprite>("Textures/Characters/" + _currentDialogue.imageName[_phraseIndex]);
+        _characterName.text = _currentDialogue.characterName[_phraseIndex];
+        _dialogueText.text = _currentDialogue.replicas[_phraseIndex];
 
         _typewriter.StartWriting();
     }
@@ -83,14 +85,13 @@ public class DialogueManager : MonoBehaviour
     {
         //saving choice system
 
-        _choiceIndex += _choiceIndex < _currentChoice.option1.Length - 1 ? 1 : 0;
         ChangeModals();
         DialogueClickHandler();
     }
-    void ShowNextChoice()
+    void ShowNextChoice(sbyte choiceID)
     {
-        _option1Text.text = _currentChoice.option1[_choiceIndex];
-        _option2Text.text = _currentChoice.option2[_choiceIndex];
+        _option1Text.text = GameManager.Instance.GetChoice(choiceID).option1;
+        _option2Text.text = GameManager.Instance.GetChoice(choiceID).option2;
     }
 
     private void ChangeModals()

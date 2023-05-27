@@ -1,10 +1,9 @@
 using System;
 
 [Serializable]
-public class Dialogue
+public class SubDialogue
 {
     public string[] imageName;
     public string[] characterName;
     public string[] replicas;
-    public bool[] isChoice;
 }

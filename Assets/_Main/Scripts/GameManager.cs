@@ -5,10 +5,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
+    public Chapter CurrentChapter { get; private set; }
+
     void Awake()
     {
         if (Instance == null)
         {
+            DataManager.LoadData();
+            CurrentChapter = DataManager.GetCurrentChapter();
+
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -18,4 +24,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public Dialogue GetNextDialogue()
+    {
+        return CurrentChapter.dialogues[DataManager.PlayerData.dialogueIndex];
+    }
+
+    public Choice GetChoice(sbyte index)
+    {
+        return CurrentChapter.choices[index];
+    }
 }
