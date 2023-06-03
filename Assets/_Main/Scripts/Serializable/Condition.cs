@@ -8,9 +8,11 @@ public class Condition
     public string characteristicName;
     public sbyte characteristicValue;
 
-    public sbyte choiceIndex;
+    public sbyte choiceChapterID;
+    public byte choiceID;
     public byte choiceValue;
 
-    public sbyte decisionIndex;
+    public sbyte decisionChapterID;
+    public byte decisionID;
     public byte decisionValue;
 }

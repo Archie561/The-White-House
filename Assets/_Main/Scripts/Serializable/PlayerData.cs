@@ -3,12 +3,20 @@ using System;
 [Serializable]
 public class PlayerData
 {
-    public byte chapterIndex;
+    public byte chapterID;
 
-    public byte dialogueIndex;
-    public byte lawIndex;
-    public byte decisionIndex;
+    public byte dialogueID;
+    public byte lawID;
+    public byte decisionID;
 
-    public int[] madeChoices;
-    public int[] madeDecisions;
+    public MadeAction[] madeChoices;
+    public MadeAction[] madeDecisions;
+
+    public Characteristics characteristics;
+}
+
+[Serializable]
+public class MadeAction
+{
+    public int[] value;
 }

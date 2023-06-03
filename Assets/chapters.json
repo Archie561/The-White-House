@@ -6,16 +6,19 @@
                     "dialogueID": 0,
                     "condition": {
                         "isUsed": true,
-                        "characteristicName": "army",
-                        "characteristicValue": 50,
-                        "choiceIndex": -1,
+                        "characteristicName": "",
+                        "characteristicValue": 0,
+                        "choiceChapterID": -1,
+                        "choiceID": 0,
                         "choiceValue": 0,
-                        "decisionIndex": -1,
-                        "decisionValue": 0
+                        "decisionChapterID": 0,
+                        "decisionID": 0,
+                        "decisionValue": 2
                     },
-                    "lockedByDecision": -1,
+                    "lockedByDecision": 0,
                     "lockedByLaw": -1,
                     "imageName": [
+                        "AliceRothwell",
                         "AliceRothwell",
                         "AliceRothwell",
                         "AliceRothwell"
@@ -23,17 +26,20 @@
                     "characterName": [
                         "Alice Rothwell",
                         "Alice Rothwell",
+                        "Alice Rothwell",
                         "Alice Rothwell"
                     ],
                     "replicas": [
                         "dialogue object 1, replica 1",
                         "dialogue object 1, replica 2",
-                        "dialogue object 1, replica 3"
+                        "dialogue object 1, replica 3",
+                        "dialogue object 1, replica 4"
                     ],
                     "choiceID": [
                         -1,
                         0,
-                        1
+                        1,
+                        -1
                     ],
                     "subDialogueOption1": [
                         {
@@ -114,9 +120,11 @@
                         "isUsed": true,
                         "characteristicName": "economy",
                         "characteristicValue": 50,
-                        "choiceIndex": -1,
+                        "choiceChapterID": -1,
+                        "choiceID": 0,
                         "choiceValue": 0,
-                        "decisionIndex": -1,
+                        "decisionChapterID": -1,
+                        "decisionID": 0,
                         "decisionValue": 0
                     },
                     "lockedByDecision": -1,
@@ -221,12 +229,12 @@
                     "option1": "choice object 1 option 1 text",
                     "option2": "choice object 1 option 2 text",
                     "characteristicsUpdateOption1": {
-                        "army": 0,
-                        "economy": 0
+                        "army": 10,
+                        "economy": 10
                     },
                     "characteristicsUpdateOption2": {
-                        "army": 0,
-                        "economy": 0
+                        "army": -20,
+                        "economy": -20
                     },
                     "mustBeSaved": false
                 },
@@ -235,12 +243,12 @@
                     "option1": "choice object 2 option 1 text",
                     "option2": "choice object 2 option 2 text",
                     "characteristicsUpdateOption1": {
-                        "army": 0,
-                        "economy": 0
+                        "army": -5,
+                        "economy": 5
                     },
                     "characteristicsUpdateOption2": {
-                        "army": 0,
-                        "economy": 0
+                        "army": 5,
+                        "economy": 5
                     },
                     "mustBeSaved": false
                 },
@@ -278,15 +286,17 @@
                     "lawID": 0,
                     "lockedByDecision": -1,
                     "lockedByDialogue": -1,
-                    "lawName": "law object 1 name text",
-                    "lawText": "law object 1 law text",
+                    "header": "proposal 1",
+                    "mainText": "law object 1 main text",
+                    "detailedText": "law object 1 detailed text",
+                    "preparedBy": "law object 1 prepared by",
                     "lawType": 0,
                     "characteristicsUpdateWhenApplied": {
-                        "army": 0,
+                        "army": 10,
                         "economy": 0
                     },
                     "characteristicsUpdateWhenDeclined": {
-                        "army": 0,
+                        "army": -10,
                         "economy": 0
                     }
                 },
@@ -294,15 +304,17 @@
                     "lawID": 1,
                     "lockedByDecision": -1,
                     "lockedByDialogue": -1,
-                    "lawName": "law object 2 name text",
-                    "lawText": "law object 2 law text",
-                    "lawType": 1,
+                    "header": "proposal 2",
+                    "mainText": "law object 2 main text",
+                    "detailedText": "law object 2 detailed text",
+                    "preparedBy": "law object 2 prepared by",
+                    "lawType": 0,
                     "characteristicsUpdateWhenApplied": {
-                        "army": 0,
+                        "army": 10,
                         "economy": 0
                     },
                     "characteristicsUpdateWhenDeclined": {
-                        "army": 0,
+                        "army": -10,
                         "economy": 0
                     }
                 },
@@ -310,15 +322,17 @@
                     "lawID": 2,
                     "lockedByDecision": -1,
                     "lockedByDialogue": -1,
-                    "lawName": "law object 3 name text",
-                    "lawText": "law object 3 law text",
-                    "lawType": 2,
+                    "header": "proposal 3",
+                    "mainText": "law object 3 main text",
+                    "detailedText": "law object 3 detailed text",
+                    "preparedBy": "law object 3 prepared by",
+                    "lawType": 0,
                     "characteristicsUpdateWhenApplied": {
-                        "army": 0,
+                        "army": 10,
                         "economy": 0
                     },
                     "characteristicsUpdateWhenDeclined": {
-                        "army": 0,
+                        "army": -10,
                         "economy": 0
                     }
                 }
@@ -330,9 +344,11 @@
                         "isUsed": false,
                         "characteristicName": "",
                         "characteristicValue": 0,
-                        "choiceIndex": -1,
+                        "choiceChapterID": -1,
+                        "choiceID": 0,
                         "choiceValue": 0,
-                        "decisionIndex": -1,
+                        "decisionChapterID": -1,
+                        "decisionID": 0,
                         "decisionValue": 0
                     },
                     "lockedByDialogue": -1,
@@ -346,12 +362,12 @@
                     ],
                     "characteristicUpdates": [
                         {
-                            "army": 0,
-                            "economy": 0
+                            "army": 10,
+                            "economy": -5
                         },
                         {
-                            "army": 0,
-                            "economy": 0
+                            "army": 5,
+                            "economy": 5
                         }
                     ]
                 },
@@ -361,9 +377,11 @@
                         "isUsed": true,
                         "characteristicName": "",
                         "characteristicValue": 0,
-                        "choiceIndex": 0,
+                        "choiceChapterID": 0,
+                        "choiceID": 0,
                         "choiceValue": 1,
-                        "decisionIndex": -1,
+                        "decisionChapterID": -1,
+                        "decisionID": 0,
                         "decisionValue": 0
                     },
                     "lockedByDialogue": -1,

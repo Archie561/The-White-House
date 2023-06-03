@@ -8,8 +8,10 @@ public class Law
     public sbyte lockedByDecision;
     public sbyte lockedByDialogue;
 
-    public string lawName;
-    public string lawText;
+    public string header;
+    public string mainText;
+    public string detailedText;
+    public string preparedBy;
     public byte lawType;
 
     public Characteristics characteristicsUpdateWhenApplied;

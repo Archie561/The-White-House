@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -17,20 +18,33 @@ public static class DataManager
         {
             PlayerData = new PlayerData();
 
-            PlayerData.chapterIndex = 0;
-            PlayerData.dialogueIndex = 0;
-            PlayerData.lawIndex = 0;
-            PlayerData.decisionIndex = 0;
+            PlayerData.chapterID = 0;
+            PlayerData.dialogueID = 0;
+            PlayerData.lawID = 0;
+            PlayerData.decisionID = 0;
+
+            Characteristics characteristics = new Characteristics();
+            characteristics.army = 50;
+            characteristics.economy = 50;
+
+            PlayerData.characteristics = characteristics;
 
             //hardcoded
-            PlayerData.madeChoices = new int[100];
-            PlayerData.madeDecisions = new int[100];
+            MadeAction[] madeActions = new MadeAction[10];
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < madeActions.Length; i++)
             {
-                PlayerData.madeChoices[i] = -1;
-                PlayerData.madeDecisions[i] = -1;
+                madeActions[i] = new MadeAction();
+                madeActions[i].value = new int[100];
+
+                for (int j = 0; j < madeActions[i].value.Length; j++)
+                {
+                    madeActions[i].value[j] = -1;
+                }
             }
+
+            PlayerData.madeDecisions = madeActions;
+            PlayerData.madeChoices = madeActions;
 
             SaveData();
         }
@@ -47,7 +61,15 @@ public static class DataManager
 
         if (File.Exists(chaptersDataPath))
         {
-            return JsonHelper.FromJson<Chapter>(File.ReadAllText(chaptersDataPath))[PlayerData.chapterIndex];
+            try
+            {
+                return JsonHelper.FromJson<Chapter>(File.ReadAllText(chaptersDataPath))[PlayerData.chapterID];
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e.Message + $" Something went wrong! Maybe chapter object with ID {PlayerData.chapterID} does not exist?");
+                return null;
+            }
         }
         else
         {

@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Typewriter
 {
     public TextMeshProUGUI Text { get; set; }
     public float UpdateTime { get; set; } = 0.02f;
     public bool IsWriting { get; private set; } = false;
+
+    public event Action OnWritingFinished;
 
     public Typewriter()
     {
@@ -36,6 +39,11 @@ public class Typewriter
         if (IsWriting)
         {
             IsWriting = false;
+            
+            if (OnWritingFinished != null)
+            {
+                OnWritingFinished();
+            }
         }
     }
 
@@ -59,5 +67,10 @@ public class Typewriter
         }
 
         IsWriting = false;
+
+        if (OnWritingFinished != null)
+        {
+            OnWritingFinished();
+        }
     }
 }
