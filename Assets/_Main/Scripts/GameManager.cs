@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +15,9 @@ public class GameManager : MonoBehaviour
 
     //event that triggers when lock of the mechanic changes in conditionCheck
     public event Action OnLockValueChanged;
+
+    //!!!
+    public bool animationNeeded = true;
 
     void Awake()
     {
@@ -41,6 +41,19 @@ public class GameManager : MonoBehaviour
     {
         if (scene.buildIndex == 0)
         {
+            //DELETE===========
+            CanvasGroup loadScreen = GameObject.Find("LoadScreen").GetComponent<CanvasGroup>();
+            if (animationNeeded)
+            {
+                animationNeeded = false;
+                loadScreen.LeanAlpha(0, 0.5f);
+            }
+            else
+            {
+                loadScreen.alpha = 0;
+            }
+            //=========
+
             DataManager.LoadData();
 
             //check for mechanics lock
@@ -57,6 +70,12 @@ public class GameManager : MonoBehaviour
             {
                 ConditionCheck(GetNextDecision().condition, "Decision");
             }
+        }
+
+        //initilizeBudget if it is not main menu scene
+        if (scene.buildIndex != 3)
+        {
+            UpdateBudget();
         }
     }
 
@@ -179,11 +198,11 @@ public class GameManager : MonoBehaviour
             //checking for condition met: false if player characteristic is less then condition characteristic
             switch (condition.characteristicName)
             {
-                case "army":
-                    isConditionMet = DataManager.PlayerData.characteristics.army >= condition.characteristicValue;
+                case "navy":
+                    isConditionMet = DataManager.PlayerData.characteristics.navy >= condition.characteristicValue;
                     break;
-                case "economy":
-                    isConditionMet = DataManager.PlayerData.characteristics.economy >= condition.characteristicValue;
+                case "airForces":
+                    isConditionMet = DataManager.PlayerData.characteristics.airForces >= condition.characteristicValue;
                     break;
                 default:
                     isConditionMet = true;
@@ -217,10 +236,12 @@ public class GameManager : MonoBehaviour
             if (mechanicName == "Dialogue")
             {
                 DataManager.PlayerData.dialogueID++;
+                DialogueLockCheck();
             }
             else if (mechanicName == "Decision")
             {
                 DataManager.PlayerData.decisionID++;
+                DecisionLockCheck();
             }
 
             DataManager.SaveData();
@@ -238,8 +259,53 @@ public class GameManager : MonoBehaviour
 
     public void UpdateCharacteristics(Characteristics characteristics)
     {
-        DataManager.PlayerData.characteristics.army += characteristics.army;
-        DataManager.PlayerData.characteristics.economy += characteristics.economy;
+        DataManager.PlayerData.characteristics.budget += characteristics.budget;
+        UpdateBudget();
+
+        DataManager.PlayerData.characteristics.navy += characteristics.navy;
+        DataManager.PlayerData.characteristics.airForces += characteristics.airForces;
+        DataManager.PlayerData.characteristics.infantry += characteristics.infantry;
+        DataManager.PlayerData.characteristics.machinery += characteristics.machinery;
+        DataManager.PlayerData.characteristics.europeanUnion += characteristics.europeanUnion;
+        DataManager.PlayerData.characteristics.china += characteristics.china;
+        DataManager.PlayerData.characteristics.africa += characteristics.africa;
+        DataManager.PlayerData.characteristics.unitedKingdom += characteristics.unitedKingdom;
+        DataManager.PlayerData.characteristics.CIS += characteristics.CIS;
+        DataManager.PlayerData.characteristics.OPEC += characteristics.OPEC;
+        DataManager.PlayerData.characteristics.science += characteristics.science;
+        DataManager.PlayerData.characteristics.welfare += characteristics.welfare;
+        DataManager.PlayerData.characteristics.education += characteristics.education;
+        DataManager.PlayerData.characteristics.medicine += characteristics.medicine;
+        DataManager.PlayerData.characteristics.ecology += characteristics.ecology;
+        DataManager.PlayerData.characteristics.infrastructure += characteristics.infrastructure;
+    }
+
+    private void UpdateBudget()
+    {
+        string budget = Math.Abs(DataManager.PlayerData.characteristics.budget).ToString();
+        int budgetLength = budget.Length;
+
+        if (budget == "0")
+        {
+            GameObject.Find("BudgetBox").GetComponentInChildren<TextMeshProUGUI>().text = "0 $";
+            return;
+        }
+
+        if (budget.Length > 6)
+        {
+            GameObject.Find("BudgetBox").GetComponentInChildren<TextMeshProUGUI>().text = (DataManager.PlayerData.characteristics.budget < 0 ? "-" : "") + "999,999,999,999+ $";
+            return;
+        }
+
+        for (int i = budgetLength - 1; i >= 0; i--)
+        {
+            if ((budgetLength - i) % 3 == 0 && i != 0)
+            {
+                budget = budget.Insert(i, ",");
+            }
+        }
+
+        GameObject.Find("BudgetBox").GetComponentInChildren<TextMeshProUGUI>().text = (DataManager.PlayerData.characteristics.budget < 0 ? "-" : "") + budget + ",000,000 $";
     }
 
     public Dialogue GetNextDialogue()

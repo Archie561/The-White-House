@@ -18,51 +18,97 @@ public class LawManager : MonoBehaviour
     private TextMeshProUGUI _detailedText;
     [SerializeField]
     private TextMeshProUGUI _preparedByText;
+
+    [SerializeField]
+    private CanvasGroup _blackBackground;
+    [SerializeField]
+    private Button _backButton;
+    [SerializeField]
+    private Button _declineButton;
+    [SerializeField]
+    private Button _acceptButton;
     /*---------------------------End UI Section---------------------------*/
 
     private Law _currentLaw;
 
-    private void Start()
+    private bool _isAnimationFinished;
+
+    private void OnEnable()
     {
+        //display black background and back button 
+        _blackBackground.gameObject.SetActive(true);
+        _blackBackground.LeanAlpha(1, 0.8f);
+        _backButton.transform.LeanMoveLocalY(460, 0.8f).setEaseOutQuart();
+
         TryGetNextLaw();
     }
 
     private void TryGetNextLaw()
     {
+        //if current law is locked - exit
         GameManager.Instance.LawLockCheck();
         if (GameManager.Instance.IsLawLocked)
         {
-            GameManager.Instance.LoadMainScene();
+            HideAndExit(false);
             return;
         }
 
+        //initilize UI with law data
         _currentLaw = GameManager.Instance.GetNextLaw();
 
         _headerText.text = _currentLaw.header;
         _mainText.text = _currentLaw.mainText;
         _detailedText.text = _currentLaw.detailedText;
         _preparedByText.text = _currentLaw.preparedBy;
+
+        DisplayDocument();
+    }
+
+    private void DisplayDocument()
+    {
+        _isAnimationFinished = false;
+
+        _document.transform.localPosition = new Vector2(0, Screen.height);
+        _document.transform.LeanMoveLocalY(-50, 1).setEaseOutQuart().setOnComplete(() => { _isAnimationFinished = true; });
+    }
+
+    public void HideAndExit(bool hideDocument = true)
+    {
+        //if animations are not playing
+        if (_isAnimationFinished)
+        {
+            //check if it needs to animate document disappearing
+            if (hideDocument)
+            {
+                _document.gameObject.LeanMoveLocal(new Vector2(0, Screen.height), 0.8f).setEaseOutQuart();
+            }
+
+            //animate back button and black screen
+            _backButton.transform.LeanMoveLocalY(620, 0.8f).setEaseOutQuart();
+            _blackBackground.LeanAlpha(0, 0.8f).setOnComplete(() => { GameManager.Instance.LoadMainScene(); });
+        }
     }
 
     public void LawClickHandler()
     {
-        if (EventSystem.current.currentSelectedGameObject.CompareTag("ChoiceOption1"))
+        if (_isAnimationFinished)
         {
-            GameManager.Instance.UpdateCharacteristics(_currentLaw.characteristicsUpdateWhenApplied);
+            //save data
+            DataManager.PlayerData.lawID++;
+            DataManager.SaveData();
+            _isAnimationFinished = false;
+
+            //update characteristics and play animation
+            if (EventSystem.current.currentSelectedGameObject.CompareTag("ChoiceOption1"))
+            {
+                GameManager.Instance.UpdateCharacteristics(_currentLaw.characteristicsUpdateWhenApplied);
+                _document.transform.LeanMoveLocal(new Vector2(Screen.width, _document.transform.localPosition.y), 0.8f).setEaseOutQuart().setOnComplete(() => { _isAnimationFinished = true; TryGetNextLaw(); });
+            }
+            else if (EventSystem.current.currentSelectedGameObject.CompareTag("ChoiceOption2"))
+            {
+                GameManager.Instance.UpdateCharacteristics(_currentLaw.characteristicsUpdateWhenDeclined);
+                _document.transform.LeanMoveLocal(new Vector2(-Screen.width, _document.transform.localPosition.y), 0.8f).setEaseOutQuart().setOnComplete(() => { _isAnimationFinished = true; TryGetNextLaw(); });
+            }
         }
-        else
-        {
-            GameManager.Instance.UpdateCharacteristics(_currentLaw.characteristicsUpdateWhenDeclined);
-        }
-
-        DataManager.PlayerData.lawID++;
-        DataManager.SaveData();
-
-        TryGetNextLaw();
-    }
-
-    public void BackClickHandler()
-    {
-        GameManager.Instance.LoadMainScene();
     }
 }

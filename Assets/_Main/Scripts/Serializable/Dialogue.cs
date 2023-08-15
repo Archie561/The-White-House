@@ -5,10 +5,10 @@ public class Dialogue
 {
     public byte dialogueID;
 
-    public Condition condition;
-
     public sbyte lockedByDecision;
     public sbyte lockedByLaw;
+
+    public Condition condition;
 
     public string[] imageName;
     public string[] characterName;

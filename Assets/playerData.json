@@ -1,12 +1,12 @@
 {
     "chapterID": 0,
-    "dialogueID": 0,
-    "lawID": 0,
+    "dialogueID": 1,
+    "lawID": 1,
     "decisionID": 0,
     "madeChoices": [
         {
             "value": [
-                1,
+                2,
                 1,
                 1,
                 1,
@@ -1048,8 +1048,8 @@
     "madeDecisions": [
         {
             "value": [
-                2,
                 3,
+                1,
                 1,
                 -1,
                 -1,
@@ -2088,7 +2088,22 @@
         }
     ],
     "characteristics": {
-        "army": 0,
-        "economy": 0
+        "budget": 518800,
+        "navy": 17,
+        "airForces": 26,
+        "infantry": 22,
+        "machinery": 56,
+        "europeanUnion": 50,
+        "china": 31,
+        "africa": 12,
+        "unitedKingdom": 40,
+        "CIS": 60,
+        "OPEC": 71,
+        "science": 57,
+        "welfare": 96,
+        "education": 20,
+        "medicine": 39,
+        "ecology": 34,
+        "infrastructure": 86
     }
 }

@@ -5,13 +5,13 @@ public class Decision
 {
     public byte decisionID;
 
-    public Condition condition;
-
     public sbyte lockedByDialogue;
     public sbyte lockedByLaw;
 
-    public string characterName;
+    public Condition condition;
+
     public string imageName;
+    public string characterName;
     public string text;
 
     public string[] options;

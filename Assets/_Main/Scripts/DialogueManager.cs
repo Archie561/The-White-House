@@ -2,10 +2,13 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    //ПОФІКСИТИ закінчення діалогу на чойсі без піддіалогів
+
     /*---------------------------Dialogue UI Elements---------------------------*/
     [SerializeField]
     private GameObject _dialogueBox;
@@ -41,6 +44,9 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        //!!!
+        GameObject.Find("LoadScreen").GetComponent<CanvasGroup>().LeanAlpha(0, 0.5f);
+
         _replicaIndex = 0;
         _subDialogueIndex = 0;
 
@@ -190,6 +196,7 @@ public class DialogueManager : MonoBehaviour
     {
         DataManager.PlayerData.dialogueID++;
         DataManager.SaveData();
-        GameManager.Instance.LoadMainScene();
+        //!!!
+        GameObject.Find("LoadScreen").GetComponent<CanvasGroup>().LeanAlpha(1, 0.5f).setOnComplete(GameManager.Instance.LoadMainScene);
     }
 }

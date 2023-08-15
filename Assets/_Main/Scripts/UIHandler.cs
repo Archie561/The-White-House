@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class UIHandler : MonoBehaviour
@@ -14,6 +15,13 @@ public class UIHandler : MonoBehaviour
 
     [SerializeField]
     private GameObject _decisionModal;
+    [SerializeField]
+    private GameObject _lawModal;
+
+    [SerializeField]
+    private CanvasGroup _blackBackground;
+    [SerializeField]
+    private GameObject _pausePanel;
 
     private void Start()
     {
@@ -30,11 +38,35 @@ public class UIHandler : MonoBehaviour
         _decisionsMark.SetActive(!GameManager.Instance.IsDecisionLocked);
     }
 
+    public void PauseClickHandler()
+    {
+        if (EventSystem.current.currentSelectedGameObject.CompareTag("MainMenuButton"))
+        {
+            GameManager.Instance.animationNeeded = true;
+            GameObject.Find("LoadScreen").GetComponent<CanvasGroup>().LeanAlpha(1, 0.5f).setOnComplete(() => { SceneManager.LoadScene(3); });
+            return;
+        }
+
+        if (_pausePanel.activeSelf)
+        {
+            _blackBackground.LeanAlpha(0, 0.8f).setOnComplete(() => { _blackBackground.gameObject.SetActive(false); });
+            _pausePanel.transform.LeanMoveLocalY(Screen.height, 0.8f).setEaseOutQuart().setOnComplete(() => { _pausePanel.SetActive(false); });
+        }
+        else
+        {
+            _pausePanel.SetActive(true);
+            _blackBackground.gameObject.SetActive(true);
+            _blackBackground.LeanAlpha(1, 0.8f);
+            _pausePanel.transform.LeanMoveLocalY(0, 0.8f).setEaseOutQuart();
+        }
+    }
+
     public void LoadMeetingsScene()
     {
         if (!GameManager.Instance.IsDialogueLocked)
         {
-            SceneManager.LoadScene(1);
+            GameManager.Instance.animationNeeded = true;
+            GameObject.Find("LoadScreen").GetComponent<CanvasGroup>().LeanAlpha(1, 0.5f).setOnComplete(() => { SceneManager.LoadScene(1); });
         }
         else
         {
@@ -46,7 +78,7 @@ public class UIHandler : MonoBehaviour
     {
         if (!GameManager.Instance.IsLawLocked)
         {
-            SceneManager.LoadScene(2);
+            _lawModal.SetActive(true);
         }
         else
         {

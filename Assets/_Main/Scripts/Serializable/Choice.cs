@@ -10,6 +10,4 @@ public class Choice
 
     public Characteristics characteristicsUpdateOption1;
     public Characteristics characteristicsUpdateOption2;
-
-    public bool mustBeSaved;
 }

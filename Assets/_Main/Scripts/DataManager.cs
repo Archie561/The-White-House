@@ -24,8 +24,23 @@ public static class DataManager
             PlayerData.decisionID = 0;
 
             Characteristics characteristics = new Characteristics();
-            characteristics.army = 50;
-            characteristics.economy = 50;
+            characteristics.budget = 500000;
+            characteristics.navy = 50;
+            characteristics.airForces = 50;
+            characteristics.infantry = 50;
+            characteristics.machinery = 50;
+            characteristics.europeanUnion = 50;
+            characteristics.china = 50;
+            characteristics.africa = 50;
+            characteristics.unitedKingdom = 50;
+            characteristics.CIS = 50;
+            characteristics.OPEC = 50;
+            characteristics.science = 50;
+            characteristics.welfare = 50;
+            characteristics.education = 50;
+            characteristics.medicine = 50;
+            characteristics.ecology = 50;
+            characteristics.infrastructure = 50;
 
             PlayerData.characteristics = characteristics;
 

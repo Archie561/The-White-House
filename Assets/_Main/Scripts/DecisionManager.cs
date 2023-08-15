@@ -10,6 +10,8 @@ public class DecisionManager : MonoBehaviour
 {
     /*---------------------------UI Elements---------------------------*/
     [SerializeField]
+    private CanvasGroup _blackBackground;
+    [SerializeField]
     private Image _characterImage;
     [SerializeField]
     private TextMeshProUGUI _characterName;
@@ -24,8 +26,19 @@ public class DecisionManager : MonoBehaviour
     private Typewriter _typewriter;
     private Decision _currentDecision;
 
+    private bool decisionIsMade;
+
     private void OnEnable()
     {
+        //field to prevent multiple button click
+        decisionIsMade = false;
+
+        //animations for appearing modal and black screen
+        _blackBackground.gameObject.SetActive(true);
+        _blackBackground.LeanAlpha(1, 0.8f);
+        transform.LeanMoveLocal(new Vector2(0, -50), 1).setEaseOutQuart();
+
+        //load ui with decision objects
         _currentDecision = GameManager.Instance.GetNextDecision();
         _typewriter = new Typewriter(_decisionText);
 
@@ -33,6 +46,7 @@ public class DecisionManager : MonoBehaviour
         _characterName.text = _currentDecision.characterName;
         _decisionText.text = _currentDecision.text;
 
+        //display options when text writing is finished
         _typewriter.OnWritingFinished += DisplayOptions;
         _typewriter.StartWriting();
     }
@@ -48,41 +62,55 @@ public class DecisionManager : MonoBehaviour
 
     public void OptionClickHandler()
     {
-        int pickedOption;
-        switch(EventSystem.current.currentSelectedGameObject.tag)
+        if (!decisionIsMade)
         {
-            case "DecisionOption1":
-                pickedOption = 1;
-                break;
-            case "DecisionOption2":
-                pickedOption = 2;
-                break;
-            case "DecisionOption3":
-                pickedOption = 3;
-                break;
-            case "DecisionOption4":
-                pickedOption = 4;
-                break;
-            default:
-                pickedOption = -1;
-                break;
-        }
-        GameManager.Instance.UpdateCharacteristics(_currentDecision.characteristicUpdates[pickedOption - 1]);
+            decisionIsMade = true;
 
-        DataManager.PlayerData.madeDecisions[DataManager.PlayerData.chapterID].value[DataManager.PlayerData.decisionID] = pickedOption;
-        gameObject.SetActive(false);
+            //define picked option
+            int pickedOption;
+            switch (EventSystem.current.currentSelectedGameObject.tag)
+            {
+                case "DecisionOption1":
+                    pickedOption = 1;
+                    break;
+                case "DecisionOption2":
+                    pickedOption = 2;
+                    break;
+                case "DecisionOption3":
+                    pickedOption = 3;
+                    break;
+                case "DecisionOption4":
+                    pickedOption = 4;
+                    break;
+                default:
+                    pickedOption = -1;
+                    break;
+            }
+            GameManager.Instance.UpdateCharacteristics(_currentDecision.characteristicUpdates[pickedOption - 1]);
+
+            DataManager.PlayerData.madeDecisions[DataManager.PlayerData.chapterID].value[DataManager.PlayerData.decisionID] = pickedOption;
+
+            //start removing modal and background animation
+            _blackBackground.LeanAlpha(0, 0.8f).setOnComplete(() => { _blackBackground.gameObject.SetActive(false); });
+            transform.LeanMoveLocal(new Vector2(0, Screen.height), 0.8f).setEaseOutQuart().setOnComplete(DisableModal);
+        }
     }
 
-    private void OnDisable()
+    //on disable
+    private void DisableModal()
     {
+        //set unactive all options button
         for (int i = 0; i < _optionButton.Length; i++)
         {
             _optionButton[i].gameObject.SetActive(false);
         }
+        //event unsubscription
         _typewriter.OnWritingFinished -= DisplayOptions;
 
         DataManager.PlayerData.decisionID++;
         DataManager.SaveData();
         GameManager.Instance.LoadMainScene();
+
+        gameObject.SetActive(false);
     }
 }

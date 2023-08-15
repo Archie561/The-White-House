@@ -10,6 +10,10 @@ TagManager:
   - DecisionOption2
   - DecisionOption3
   - DecisionOption4
+  - PoliticButton
+  - InternationalButton
+  - ArmyButton
+  - MainMenuButton
   layers:
   - Default
   - TransparentFX
