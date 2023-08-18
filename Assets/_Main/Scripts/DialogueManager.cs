@@ -44,9 +44,6 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        //!!!
-        GameObject.Find("LoadScreen").GetComponent<CanvasGroup>().LeanAlpha(0, 0.5f);
-
         _replicaIndex = 0;
         _subDialogueIndex = 0;
 
@@ -98,7 +95,7 @@ public class DialogueManager : MonoBehaviour
 
         /*---------------------------MAIN DIALOGUE REPLICAS BLOCK---------------------------*/
         //if all main replicas was displayed, exit scene
-        if (_replicaIndex == _currentDialogue.replicas.Length)
+        if (_replicaIndex >= _currentDialogue.replicas.Length)
         {
             ExitScene();
             return;
@@ -154,14 +151,27 @@ public class DialogueManager : MonoBehaviour
         }
         DataManager.PlayerData.madeChoices[DataManager.PlayerData.chapterID].value[choiceID] = pickedOption;
 
-        //load SubDialogue after choice
-        ChangeModals();
-        _displaySubDialogue = true;
-        _subReplicaIndex = 0;
-
+        //load SubDialogue after choice if exists
         try
         {
             _currentSubDialogue = pickedOption == 1 ? _currentDialogue.subDialogueOption1[_subDialogueIndex] : _currentDialogue.subDialogueOption2[_subDialogueIndex];
+
+            //if there is no subdialogues after current choice, skip to next replica
+            if (_currentSubDialogue.imageName.Length == 0)
+            {
+                _replicaIndex++;
+            }
+            else
+            {
+                _subReplicaIndex = 0;
+                _displaySubDialogue = true;
+            }
+
+            // if there are replicas to show, change modals
+            if (_replicaIndex < _currentDialogue.replicas.Length)
+            {
+                ChangeModals();
+            }
         }
         catch (Exception e)
         {
@@ -196,7 +206,6 @@ public class DialogueManager : MonoBehaviour
     {
         DataManager.PlayerData.dialogueID++;
         DataManager.SaveData();
-        //!!!
-        GameObject.Find("LoadScreen").GetComponent<CanvasGroup>().LeanAlpha(1, 0.5f).setOnComplete(GameManager.Instance.LoadMainScene);
+        GameManager.Instance.LoadMainScene();
     }
 }

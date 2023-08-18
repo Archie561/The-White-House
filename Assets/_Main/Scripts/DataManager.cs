@@ -72,7 +72,8 @@ public static class DataManager
 
     public static Chapter GetCurrentChapter()
     {
-        string chaptersDataPath = Application.dataPath + "/chapters.json";
+        //!!! Chapters file path
+        string chaptersDataPath = Application.dataPath + "/chaptersTest.json";
 
         if (File.Exists(chaptersDataPath))
         {

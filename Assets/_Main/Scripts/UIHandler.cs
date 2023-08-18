@@ -42,8 +42,7 @@ public class UIHandler : MonoBehaviour
     {
         if (EventSystem.current.currentSelectedGameObject.CompareTag("MainMenuButton"))
         {
-            GameManager.Instance.animationNeeded = true;
-            GameObject.Find("LoadScreen").GetComponent<CanvasGroup>().LeanAlpha(1, 0.5f).setOnComplete(() => { SceneManager.LoadScene(3); });
+            SceneManager.LoadScene(3);
             return;
         }
 
@@ -65,8 +64,7 @@ public class UIHandler : MonoBehaviour
     {
         if (!GameManager.Instance.IsDialogueLocked)
         {
-            GameManager.Instance.animationNeeded = true;
-            GameObject.Find("LoadScreen").GetComponent<CanvasGroup>().LeanAlpha(1, 0.5f).setOnComplete(() => { SceneManager.LoadScene(1); });
+            SceneManager.LoadScene(1);
         }
         else
         {

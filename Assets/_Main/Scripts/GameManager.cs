@@ -16,9 +16,6 @@ public class GameManager : MonoBehaviour
     //event that triggers when lock of the mechanic changes in conditionCheck
     public event Action OnLockValueChanged;
 
-    //!!!
-    public bool animationNeeded = true;
-
     void Awake()
     {
         if (Instance == null)
@@ -41,19 +38,6 @@ public class GameManager : MonoBehaviour
     {
         if (scene.buildIndex == 0)
         {
-            //DELETE===========
-            CanvasGroup loadScreen = GameObject.Find("LoadScreen").GetComponent<CanvasGroup>();
-            if (animationNeeded)
-            {
-                animationNeeded = false;
-                loadScreen.LeanAlpha(0, 0.5f);
-            }
-            else
-            {
-                loadScreen.alpha = 0;
-            }
-            //=========
-
             DataManager.LoadData();
 
             //check for mechanics lock

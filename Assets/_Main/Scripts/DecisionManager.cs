@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -58,6 +59,11 @@ public class DecisionManager : MonoBehaviour
             _optionButton[i].gameObject.SetActive(true);
             _optionText[i].text = _currentDecision.options[i];
         }
+    }
+
+    public void SkipWriting()
+    {
+        _typewriter.SkipWriting();
     }
 
     public void OptionClickHandler()
