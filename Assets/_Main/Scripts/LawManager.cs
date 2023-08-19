@@ -31,6 +31,11 @@ public class LawManager : MonoBehaviour
 
     private Law _currentLaw;
 
+    //field to calculate difference between pointer and document coordinates
+    private Vector2 _currentPosition;
+
+    private float _triggerArea = 800.0f;
+
     private bool _isAnimationFinished;
 
     private void OnEnable()
@@ -39,6 +44,8 @@ public class LawManager : MonoBehaviour
         _blackBackground.gameObject.SetActive(true);
         _blackBackground.LeanAlpha(1, 0.8f);
         _backButton.transform.LeanMoveLocalY(460, 0.8f).setEaseOutQuart();
+
+        _currentPosition = Vector2.zero;
 
         TryGetNextLaw();
     }
@@ -89,26 +96,73 @@ public class LawManager : MonoBehaviour
         }
     }
 
-    public void LawClickHandler()
+    //public void LawClickHandler()
+    //{
+    //    if (_isAnimationFinished)
+    //    {
+    //        //save data
+    //        _isAnimationFinished = false;
+
+    //        //update characteristics and play animation
+    //        if (EventSystem.current.currentSelectedGameObject.CompareTag("ChoiceOption1"))
+    //        {
+    //            GameManager.Instance.UpdateCharacteristics(_currentLaw.characteristicsUpdateWhenApplied);
+    //            _document.transform.LeanMoveLocal(new Vector2(Screen.width, _document.transform.localPosition.y), 0.8f).setEaseOutQuart().setOnComplete(() => { _isAnimationFinished = true; TryGetNextLaw(); });
+    //        }
+    //        else if (EventSystem.current.currentSelectedGameObject.CompareTag("ChoiceOption2"))
+    //        {
+    //            GameManager.Instance.UpdateCharacteristics(_currentLaw.characteristicsUpdateWhenDeclined);
+    //            _document.transform.LeanMoveLocal(new Vector2(-Screen.width, _document.transform.localPosition.y), 0.8f).setEaseOutQuart().setOnComplete(() => { _isAnimationFinished = true; TryGetNextLaw(); });
+    //        }
+    //    }
+    //}
+
+    public void OnDocumentDown()
     {
         if (_isAnimationFinished)
         {
-            //save data
+            _currentPosition = new Vector2(Input.mousePosition.x - _document.transform.position.x, 0);
+        }
+    }
+
+    public void OnDocumentDrag()
+    {
+        if (_isAnimationFinished)
+        {
+            _document.transform.position = new Vector2(Input.mousePosition.x, _document.transform.position.y) - _currentPosition;
+        }
+    }
+
+    public void OnDocumentUp()
+    {
+        if (!_isAnimationFinished)
+        {
+            return;
+        }
+
+        _isAnimationFinished = false;
+
+        if (_document.transform.localPosition.x < -_triggerArea)
+        {
+            GameManager.Instance.UpdateCharacteristics(_currentLaw.characteristicsUpdateWhenDeclined);
+            _document.transform.LeanMoveLocal(new Vector2(-Screen.width, _document.transform.localPosition.y), 0.8f).setEaseOutQuart().setOnComplete(() => { _isAnimationFinished = true; TryGetNextLaw(); });
+
             DataManager.PlayerData.lawID++;
             DataManager.SaveData();
-            _isAnimationFinished = false;
+        }
 
-            //update characteristics and play animation
-            if (EventSystem.current.currentSelectedGameObject.CompareTag("ChoiceOption1"))
-            {
-                GameManager.Instance.UpdateCharacteristics(_currentLaw.characteristicsUpdateWhenApplied);
-                _document.transform.LeanMoveLocal(new Vector2(Screen.width, _document.transform.localPosition.y), 0.8f).setEaseOutQuart().setOnComplete(() => { _isAnimationFinished = true; TryGetNextLaw(); });
-            }
-            else if (EventSystem.current.currentSelectedGameObject.CompareTag("ChoiceOption2"))
-            {
-                GameManager.Instance.UpdateCharacteristics(_currentLaw.characteristicsUpdateWhenDeclined);
-                _document.transform.LeanMoveLocal(new Vector2(-Screen.width, _document.transform.localPosition.y), 0.8f).setEaseOutQuart().setOnComplete(() => { _isAnimationFinished = true; TryGetNextLaw(); });
-            }
+        else if (_document.transform.localPosition.x > _triggerArea)
+        {
+            GameManager.Instance.UpdateCharacteristics(_currentLaw.characteristicsUpdateWhenApplied);
+            _document.transform.LeanMoveLocal(new Vector2(Screen.width, _document.transform.localPosition.y), 0.8f).setEaseOutQuart().setOnComplete(() => { _isAnimationFinished = true; TryGetNextLaw(); });
+
+            DataManager.PlayerData.lawID++;
+            DataManager.SaveData();
+        }
+
+        else
+        {
+            _document.transform.LeanMoveLocal(new Vector2(0, _document.transform.localPosition.y), 0.8f).setEaseOutQuart().setOnComplete(() => { _isAnimationFinished = true; });
         }
     }
 }
