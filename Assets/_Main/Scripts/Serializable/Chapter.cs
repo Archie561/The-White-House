@@ -9,4 +9,6 @@ public class Chapter
     public Law[] laws;
 
     public Decision[] decisions;
+
+    public News[] news;
 }

@@ -17,6 +17,8 @@ public class UIHandler : MonoBehaviour
     private GameObject _decisionModal;
     [SerializeField]
     private GameObject _lawModal;
+    [SerializeField]
+    private GameObject _newsModal;
 
     [SerializeField]
     private CanvasGroup _blackBackground;
@@ -28,6 +30,12 @@ public class UIHandler : MonoBehaviour
         //update exclamation marks visibility when lock value changes
         GameManager.Instance.OnLockValueChanged += SetMechanicMarks;
         SetMechanicMarks();
+
+        if (DataManager.PlayerData.lawID == 0 && DataManager.PlayerData.dialogueID == 0 && DataManager.PlayerData.decisionID == 0 && !GameManager.Instance.IsNewsShown)
+        {
+            GameManager.Instance.IsNewsShown = true;
+            _newsModal.SetActive(true);
+        }
     }
 
     //set exclamation marks to buttons if mechanic is not locked

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public bool IsDialogueLocked { get; private set; }
     public bool IsLawLocked { get; private set; }
     public bool IsDecisionLocked {get; private set; }
+    public bool IsNewsShown { get; set; }
 
     //event that triggers when lock of the mechanic changes in conditionCheck
     public event Action OnLockValueChanged;
@@ -340,6 +341,19 @@ public class GameManager : MonoBehaviour
         catch (Exception e)
         {
             Debug.LogError(e.Message + $" Decision object with ID {DataManager.PlayerData.decisionID} does not exist!");
+            return null;
+        }
+    }
+
+    public News[] GetNews()
+    {
+        try
+        {
+            return CurrentChapter.news;
+        }
+        catch ( Exception e )
+        {
+            Debug.LogError(e.Message + $" News array does not exist!");
             return null;
         }
     }

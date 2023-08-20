@@ -1144,6 +1144,36 @@
                   "infrastructure": 0
                 }
               }
+            ],
+            "news": [
+              {
+                "newsPaperType": 1,
+                "headerText": "hello",
+                "detailedText": "hello",
+                "imageName": "newspaperImageTest"
+              },
+              {
+                "newsPaperType": 3,
+                "headerText": "hello",
+                "detailedText": "hello",
+                "imageName": "newspaperImageTest"
+              },
+              {
+                "newsPaperType": 4,
+                "headerText": "hello",
+                "detailedText": "hello",
+                "imageName": "newspaperImageTest"
+              },{
+                "newsPaperType": 4,
+                "headerText": "hello",
+                "detailedText": "hello",
+                "imageName": "newspaperImageTest"
+              },{
+                "newsPaperType": 3,
+                "headerText": "hello",
+                "detailedText": "hello",
+                "imageName": "newspaperImageTest"
+              }
             ]
           }
     ]
