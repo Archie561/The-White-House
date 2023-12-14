@@ -8,13 +8,14 @@ public class MainMenu : MonoBehaviour
 {
     public void ContinueClickHandler()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void NewGameClickHandler()
     {
-        File.Delete(Application.dataPath + "/playerData.json");
-        SceneManager.LoadScene(0);
+        //File.Delete(Application.dataPath + "/playerData.json");
+        File.Delete(System.IO.Directory.GetCurrentDirectory() + "/playerData.json");
+        SceneManager.LoadScene(1);
     }
 
     public void ExitClickHandler()
@@ -22,7 +23,7 @@ public class MainMenu : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.ExitPlaymode();
 #else
-        Application.Exit();
+        Application.Quit();
 #endif
     }
 }

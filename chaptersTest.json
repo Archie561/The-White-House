@@ -1206,6 +1206,87 @@
                 "detailedText": "",
                 "imageName": "kokoshka"
               }
+            ],
+            "cutscenes": [
+              {
+                "sceneID": 0,
+                "condition": {
+                  "isUsed": false,
+                  "characteristicName": "",
+                  "characteristicValue": 0,
+                  "choiceChapterID": -1,
+                  "choiceID": 0,
+                  "choiceValue": 0,
+                  "decisionChapterID": -1,
+                  "decisionID": 0,
+                  "decisionValue": 0
+                },
+                "voiceFileName": "voicetest",
+                "frames": [
+                  {
+                    "backgroundImage": "background03",
+                    "frameDuration": 12,
+                    "animationType": "2",
+                    "characterNames": [],
+                    "characterDurations": [],
+                    "characterPositions": [],
+                    "characterSubtitles": []
+                  },
+                  {
+                    "backgroundImage": "background04",
+                    "frameDuration": 106,
+                    "animationType": "1",
+                    "characterNames": [
+                      "EdwardScott",
+                      "AliceRothwell",
+                      "EdwardScott",
+                      "EdwardScott",
+                      "AliceRothwell",
+                      "EdwardScott",
+                      "AliceRothwell",
+                      "EdwardScott",
+                      "AliceRothwell",
+                      "EdwardScott"
+                    ],
+                    "characterDurations": [
+                      7,
+                      16,
+                      6,
+                      13,
+                      8,
+                      10,
+                      13,
+                      12,
+                      10,
+                      5
+                    ],
+                    "characterPositions": [
+                      "left",
+                      "right",
+                      "left",
+                      "left",
+                      "right",
+                      "left",
+                      "left",
+                      "right",
+                      "left",
+                      "left"
+                    ],
+                    "characterSubtitles": [
+                      "President: Good morning, everyone. I hope you're all ready for a productive meeting. Let's start with the latest updates from the CIA, Patrick.",
+                      "Patrick Miller (CIA Director): Good morning, Mr. President. As I mentioned in our previous meeting, there are no critical conflicts at the moment, and our intelligence teams are actively monitoring global events. However, I must bring a matter to your attention. We recently discovered several letters containing threats against your life.",
+                      "President: That's deeply concerning. Have we been able to determine the source or credibility of these threats?",
+                      "Patrick Miller: We have launched a thorough investigation, Mr. President. Our forensic experts are examining the letters for any traces of the sender's identity. Additionally, our analysts are assessing the credibility of the threats based on available intelligence.",
+                      "President: I appreciate your swift response, Patrick. Please ensure that every necessary measure is taken to guarantee my safety and the security of our administration.",
+                      "Patrick Miller: Absolutely, Mr. President. We have already enhanced your security detail and implemented additional protective measures. Our agents are coordinating closely with the Secret Service to mitigate any potential risks",
+                      "Olivia: Mr. President, I want to assure you that we are actively managing this situation from a public relations standpoint. We are working to maintain calm and reassure the public of their safety while being transparent about the ongoing investigation.",
+                      "President: Thank you, Olivia. It's crucial to strike the right balance between transparency and not causing unnecessary alarm. Please keep me updated on the progress of our communication efforts.",
+                      "Olivia: Of course, Mr. President. We are closely monitoring media coverage and engaging with key stakeholders to ensure accurate information is disseminated while minimizing speculation.",
+                      "President: Excellent. Let's remain vigilant and address these threats with utmost seriousness."
+                    ]
+                  }
+                ]
+              }
             ]
           }
     ]

@@ -8,7 +8,8 @@ public static class DataManager
 
     public static void LoadData()
     {
-        string playerDataPath = Application.dataPath + "/playerData.json";
+        //string playerDataPath = Application.dataPath + "/playerData.json";
+        string playerDataPath = System.IO.Directory.GetCurrentDirectory() + "/playerData.json";
 
         if (File.Exists(playerDataPath))
         {
@@ -67,13 +68,15 @@ public static class DataManager
 
     public static void SaveData()
     {
-        File.WriteAllText(Application.dataPath + "/playerData.json", JsonUtility.ToJson(PlayerData, true));
+        //File.WriteAllText(Application.dataPath + "/playerData.json", JsonUtility.ToJson(PlayerData, true));
+        File.WriteAllText(System.IO.Directory.GetCurrentDirectory() + "/playerData.json", JsonUtility.ToJson(PlayerData, true));
     }
 
     public static Chapter GetCurrentChapter()
     {
         //!!! Chapters file path
-        string chaptersDataPath = Application.dataPath + "/chaptersTest.json";
+        //string chaptersDataPath = Application.dataPath + "/chaptersTest.json";
+        string chaptersDataPath = System.IO.Directory.GetCurrentDirectory() + "/chaptersTest.json";
 
         if (File.Exists(chaptersDataPath))
         {

@@ -614,6 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d502749e00a757479b0d6a60de6e16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _backgroundImage: {fileID: 639946676}
   _dialogueBox: {fileID: 1576771195}
   _characterImage: {fileID: 2007918380}
   _characterName: {fileID: 1382454507}

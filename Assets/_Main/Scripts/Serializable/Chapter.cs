@@ -11,4 +11,6 @@ public class Chapter
     public Decision[] decisions;
 
     public News[] news;
+
+    public Cutscene[] cutscenes;
 }

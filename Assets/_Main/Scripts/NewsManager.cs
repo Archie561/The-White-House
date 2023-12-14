@@ -68,6 +68,13 @@ public class NewsManager : MonoBehaviour
             return;
         }
 
+        if (!IsConditionMet())
+        {
+            _newsIndex++;
+            GetNextNews();
+            return;
+        }
+
         switch (_news[_newsIndex].newsPaperType)
         {
             case 1:
@@ -86,6 +93,99 @@ public class NewsManager : MonoBehaviour
                 Debug.LogError("Unknown newspaper type!");
                 break;
         }
+    }
+
+    private bool IsConditionMet()
+    {
+        //if condition is not used, return
+        if (!_news[_newsIndex].condition.isUsed)
+        {
+            return true;
+        }
+
+        bool isConditionMet = true;
+
+        //if condition is in characteristic value
+        if (!string.IsNullOrEmpty(_news[_newsIndex].condition.characteristicName))
+        {
+            //checking for condition met: false if player characteristic is less then condition characteristic
+            switch (_news[_newsIndex].condition.characteristicName)
+            {
+                case "navy":
+                    isConditionMet = DataManager.PlayerData.characteristics.navy >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "airForces":
+                    isConditionMet = DataManager.PlayerData.characteristics.airForces >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "infantry":
+                    isConditionMet = DataManager.PlayerData.characteristics.infantry >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "machinery":
+                    isConditionMet = DataManager.PlayerData.characteristics.machinery >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "europeanUnion":
+                    isConditionMet = DataManager.PlayerData.characteristics.europeanUnion >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "china":
+                    isConditionMet = DataManager.PlayerData.characteristics.china >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "africa":
+                    isConditionMet = DataManager.PlayerData.characteristics.africa >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "unitedKingdom":
+                    isConditionMet = DataManager.PlayerData.characteristics.unitedKingdom >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "CIS":
+                    isConditionMet = DataManager.PlayerData.characteristics.CIS >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "OPEC":
+                    isConditionMet = DataManager.PlayerData.characteristics.OPEC >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "science":
+                    isConditionMet = DataManager.PlayerData.characteristics.science >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "welfare":
+                    isConditionMet = DataManager.PlayerData.characteristics.welfare >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "education":
+                    isConditionMet = DataManager.PlayerData.characteristics.education >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "medicine":
+                    isConditionMet = DataManager.PlayerData.characteristics.medicine >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "ecology":
+                    isConditionMet = DataManager.PlayerData.characteristics.ecology >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                case "infrastructure":
+                    isConditionMet = DataManager.PlayerData.characteristics.infrastructure >= _news[_newsIndex].condition.characteristicValue;
+                    break;
+                default:
+                    isConditionMet = true;
+                    break;
+            }
+        }
+
+        //if condition is in made choice
+        if (isConditionMet && _news[_newsIndex].condition.choiceChapterID != -1)
+        {
+            //checking for condition met: false if player choice is not equal to condition choice
+            if (DataManager.PlayerData.madeChoices[_news[_newsIndex].condition.choiceChapterID].value[_news[_newsIndex].condition.choiceID] != _news[_newsIndex].condition.choiceValue)
+            {
+                isConditionMet = false;
+            }
+        }
+
+        //if condition is in made decision
+        if (isConditionMet && _news[_newsIndex].condition.decisionChapterID != -1)
+        {
+            //checking for condition met: false if player decision is not equal to condition decision
+            if (DataManager.PlayerData.madeDecisions[_news[_newsIndex].condition.decisionChapterID].value[_news[_newsIndex].condition.decisionID] != _news[_newsIndex].condition.decisionValue)
+            {
+                isConditionMet = false;
+            }
+        }
+
+        return isConditionMet;
     }
 
     public void NewsClickHandler()

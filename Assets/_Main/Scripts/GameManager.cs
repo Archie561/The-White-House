@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //додати знаки оклику до характеристик
+    //додати систему звуків
+    //додати катсцени
+
     public static GameManager Instance { get; private set; }
 
     public Chapter CurrentChapter { get; private set; }
@@ -37,7 +41,7 @@ public class GameManager : MonoBehaviour
     //function that invokes every time scene loaded
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == 0)
+        if (scene.buildIndex == 1)
         {
             DataManager.LoadData();
 
@@ -58,7 +62,7 @@ public class GameManager : MonoBehaviour
         }
 
         //initilizeBudget if it is not main menu scene
-        if (scene.buildIndex != 3)
+        if (scene.buildIndex != 0)
         {
             UpdateBudget();
         }
@@ -189,6 +193,48 @@ public class GameManager : MonoBehaviour
                 case "airForces":
                     isConditionMet = DataManager.PlayerData.characteristics.airForces >= condition.characteristicValue;
                     break;
+                case "infantry":
+                    isConditionMet = DataManager.PlayerData.characteristics.infantry >= condition.characteristicValue;
+                    break;
+                case "machinery":
+                    isConditionMet = DataManager.PlayerData.characteristics.machinery >= condition.characteristicValue;
+                    break;
+                case "europeanUnion":
+                    isConditionMet = DataManager.PlayerData.characteristics.europeanUnion >= condition.characteristicValue;
+                    break;
+                case "china":
+                    isConditionMet = DataManager.PlayerData.characteristics.china >= condition.characteristicValue;
+                    break;
+                case "africa":
+                    isConditionMet = DataManager.PlayerData.characteristics.africa >= condition.characteristicValue;
+                    break;
+                case "unitedKingdom":
+                    isConditionMet = DataManager.PlayerData.characteristics.unitedKingdom >= condition.characteristicValue;
+                    break;
+                case "CIS":
+                    isConditionMet = DataManager.PlayerData.characteristics.CIS >= condition.characteristicValue;
+                    break;
+                case "OPEC":
+                    isConditionMet = DataManager.PlayerData.characteristics.OPEC >= condition.characteristicValue;
+                    break;
+                case "science":
+                    isConditionMet = DataManager.PlayerData.characteristics.science >= condition.characteristicValue;
+                    break;
+                case "welfare":
+                    isConditionMet = DataManager.PlayerData.characteristics.welfare >= condition.characteristicValue;
+                    break;
+                case "education":
+                    isConditionMet = DataManager.PlayerData.characteristics.education >= condition.characteristicValue;
+                    break;
+                case "medicine":
+                    isConditionMet = DataManager.PlayerData.characteristics.medicine >= condition.characteristicValue;
+                    break;
+                case "ecology":
+                    isConditionMet = DataManager.PlayerData.characteristics.ecology >= condition.characteristicValue;
+                    break;
+                case "infrastructure":
+                    isConditionMet = DataManager.PlayerData.characteristics.infrastructure >= condition.characteristicValue;
+                    break;
                 default:
                     isConditionMet = true;
                     break;
@@ -239,7 +285,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadMainScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void UpdateCharacteristics(Characteristics characteristics)
@@ -290,7 +336,9 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        GameObject.Find("BudgetBox").GetComponentInChildren<TextMeshProUGUI>().text = (DataManager.PlayerData.characteristics.budget < 0 ? "-" : "") + budget + ",000,000 $";
+        //!!!HARDCODED
+        if (SceneManager.GetActiveScene().buildIndex != 3)
+            GameObject.Find("BudgetBox").GetComponentInChildren<TextMeshProUGUI>().text = (DataManager.PlayerData.characteristics.budget < 0 ? "-" : "") + budget + ",000,000 $";
     }
 
     public Dialogue GetNextDialogue()
@@ -354,6 +402,19 @@ public class GameManager : MonoBehaviour
         catch ( Exception e )
         {
             Debug.LogError(e.Message + $" News array does not exist!");
+            return null;
+        }
+    }
+
+    public Cutscene[] GetCutscenes()
+    {
+        try
+        {
+            return CurrentChapter.cutscenes;
+        }
+        catch ( Exception e )
+        {
+            Debug.LogError(e.Message + $" Cutscenes array does not exist!");
             return null;
         }
     }

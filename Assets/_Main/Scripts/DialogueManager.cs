@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    //ПОФІКСИТИ закінчення діалогу на чойсі без піддіалогів
+    [SerializeField]
+    private RawImage _backgroundImage;
 
     /*---------------------------Dialogue UI Elements---------------------------*/
     [SerializeField]
@@ -49,6 +50,11 @@ public class DialogueManager : MonoBehaviour
 
         _currentDialogue = GameManager.Instance.GetNextDialogue();
         _typewriter = new Typewriter(_dialogueText);
+
+        if (_currentDialogue.backgroundImageName != "")
+        {
+            _backgroundImage.texture = Resources.Load<Texture>("Textures/Backgrounds/" + _currentDialogue.backgroundImageName);
+        }
 
         _dialogueBox.SetActive(true);
         DialogueClickHandler();

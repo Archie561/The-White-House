@@ -10,6 +10,8 @@ public class Dialogue
 
     public Condition condition;
 
+    public string backgroundImageName;
+
     public string[] imageName;
     public string[] characterName;
     public string[] replicas;

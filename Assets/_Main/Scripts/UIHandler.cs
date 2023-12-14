@@ -31,7 +31,8 @@ public class UIHandler : MonoBehaviour
         GameManager.Instance.OnLockValueChanged += SetMechanicMarks;
         SetMechanicMarks();
 
-        if (DataManager.PlayerData.lawID == 0 && DataManager.PlayerData.dialogueID == 0 && DataManager.PlayerData.decisionID == 0 && !GameManager.Instance.IsNewsShown)
+        //if it is first chapter and news was not shown, show news
+        if (!GameManager.Instance.IsNewsShown && DataManager.PlayerData.lawID == 0 && DataManager.PlayerData.dialogueID == 0 && DataManager.PlayerData.decisionID == 0)
         {
             GameManager.Instance.IsNewsShown = true;
             _newsModal.SetActive(true);
@@ -48,9 +49,10 @@ public class UIHandler : MonoBehaviour
 
     public void PauseClickHandler()
     {
+        SceneManager.LoadScene(3);
         if (EventSystem.current.currentSelectedGameObject.CompareTag("MainMenuButton"))
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(0);
             return;
         }
 
@@ -72,7 +74,7 @@ public class UIHandler : MonoBehaviour
     {
         if (!GameManager.Instance.IsDialogueLocked)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
         else
         {
