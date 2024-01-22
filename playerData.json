@@ -1,7 +1,7 @@
 {
     "chapterID": 0,
-    "dialogueID": 4,
-    "lawID": 4,
+    "dialogueID": 5,
+    "lawID": 2,
     "decisionID": 1,
     "madeChoices": [
         {
@@ -1048,7 +1048,7 @@
     "madeDecisions": [
         {
             "value": [
-                1,
+                4,
                 -1,
                 -1,
                 -1,

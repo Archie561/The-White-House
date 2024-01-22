@@ -1212,6 +1212,99 @@
                 "sceneID": 0,
                 "condition": {
                   "isUsed": false,
+                  "characteristicName": "navy",
+                  "characteristicValue": 10,
+                  "choiceChapterID": -1,
+                  "choiceID": 0,
+                  "choiceValue": 0,
+                  "decisionChapterID": -1,
+                  "decisionID": 0,
+                  "decisionValue": 0
+                },
+                "voiceFileName": "voicetest2",
+                "frames": [
+                  {
+                    "backgroundImage": "background05",
+                    "frameDuration": 10.6,
+                    "animationType": "moveUp",
+                    "particlesType": "snow",
+                    "characterNames": [],
+                    "characterDurations": [],
+                    "characterPositions": [],
+                    "characterSubtitles": []
+                  },
+                  {
+                    "backgroundImage": "background06",
+                    "frameDuration": 103,
+                    "animationType": "moveDown",
+                    "particlesType": "snow",
+                    "characterNames": [
+                      "PaulCarey",
+                      "KenRothwell",
+                      "PaulCarey",
+                      "KenRothwell",
+                      "PaulCarey",
+                      "KenRothwell",
+                      "PaulCarey",
+                      "KenRothwell",
+                      "PaulCarey",
+                      "KenRothwell",
+                      "PaulCarey",
+                      "KenRothwell",
+                      "PaulCarey"
+                    ],
+                    "characterDurations": [
+                      7.3,
+                      2.3,
+                      21.7,
+                      6.2,
+                      1.6,
+                      8,
+                      1.6,
+                      4.1,
+                      11.1,
+                      5.9,
+                      11,
+                      6.5,
+                      12.6
+                    ],
+                    "characterPositions": [
+                      "left",
+                      "right",
+                      "left",
+                      "right",
+                      "left",
+                      "right",
+                      "left",
+                      "right",
+                      "left",
+                      "right",
+                      "left",
+                      "right",
+                      "left"
+                    ],
+                    "characterSubtitles": [
+                      "Vice President: Ken, I fucking found it! I found a goddamn way to save our nuclear power plant and keep that factory from fucking bankruptcy.",
+                      "President Ken Rothwell: And how the hell did you manage that, Paul?",
+                      "Vice President: To be more precise, I didn't find a way. I found a person who knows a way. And that person's name is Nikolai Petrov, one of the richest sons of bitches in the whole damn country. He's got a hard-on for us, believes in our cause, and claims he can fix this mess. In fact, he said that he came to you earlier and said that he would help you solve any issue. Why didn't you tell me about him right away?",
+                      "President Ken Rothwell: That sneaky son of a bitch? You sure we want to get mixed up with him? We'll end up owing that conniving bastard big time.",
+                      "Vice President: What can he do, anyway?",
+                      "President Ken Rothwell: At some time he will come and demand a piece of America from us. He will ask for a favor. And favors are never small with people like him.",
+                      "Vice President: So what? Refuse him.",
+                      "President Ken Rothwell: To refuse? Don't you know the rules of this game? You don't refuse such people.",
+                      "Vice President: Ken, we're fucking backed into a corner here. We don't have a goddamn choice. This is our last shot. Petrov may be a cunning son of a bitch, but he's our best goddamn bet at saving our asses.",
+                      "President Ken Rothwell: Fine, Paul. Tell me, how the fuck is this oligarch gonna save the day? I hope you're not feeding me some bullshit.",
+                      "Vice President: Look, Ken, I don't fucking know the specifics. All I know is Petrov claims he's got the answers. And at this point, does it fucking matter how he does it? We need a goddamn result, and we need it now.",
+                      "President Ken Rothwell: You better be right about this, Paul. I don't want us selling our souls to the devil just to keep this goddamn factory alive.",
+                      "Vice President: I'm really fuckin' sick of this, Ken. My head is pounding. He'll call you later today. And I recommend you take him up on his offer. Because if you don't, you're going to have to find another way out of this. And there is no other way."
+                    ]
+                  }
+                ]
+              },
+              {
+                "sceneID": 1,
+                "condition": {
+                  "isUsed": false,
                   "characteristicName": "",
                   "characteristicValue": 0,
                   "choiceChapterID": -1,
@@ -1225,8 +1318,9 @@
                 "frames": [
                   {
                     "backgroundImage": "background03",
-                    "frameDuration": 12,
-                    "animationType": "2",
+                    "frameDuration": 13.3,
+                    "animationType": "zoomIn",
+                    "particlesType": "rain",
                     "characterNames": [],
                     "characterDurations": [],
                     "characterPositions": [],
@@ -1234,43 +1328,44 @@
                   },
                   {
                     "backgroundImage": "background04",
-                    "frameDuration": 106,
-                    "animationType": "1",
+                    "frameDuration": 105,
+                    "animationType": "zoomOut",
+                    "particlesType": "dust",
                     "characterNames": [
                       "EdwardScott",
                       "AliceRothwell",
                       "EdwardScott",
-                      "EdwardScott",
                       "AliceRothwell",
                       "EdwardScott",
                       "AliceRothwell",
                       "EdwardScott",
                       "AliceRothwell",
-                      "EdwardScott"
+                      "EdwardScott",
+                      "AliceRothwell"
                     ],
                     "characterDurations": [
-                      7,
-                      16,
-                      6,
-                      13,
-                      8,
-                      10,
-                      13,
-                      12,
-                      10,
-                      5
+                      7.4,
+                      16.5,
+                      5.2,
+                      13.9,
+                      9.2,
+                      11.0,
+                      12.5,
+                      11.7,
+                      10.0,
+                      5.6
                     ],
                     "characterPositions": [
                       "left",
                       "right",
                       "left",
+                      "right",
                       "left",
                       "right",
                       "left",
-                      "left",
                       "right",
                       "left",
-                      "left"
+                      "right"
                     ],
                     "characterSubtitles": [
                       "President: Good morning, everyone. I hope you're all ready for a productive meeting. Let's start with the latest updates from the CIA, Patrick.",

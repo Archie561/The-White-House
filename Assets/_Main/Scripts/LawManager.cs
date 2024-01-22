@@ -75,7 +75,7 @@ public class LawManager : MonoBehaviour
     {
         _isAnimationFinished = false;
 
-        _document.transform.localPosition = new Vector2(0, Screen.height);
+        _document.transform.localPosition = new Vector2(0, -Screen.height);
         _document.transform.LeanMoveLocalY(-50, 1).setEaseOutQuart().setOnComplete(() => { _isAnimationFinished = true; });
     }
 
@@ -87,7 +87,7 @@ public class LawManager : MonoBehaviour
             //check if it needs to animate document disappearing
             if (hideDocument)
             {
-                _document.gameObject.LeanMoveLocal(new Vector2(0, Screen.height), 0.8f).setEaseOutQuart();
+                _document.gameObject.LeanMoveLocal(new Vector2(0, -Screen.height), 0.8f).setEaseOutQuart();
             }
 
             //animate back button and black screen

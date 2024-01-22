@@ -130,15 +130,15 @@ public class CharacteristicsManager : MonoBehaviour
     {
         if (_politicBox.activeSelf)
         {
-            _politicBox.LeanMoveLocalY(Screen.height, 0.8f).setEaseOutQuart().setOnComplete(() => { _politicBox.SetActive(false); });
+            _politicBox.LeanMoveLocalY(-Screen.height, 0.8f).setEaseOutQuart().setOnComplete(() => { _politicBox.SetActive(false); });
         }
         else if (_internationalBox.activeSelf)
         {
-            _internationalBox.LeanMoveLocalY(Screen.height, 0.8f).setEaseOutQuart().setOnComplete(() => { _internationalBox.SetActive(false); });
+            _internationalBox.LeanMoveLocalY(-Screen.height, 0.8f).setEaseOutQuart().setOnComplete(() => { _internationalBox.SetActive(false); });
         }
         else if (_armyBox.activeSelf)
         {
-            _armyBox.LeanMoveLocalY(Screen.height, 0.8f).setEaseOutQuart().setOnComplete(() => { _armyBox.SetActive(false); });
+            _armyBox.LeanMoveLocalY(-Screen.height, 0.8f).setEaseOutQuart().setOnComplete(() => { _armyBox.SetActive(false); });
         }
 
         _blackBackground.LeanAlpha(0, 0.8f).setOnComplete(() => { _blackBackground.gameObject.SetActive(false); });

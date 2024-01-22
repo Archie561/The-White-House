@@ -98,7 +98,7 @@ public class DecisionManager : MonoBehaviour
 
             //start removing modal and background animation
             _blackBackground.LeanAlpha(0, 0.8f).setOnComplete(() => { _blackBackground.gameObject.SetActive(false); });
-            transform.LeanMoveLocal(new Vector2(0, Screen.height), 0.8f).setEaseOutQuart().setOnComplete(DisableModal);
+            transform.LeanMoveLocal(new Vector2(0, -Screen.height), 0.8f).setEaseOutQuart().setOnComplete(DisableModal);
         }
     }
 

@@ -49,7 +49,12 @@ public class UIHandler : MonoBehaviour
 
     public void PauseClickHandler()
     {
-        SceneManager.LoadScene(3);
+        //додати в геймменеджер для завантаження катсцен
+        if (GameManager.Instance.GetCutscenes().Length > 0)
+        {
+            SceneManager.LoadScene(3);
+        }
+
         if (EventSystem.current.currentSelectedGameObject.CompareTag("MainMenuButton"))
         {
             SceneManager.LoadScene(0);
