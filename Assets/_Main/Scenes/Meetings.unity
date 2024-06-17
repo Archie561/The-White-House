@@ -316,7 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 61db0eabb57a7f549a9ce4cb8c37b40f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 736ebcbb90569d1428540661477af8cf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -695,7 +695,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Robert, President
+  m_text: Ken Rothwell, President of the USA
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1258561775b317040ab6672c49da0aee, type: 2}
   m_sharedMaterial: {fileID: 832525716081154221, guid: 1258561775b317040ab6672c49da0aee, type: 2}

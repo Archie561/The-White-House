@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     //додати знаки оклику до характеристик
     //додати систему звуків
-    //додати катсцени
+    //оновити бюджет бокс
 
     public static GameManager Instance { get; private set; }
 

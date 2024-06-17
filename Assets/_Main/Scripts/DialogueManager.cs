@@ -73,7 +73,7 @@ public class DialogueManager : MonoBehaviour
         //if needs to display choice
         if (_displayChoice)
         {
-            //show choice with choiceID which is stored in choiceID[_replicaINdex] and return
+            //show choice with choiceID which is stored in choiceID[_replicaIndex] and return
             _displayChoice = false;
             ShowNextChoice(_currentDialogue.choiceID[_replicaIndex]);
 
@@ -160,15 +160,14 @@ public class DialogueManager : MonoBehaviour
         //load SubDialogue after choice if exists
         try
         {
-            _currentSubDialogue = pickedOption == 1 ? _currentDialogue.subDialogueOption1[_subDialogueIndex] : _currentDialogue.subDialogueOption2[_subDialogueIndex];
-
             //if there is no subdialogues after current choice, skip to next replica
-            if (_currentSubDialogue.imageName.Length == 0)
+            if (_currentDialogue.subDialogueOption1.Length == 0)
             {
                 _replicaIndex++;
             }
             else
             {
+                _currentSubDialogue = pickedOption == 1 ? _currentDialogue.subDialogueOption1[_subDialogueIndex] : _currentDialogue.subDialogueOption2[_subDialogueIndex];
                 _subReplicaIndex = 0;
                 _displaySubDialogue = true;
             }

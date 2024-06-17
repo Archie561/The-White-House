@@ -17,7 +17,7 @@
                   "decisionID": 0,
                   "decisionValue": 0
                 },
-                "backgroundImageName": "background02",
+                "backgroundImageName": "background01",
                 "imageName": [
                   "PaulCarey",
                   "KenRothwell",
@@ -93,7 +93,7 @@
                 "choiceID": [
                   -1,
                   -1,
-                  -1,
+                  0,
                   -1,
                   -1,
                   -1,
@@ -854,11 +854,13 @@
                 "subDialogueOption2": []
               }
             ],
-            "choices": [],
+            "choices": [
+              {"choiceID":0,"option1":"Alright, let's do this","option2":"Not right now, we need to wait some time","characteristicsUpdateOption1":{"budget":0,"navy":0,"airForces":0,"infantry":0,"machinery":0,"europeanUnion":0,"china":0,"africa":0,"unitedKingdom":0,"CIS":0,"OPEC":0,"science":0,"welfare":0,"education":0,"medicine":0,"ecology":0,"infrastructure":0},"characteristicsUpdateOption2":{"budget":0,"navy":0,"airForces":0,"infantry":0,"machinery":0,"europeanUnion":0,"china":0,"africa":0,"unitedKingdom":0,"CIS":0,"OPEC":0,"science":0,"welfare":0,"education":0,"medicine":0,"ecology":0,"infrastructure":0}}
+            ],
             "decisions": [
               {
                 "decisionID": 0,
-                "lockedByDialogue": 3,
+                "lockedByDialogue": 0,
                 "lockedByLaw": -1,
                 "condition": {
                   "isUsed": false,
@@ -897,11 +899,30 @@
                     "welfare": 0,
                     "education": 0,
                     "medicine": 0,
-                    "ecology": 0,
+                    "ecology": 10,
                     "infrastructure": 0
                   },
                   {
                     "budget": 0,
+                    "navy": 10,
+                    "airForces": 0,
+                    "infantry": 0,
+                    "machinery": 0,
+                    "europeanUnion": 0,
+                    "china": 0,
+                    "africa": 0,
+                    "unitedKingdom": 0,
+                    "CIS": 0,
+                    "OPEC": 0,
+                    "science": 0,
+                    "welfare": 0,
+                    "education": 0,
+                    "medicine": 0,
+                    "ecology": 0,
+                    "infrastructure": 0
+                  },
+                  {
+                    "budget": 100000,
                     "navy": 0,
                     "airForces": 0,
                     "infantry": 0,
@@ -936,26 +957,7 @@
                     "education": 0,
                     "medicine": 0,
                     "ecology": 0,
-                    "infrastructure": 0
-                  },
-                  {
-                    "budget": 0,
-                    "navy": 0,
-                    "airForces": 0,
-                    "infantry": 0,
-                    "machinery": 0,
-                    "europeanUnion": 0,
-                    "china": 0,
-                    "africa": 0,
-                    "unitedKingdom": 0,
-                    "CIS": 0,
-                    "OPEC": 0,
-                    "science": 0,
-                    "welfare": 0,
-                    "education": 0,
-                    "medicine": 0,
-                    "ecology": 0,
-                    "infrastructure": 0
+                    "infrastructure": 10
                   }
                 ]
               }
@@ -963,8 +965,8 @@
             "laws": [
               {
                 "lawID": 0,
-                "lockedByDecision": -1,
-                "lockedByDialogue": 2,
+                "lockedByDecision": 0,
+                "lockedByDialogue": -1,
                 "lawType": 1,
                 "header": "Proposal",
                 "mainText": "Increase Funding for Public Schools and Universities.",
@@ -1168,8 +1170,25 @@
                   "decisionValue": 0
                 },
                 "newsPaperType": 1,
-                "headerText": "test",
-                "detailedText": "test",
+                "headerText": "Lorem Ipsum is simply dummy text of the printing",
+                "detailedText": "and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen",
+                "imageName": "newspaperImageTest"
+              },
+              {
+                "condition": {
+                  "isUsed": false,
+                  "characteristicName": "machinery",
+                  "characteristicValue": 0,
+                  "choiceChapterID": -1,
+                  "choiceID": 0,
+                  "choiceValue": 0,
+                  "decisionChapterID": -1,
+                  "decisionID": 0,
+                  "decisionValue": 0
+                },
+                "newsPaperType": 2,
+                "headerText": "Lorem Ipsum is simply dummy text of the printing",
+                "detailedText": "and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen",
                 "imageName": "newspaperImageTest"
               },
               {
@@ -1185,9 +1204,9 @@
                   "decisionValue": 0
                 },
                 "newsPaperType": 3,
-                "headerText": "News",
-                "detailedText": "kokoko",
-                "imageName": "nema"
+                "headerText": "Lorem Ipsum is simply dummy text of the printing",
+                "detailedText": "and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen",
+                "imageName": "newspaperImageTest"
               },
               {
                 "condition": {
@@ -1202,9 +1221,9 @@
                   "decisionValue": 0
                 },
                 "newsPaperType": 4,
-                "headerText": "Bitch",
+                "headerText": "Lorem Ipsum is simply dummy text of the printing",
                 "detailedText": "",
-                "imageName": "kokoshka"
+                "imageName": "test"
               }
             ],
             "cutscenes": [
@@ -1224,10 +1243,10 @@
                 "voiceFileName": "voicetest2",
                 "frames": [
                   {
-                    "backgroundImage": "background05",
+                    "backgroundImage": "background03",
                     "frameDuration": 10.6,
                     "animationType": "moveUp",
-                    "particlesType": "snow",
+                    "particlesType": "rain",
                     "characterNames": [],
                     "characterDurations": [],
                     "characterPositions": [],
@@ -1317,10 +1336,10 @@
                 "voiceFileName": "voicetest",
                 "frames": [
                   {
-                    "backgroundImage": "background03",
+                    "backgroundImage": "background05",
                     "frameDuration": 13.3,
                     "animationType": "zoomIn",
-                    "particlesType": "rain",
+                    "particlesType": "snow",
                     "characterNames": [],
                     "characterDurations": [],
                     "characterPositions": [],
@@ -1333,15 +1352,15 @@
                     "particlesType": "dust",
                     "characterNames": [
                       "EdwardScott",
-                      "AliceRothwell",
+                      "MaconFarrell",
                       "EdwardScott",
-                      "AliceRothwell",
+                      "MaconFarrell",
                       "EdwardScott",
-                      "AliceRothwell",
+                      "MaconFarrell",
                       "EdwardScott",
-                      "AliceRothwell",
+                      "MaconFarrell",
                       "EdwardScott",
-                      "AliceRothwell"
+                      "MaconFarrell"
                     ],
                     "characterDurations": [
                       7.4,
