@@ -860,7 +860,110 @@
             "decisions": [
               {
                 "decisionID": 0,
-                "lockedByDialogue": 0,
+                "lockedByDialogue": -1,
+                "lockedByLaw": -1,
+                "condition": {
+                  "isUsed": false,
+                  "characteristicName": "",
+                  "characteristicValue": 0,
+                  "choiceChapterID": -1,
+                  "choiceID": 0,
+                  "choiceValue": 0,
+                  "decisionChapterID": -1,
+                  "decisionID": 0,
+                  "decisionValue": 0
+                },
+                "imageName": "JamesTaylor",
+                "characterName": "James Taylor, Minister of Housing and Urban Development",
+                "text": "Dear President, on behalf of the Ministry of Construction and Urban Development, I am thrilled to present a visionary proposal that would celebrate your remarkable election victory and embody the spirit of freedom that defines our great nation. We propose the construction of a magnificent architectural marvel, a symbol that will transcend time and become an iconic representation of America's values. This grand monument, inspired by the likes of the Eiffel Tower or the Statue of Liberty, would capture the essence of liberty, serve as a beacon of hope, and attract visitors from around the world. Its creation would not only honor your historic achievement but also leave an indelible mark on the landscape of our nation.\n\nThe Unity Tower: This monument would be a 1500 feet tall tower that would symbolize the unity of America. It could be built in a major city like New York or Chicago and would be visible from far away. The tower would have an observation deck at the top, which would provide a 360-degree view of the city.\n\nThe Liberty Bell Pavilion: This monument would be a giant pavilion that would house the Liberty Bell, one of America's most iconic symbols of freedom. The pavilion could be built in Philadelphia, where the bell is currently located, and would be designed to resemble the bell itself. Visitors could tour the pavilion and learn about the history of the bell and its significance to the country.\n\n\nThe American Dream Arch: This monument would be a massive archway that would symbolize the American dream. It could be built in Washington D.C. and would be designed to resemble the arches of ancient Rome. The archway would be inscribed with quotes from famous Americans who embodied the American dream, such as Martin Luther King Jr., Abraham Lincoln, and Walt Disney.\n\n\nThe Gateway to America: This monument would be a massive gateway that would symbolize America's role as a gateway to the world. It could be built in a major city like New York or Los Angeles and would be designed to resemble the gates of ancient cities. The gateway would be inscribed with quotes from famous Americans who embodied the idea of America as a melting pot, such as John F. Kennedy, Barack Obama, and Emma Lazarus.\n",
+                "options": [
+                  "The Unity Tower",
+                  "The Liberty Bell Pavilion",
+                  "The American Dream Arch",
+                  "The Gateway to America"
+                ],
+                "characteristicUpdates": [
+                  {
+                    "budget": 0,
+                    "navy": 0,
+                    "airForces": 0,
+                    "infantry": 0,
+                    "machinery": 0,
+                    "europeanUnion": 0,
+                    "china": 0,
+                    "africa": 0,
+                    "unitedKingdom": 0,
+                    "CIS": 0,
+                    "OPEC": 0,
+                    "science": 0,
+                    "welfare": 0,
+                    "education": 0,
+                    "medicine": 0,
+                    "ecology": 10,
+                    "infrastructure": 0
+                  },
+                  {
+                    "budget": 0,
+                    "navy": 10,
+                    "airForces": 0,
+                    "infantry": 0,
+                    "machinery": 0,
+                    "europeanUnion": 0,
+                    "china": 0,
+                    "africa": 0,
+                    "unitedKingdom": 0,
+                    "CIS": 0,
+                    "OPEC": 0,
+                    "science": 0,
+                    "welfare": 0,
+                    "education": 0,
+                    "medicine": 0,
+                    "ecology": 0,
+                    "infrastructure": 0
+                  },
+                  {
+                    "budget": 100000,
+                    "navy": 0,
+                    "airForces": 0,
+                    "infantry": 0,
+                    "machinery": 0,
+                    "europeanUnion": 0,
+                    "china": 0,
+                    "africa": 0,
+                    "unitedKingdom": 0,
+                    "CIS": 0,
+                    "OPEC": 0,
+                    "science": 0,
+                    "welfare": 0,
+                    "education": 0,
+                    "medicine": 0,
+                    "ecology": 0,
+                    "infrastructure": 0
+                  },
+                  {
+                    "budget": 0,
+                    "navy": 0,
+                    "airForces": 0,
+                    "infantry": 0,
+                    "machinery": 0,
+                    "europeanUnion": 0,
+                    "china": 0,
+                    "africa": 0,
+                    "unitedKingdom": 0,
+                    "CIS": 0,
+                    "OPEC": 0,
+                    "science": 0,
+                    "welfare": 0,
+                    "education": 0,
+                    "medicine": 0,
+                    "ecology": 0,
+                    "infrastructure": 10
+                  }
+                ]
+              },
+              {
+                "decisionID": 1,
+                "lockedByDialogue": -1,
                 "lockedByLaw": -1,
                 "condition": {
                   "isUsed": false,
@@ -965,9 +1068,9 @@
             "laws": [
               {
                 "lawID": 0,
-                "lockedByDecision": 0,
+                "lockedByDecision": -1,
                 "lockedByDialogue": -1,
-                "lawType": 1,
+                "lawType": 2,
                 "header": "Proposal",
                 "mainText": "Increase Funding for Public Schools and Universities.",
                 "detailedText": "This proposal advocates for a substantial increase in funding for public schools and universities to ensure the provision of high-quality education and equal opportunities for all. By allocating additional resources to our educational institutions, we aim to enhance academic programs, improve infrastructure, and support educators, ultimately fostering a stronger and more knowledgeable generation.",
@@ -1015,7 +1118,7 @@
                 "lawID": 1,
                 "lockedByDecision": -1,
                 "lockedByDialogue": -1,
-                "lawType": 1,
+                "lawType": 3,
                 "header": "Proposal",
                 "mainText": "Establishing Stricter Emission Rules for Vehicles.",
                 "detailedText": "In response to the pressing environmental concerns facing our nation, I propose the implementation of stricter emission rules for vehicles. By setting stringent standards for vehicle emissions, we can significantly reduce air pollution, mitigate the impact of climate change, and safeguard the health and well-being of our citizens.",
@@ -1224,6 +1327,57 @@
                 "headerText": "Lorem Ipsum is simply dummy text of the printing",
                 "detailedText": "",
                 "imageName": "test"
+              },
+              {
+                "condition": {
+                  "isUsed": false,
+                  "characteristicName": "machinery",
+                  "characteristicValue": 0,
+                  "choiceChapterID": -1,
+                  "choiceID": 0,
+                  "choiceValue": 0,
+                  "decisionChapterID": -1,
+                  "decisionID": 0,
+                  "decisionValue": 0
+                },
+                "newsPaperType": 2,
+                "headerText": "Lorem Ipsum is simply dummy text of the printing",
+                "detailedText": "and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen",
+                "imageName": "newspaperImageTest"
+              },
+              {
+                "condition": {
+                  "isUsed": false,
+                  "characteristicName": "",
+                  "characteristicValue": 0,
+                  "choiceChapterID": -1,
+                  "choiceID": 0,
+                  "choiceValue": 0,
+                  "decisionChapterID": -1,
+                  "decisionID": 0,
+                  "decisionValue": 0
+                },
+                "newsPaperType": 4,
+                "headerText": "Lorem Ipsum is simply dummy text of the printing",
+                "detailedText": "",
+                "imageName": "test"
+              },
+              {
+                "condition": {
+                  "isUsed": false,
+                  "characteristicName": "infantry",
+                  "characteristicValue": 100,
+                  "choiceChapterID": -1,
+                  "choiceID": 0,
+                  "choiceValue": 0,
+                  "decisionChapterID": -1,
+                  "decisionID": 0,
+                  "decisionValue": 0
+                },
+                "newsPaperType": 1,
+                "headerText": "Lorem Ipsum is simply dummy text of the printing",
+                "detailedText": "and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen",
+                "imageName": "newspaperImageTest"
               }
             ],
             "cutscenes": [

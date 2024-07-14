@@ -148,12 +148,12 @@ public class DialogueManager : MonoBehaviour
         if (EventSystem.current.currentSelectedGameObject.CompareTag("ChoiceOption1"))
         {
             pickedOption = 1;
-            GameManager.Instance.UpdateCharacteristics(GameManager.Instance.GetChoice(choiceID).characteristicsUpdateOption1);
+            DataManager.UpdateCharacteristics(GameManager.Instance.GetChoice(choiceID).characteristicsUpdateOption1);
         }
         else
         {
             pickedOption = 2;
-            GameManager.Instance.UpdateCharacteristics(GameManager.Instance.GetChoice(choiceID).characteristicsUpdateOption2);
+            DataManager.UpdateCharacteristics(GameManager.Instance.GetChoice(choiceID).characteristicsUpdateOption2);
         }
         DataManager.PlayerData.madeChoices[DataManager.PlayerData.chapterID].value[choiceID] = pickedOption;
 

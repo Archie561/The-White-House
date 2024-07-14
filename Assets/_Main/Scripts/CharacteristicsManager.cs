@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -85,68 +83,60 @@ public class CharacteristicsManager : MonoBehaviour
     private Slider _totalArmySlider;
     [SerializeField]
     private TextMeshProUGUI _totalArmyValue;
-    /*-------------------END UI SECTION-------------------*/
+
+    [SerializeField]
+    private GameObject _characteristicsPanels;
+    [SerializeField]
+    private GameObject _domesticPolicyPanel;
+    [SerializeField]
+    private GameObject _foreignPolicyPanel;
+    [SerializeField]
+    private GameObject _armyPanel;
 
     [SerializeField]
     private CanvasGroup _blackBackground;
     [SerializeField]
     private Button _backButton;
+    /*-------------------END UI SECTION-------------------*/
 
-    [SerializeField]
-    private GameObject _politicBox;
-    [SerializeField]
-    private GameObject _internationalBox;
-    [SerializeField]
-    private GameObject _armyBox;
+    /*--------------------ANIMATION PARAMETERS SECTION--------------------*/
+    private float _blackBackgroundAnimationTime = 0.8f;
+    private float _backButtonAnimationTime = 0.8f;
+    private float _panelAppearingAnimationTime = 0.8f;
+    private float _panelDisappearingAnimationTime = 0.8f;
+    /*------------------END ANIMATION PARAMETERS SECTION------------------*/
 
-    public void CharacteristicClickHandler()
+    private Vector2 _panelDefaultScale;
+
+    public void OnEnable()
     {
+        Vector2 backButtonDefaultPosition = _backButton.transform.position;
+        _backButton.transform.position = new Vector2(_backButton.transform.position.x, Screen.height + _backButton.GetComponent<RectTransform>().rect.size.y);
+
         _blackBackground.gameObject.SetActive(true);
-        _blackBackground.LeanAlpha(1, 0.8f);
-
         _backButton.gameObject.SetActive(true);
-        _backButton.gameObject.LeanMoveLocalY(460, 0.8f).setEaseOutQuart();
+        _characteristicsPanels.SetActive(true);
 
-        if(EventSystem.current.currentSelectedGameObject.CompareTag("PoliticButton"))
+        _blackBackground.LeanAlpha(1, _blackBackgroundAnimationTime);
+        _backButton.transform.LeanMove(backButtonDefaultPosition, _backButtonAnimationTime).setEaseOutQuart();
+
+        if (EventSystem.current.currentSelectedGameObject.CompareTag("PoliticButton"))
         {
-            _politicBox.SetActive(true);
-            LoadPolitic();
-            _politicBox.LeanMoveLocalY(0, 0.8f).setEaseOutQuart();
+            DisplayDomesticPolicy();
         }
         else if (EventSystem.current.currentSelectedGameObject.CompareTag("InternationalButton"))
         {
-            _internationalBox.SetActive(true);
-            LoadInternational();
-            _internationalBox.LeanMoveLocalY(0, 0.8f).setEaseOutQuart();
+            DisplayForeignPolicy();
         }
         else if (EventSystem.current.currentSelectedGameObject.CompareTag("ArmyButton"))
         {
-            _armyBox.SetActive(true);
-            LoadArmy();
-            _armyBox.LeanMoveLocalY(0, 0.8f).setEaseOutQuart();
+            DisplayArmy();
         }
     }
-    public void BackClickHandler()
-    {
-        if (_politicBox.activeSelf)
-        {
-            _politicBox.LeanMoveLocalY(-Screen.height, 0.8f).setEaseOutQuart().setOnComplete(() => { _politicBox.SetActive(false); });
-        }
-        else if (_internationalBox.activeSelf)
-        {
-            _internationalBox.LeanMoveLocalY(-Screen.height, 0.8f).setEaseOutQuart().setOnComplete(() => { _internationalBox.SetActive(false); });
-        }
-        else if (_armyBox.activeSelf)
-        {
-            _armyBox.LeanMoveLocalY(-Screen.height, 0.8f).setEaseOutQuart().setOnComplete(() => { _armyBox.SetActive(false); });
-        }
 
-        _blackBackground.LeanAlpha(0, 0.8f).setOnComplete(() => { _blackBackground.gameObject.SetActive(false); });
-        _backButton.gameObject.LeanMoveLocalY(620, 0.8f).setEaseOutQuart().setOnComplete(() => { _backButton.gameObject.SetActive(false); });
-    }
-
-    private void LoadPolitic()
+    private void DisplayDomesticPolicy()
     {
+        //loading characteristics data
         Characteristics characteristics = DataManager.PlayerData.characteristics;
 
         _scienceValue.text = characteristics.science.ToString() + '%';
@@ -167,9 +157,15 @@ public class CharacteristicsManager : MonoBehaviour
 
         _totalPoliticsValue.text = totalValue.ToString() + '%';
         _totalPoliticSlider.value = totalValue / 100f;
+
+        //panel appearing animation
+        _panelDefaultScale = _domesticPolicyPanel.transform.localScale;
+        _domesticPolicyPanel.transform.localScale = Vector2.zero;
+        _domesticPolicyPanel.SetActive(true);
+        _domesticPolicyPanel.LeanScale(_panelDefaultScale, _panelAppearingAnimationTime).setEaseOutQuart();
     }
 
-    private void LoadInternational()
+    private void DisplayForeignPolicy()
     {
         Characteristics characteristics = DataManager.PlayerData.characteristics;
 
@@ -191,9 +187,14 @@ public class CharacteristicsManager : MonoBehaviour
 
         _totalInternationalValue.text = totalValue.ToString() + '%';
         _totalInternationalSlider.value = totalValue / 100f;
+
+        _panelDefaultScale = _foreignPolicyPanel.transform.localScale;
+        _foreignPolicyPanel.transform.localScale = Vector2.zero;
+        _foreignPolicyPanel.SetActive(true);
+        _foreignPolicyPanel.LeanScale(_panelDefaultScale, _panelAppearingAnimationTime).setEaseOutQuart();
     }
 
-    private void LoadArmy()
+    private void DisplayArmy()
     {
         Characteristics characteristics = DataManager.PlayerData.characteristics;
 
@@ -210,5 +211,19 @@ public class CharacteristicsManager : MonoBehaviour
 
         _totalArmyValue.text = totalValue.ToString() + '%';
         _totalArmySlider.value = totalValue / 100f;
+
+        _panelDefaultScale = _armyPanel.transform.localScale;
+        _armyPanel.transform.localScale = Vector2.zero;
+        _armyPanel.SetActive(true);
+        _armyPanel.LeanScale(_panelDefaultScale, _panelAppearingAnimationTime).setEaseOutQuart();
+    }
+
+    public void BackButtonClickHandler()
+    {
+        GameObject currentPanel = _domesticPolicyPanel.activeSelf ? _domesticPolicyPanel : _foreignPolicyPanel.activeSelf ? _foreignPolicyPanel : _armyPanel;
+        currentPanel.transform.LeanMoveY(-Screen.height / 2, _panelDisappearingAnimationTime).setEaseOutQuart();
+
+        _backButton.transform.LeanMoveY(Screen.height + _backButton.GetComponent<RectTransform>().rect.size.y, _backButtonAnimationTime).setEaseOutQuart();
+        _blackBackground.LeanAlpha(0, _blackBackgroundAnimationTime).setOnComplete(GameManager.Instance.LoadMainScene);
     }
 }

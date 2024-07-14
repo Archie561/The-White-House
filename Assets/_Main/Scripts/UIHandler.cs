@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -14,7 +14,10 @@ public class UIHandler : MonoBehaviour
     private GameObject _decisionsMark;
 
     [SerializeField]
-    private GameObject _decisionModal;
+    private TextMeshProUGUI _budgetText;
+
+    [SerializeField]
+    private GameObject _decisionManager;
     [SerializeField]
     private GameObject _lawModal;
     [SerializeField]
@@ -25,59 +28,55 @@ public class UIHandler : MonoBehaviour
     [SerializeField]
     private GameObject _pausePanel;
 
-    private void Start()
-    {
-        //update exclamation marks visibility when lock value changes
-        GameManager.Instance.OnLockValueChanged += SetMechanicMarks;
-        SetMechanicMarks();
-
-        //if it is first chapter and news was not shown, show news
-        if (!GameManager.Instance.IsNewsShown && DataManager.PlayerData.lawID == 0 && DataManager.PlayerData.dialogueID == 0 && DataManager.PlayerData.decisionID == 0)
-        {
-            GameManager.Instance.IsNewsShown = true;
-            _newsModal.SetActive(true);
-        }
-    }
+    [SerializeField]
+    private GameObject _newsManager;
+    [SerializeField]
+    private GameObject _lawManager;
+    [SerializeField]
+    private GameObject _characteristicsManager;
 
     //set exclamation marks to buttons if mechanic is not locked
-    private void SetMechanicMarks()
+    public void SetMechanicMarks()
     {
-        _dialoguesMark.SetActive(!GameManager.Instance.IsDialogueLocked);
-        _lawsMark.SetActive(!GameManager.Instance.IsLawLocked);
-        _decisionsMark.SetActive(!GameManager.Instance.IsDecisionLocked);
+        _dialoguesMark.SetActive(!GameManager.Instance.IsDialogueLocked());
+        _lawsMark.SetActive(!GameManager.Instance.IsLawLocked());
+        _decisionsMark.SetActive(!GameManager.Instance.IsDecisionLocked());
+
+        //!!!
+        UpdateBudget();
     }
 
-    public void PauseClickHandler()
+    private void UpdateBudget()
     {
-        //додати в геймменеджер для завантаження катсцен
-        if (GameManager.Instance.GetCutscenes().Length > 0)
-        {
-            SceneManager.LoadScene(3);
-        }
+        string budget = Math.Abs(DataManager.PlayerData.characteristics.budget).ToString();
+        int budgetLength = budget.Length;
 
-        if (EventSystem.current.currentSelectedGameObject.CompareTag("MainMenuButton"))
+        if (budget == "0")
         {
-            SceneManager.LoadScene(0);
+            _budgetText.text = "0 $";
             return;
         }
 
-        if (_pausePanel.activeSelf)
+        if (budget.Length > 6)
         {
-            _blackBackground.LeanAlpha(0, 0.8f).setOnComplete(() => { _blackBackground.gameObject.SetActive(false); });
-            _pausePanel.transform.LeanMoveLocalY(Screen.height, 0.8f).setEaseOutQuart().setOnComplete(() => { _pausePanel.SetActive(false); });
+            _budgetText.text = (DataManager.PlayerData.characteristics.budget < 0 ? "-" : "") + "999,999,999,999+ $";
+            return;
         }
-        else
+
+        for (int i = budgetLength - 1; i >= 0; i--)
         {
-            _pausePanel.SetActive(true);
-            _blackBackground.gameObject.SetActive(true);
-            _blackBackground.LeanAlpha(1, 0.8f);
-            _pausePanel.transform.LeanMoveLocalY(0, 0.8f).setEaseOutQuart();
+            if ((budgetLength - i) % 3 == 0 && i != 0)
+            {
+                budget = budget.Insert(i, ",");
+            }
         }
+
+        _budgetText.text = (DataManager.PlayerData.characteristics.budget < 0 ? "-" : "") + budget + ",000,000 $";
     }
 
-    public void LoadMeetingsScene()
+    public void DisplayDialogue()
     {
-        if (!GameManager.Instance.IsDialogueLocked)
+        if (!GameManager.Instance.IsDialogueLocked())
         {
             SceneManager.LoadScene(2);
         }
@@ -87,11 +86,11 @@ public class UIHandler : MonoBehaviour
         }
     }
 
-    public void LoadLawsScene()
+    public void DisplayLaws()
     {
-        if (!GameManager.Instance.IsLawLocked)
+        if (!GameManager.Instance.IsLawLocked())
         {
-            _lawModal.SetActive(true);
+            _lawManager.SetActive(true);
         }
         else
         {
@@ -99,11 +98,11 @@ public class UIHandler : MonoBehaviour
         }
     }
 
-    public void DisplayDecisionModal()
+    public void DisplayDecision()
     {
-        if (!GameManager.Instance.IsDecisionLocked)
+        if (!GameManager.Instance.IsDecisionLocked())
         {
-            _decisionModal.SetActive(true);
+            _decisionManager.SetActive(true);
         }
         else
         {
@@ -111,8 +110,13 @@ public class UIHandler : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    public void DisplayCharacteristics()
     {
-        GameManager.Instance.OnLockValueChanged -= SetMechanicMarks;
+        _characteristicsManager.SetActive(true);
+    }
+
+    public void PauseClickHandler()
+    {
+        _newsManager.SetActive(true);
     }
 }

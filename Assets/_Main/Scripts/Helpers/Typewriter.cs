@@ -38,11 +38,6 @@ public class Typewriter
         if (IsWriting)
         {
             IsWriting = false;
-            
-            if (OnWritingFinished != null)
-            {
-                OnWritingFinished();
-            }
         }
     }
 

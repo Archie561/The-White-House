@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,52 +9,130 @@ public class DecisionManager : MonoBehaviour
     [SerializeField]
     private CanvasGroup _blackBackground;
     [SerializeField]
+    private Button _backButton;
+
+    [SerializeField]
+    private Image _decisionPanel;
+    [SerializeField]
     private Image _characterImage;
     [SerializeField]
     private TextMeshProUGUI _characterName;
     [SerializeField]
     private TextMeshProUGUI _decisionText;
     [SerializeField]
-    private Button[] _optionButton;
+    private Button[] _optionButtons;
     [SerializeField]
-    private TextMeshProUGUI[] _optionText;
+    private TextMeshProUGUI[] _optionTexts;
     /*---------------------------End UI Section---------------------------*/
+
+    private Vector2 _optionButtonDefaultScale;
+
+    //юніті має багти із слайдером якщо використовувати значення 0 у якості початкового розміру панелі, тому використовується значення приближене до нуля
+    private float _decisionPanelStartSizeXY = 0.0001f;
+    private float _blackBackgroundAnimationTime = 0.8f;
+    private float _backButtonAnimationTime = 0.8f;
+    private float _panelAnimationTime = 0.8f;
+    private float _optionButtonAnimationTime = 0.3f;
 
     private Typewriter _typewriter;
     private Decision _currentDecision;
 
-    private bool decisionIsMade;
+    private bool _isDecisionIsMade;
+    private int _optionIndex;
 
     private void OnEnable()
     {
-        //field to prevent multiple button click
-        decisionIsMade = false;
+        //variables initialization
+        _optionIndex = 0;
+        _isDecisionIsMade = false;
+        _optionButtonDefaultScale = _optionButtons[_optionIndex].transform.localScale;
+        Vector2 backButtonDefaultPosition = _backButton.transform.position;
+        Vector2 decisionPanelDefaultScale = _decisionPanel.transform.localScale;
 
-        //animations for appearing modal and black screen
-        _blackBackground.gameObject.SetActive(true);
-        _blackBackground.LeanAlpha(1, 0.8f);
-        transform.LeanMoveLocal(new Vector2(0, -50), 1).setEaseOutQuart();
-
-        //load ui with decision objects
-        _currentDecision = GameManager.Instance.GetNextDecision();
         _typewriter = new Typewriter(_decisionText);
+        _currentDecision = GameManager.Instance.GetNextDecision();
 
+        //deision data initialization
         _characterImage.sprite = Resources.Load<Sprite>("Textures/Characters/" + _currentDecision.imageName);
         _characterName.text = _currentDecision.characterName;
         _decisionText.text = _currentDecision.text;
 
-        //display options when text writing is finished
+        //setting gameobjects & starting animations
+        _backButton.transform.position = new Vector2(_backButton.transform.position.x, Screen.height + _backButton.GetComponent<RectTransform>().rect.size.y);
+        _decisionPanel.transform.localScale = new Vector2(_decisionPanelStartSizeXY, _decisionPanelStartSizeXY);
+
+        _blackBackground.gameObject.SetActive(true);
+        _backButton.gameObject.SetActive(true);
+        _decisionPanel.gameObject.SetActive(true);
+
+        _blackBackground.LeanAlpha(1, _blackBackgroundAnimationTime);
+        _backButton.transform.LeanMove(backButtonDefaultPosition, _backButtonAnimationTime).setEaseOutQuart();
+        _decisionPanel.transform.LeanScale(decisionPanelDefaultScale, _panelAnimationTime).setEaseOutQuart();
+
         _typewriter.OnWritingFinished += DisplayOptions;
         _typewriter.StartWriting();
     }
 
     private void DisplayOptions()
     {
-        for (int i = 0; i < _currentDecision.options.Length; i++)
+        if (_optionIndex >= _currentDecision.options.Length)
         {
-            _optionButton[i].gameObject.SetActive(true);
-            _optionText[i].text = _currentDecision.options[i];
+            return;
         }
+
+        _optionTexts[_optionIndex].text = _currentDecision.options[_optionIndex];
+        _optionButtons[_optionIndex].transform.localScale = Vector2.zero;
+        _optionButtons[_optionIndex].gameObject.SetActive(true);
+        _optionButtons[_optionIndex].transform.LeanScale(_optionButtonDefaultScale, _optionButtonAnimationTime).setEaseOutQuart().setOnComplete(DisplayOptions);
+
+        _optionIndex++;
+    }
+
+    public void OptionClickHandler()
+    {
+        if (_isDecisionIsMade)
+        {
+            return;
+        }
+        _isDecisionIsMade = true;
+
+        int pickedOption;
+        switch (EventSystem.current.currentSelectedGameObject.tag)
+        {
+            case "DecisionOption1":
+                pickedOption = 1;
+                break;
+            case "DecisionOption2":
+                pickedOption = 2;
+                break;
+            case "DecisionOption3":
+                pickedOption = 3;
+                break;
+            case "DecisionOption4":
+                pickedOption = 4;
+                break;
+            default:
+                pickedOption = 1;
+                Debug.LogError("Picked option wrong value!");
+                break;
+        }
+
+        DataManager.UpdateCharacteristics(_currentDecision.characteristicUpdates[pickedOption - 1]);
+        DataManager.PlayerData.madeDecisions[DataManager.PlayerData.chapterID].value[DataManager.PlayerData.decisionID] = pickedOption;
+        DataManager.PlayerData.decisionID++;
+        DataManager.SaveData();
+
+        //анімація зникнення панелі різна при натисненні на кнопку варіанту і при натисненні на кнопку назад, тому LeanScale має бути у цьому методі
+        _decisionPanel.transform.LeanScale(Vector2.zero, _panelAnimationTime).setEaseOutQuart();
+        Exit();
+    }
+
+    private void Exit()
+    {
+        _typewriter.OnWritingFinished -= DisplayOptions;
+
+        _backButton.transform.LeanMoveY(Screen.height + _backButton.GetComponent<RectTransform>().rect.size.y, _backButtonAnimationTime).setEaseOutQuart();
+        _blackBackground.LeanAlpha(0, _blackBackgroundAnimationTime).setOnComplete(GameManager.Instance.LoadMainScene);
     }
 
     public void SkipWriting()
@@ -66,57 +140,12 @@ public class DecisionManager : MonoBehaviour
         _typewriter.SkipWriting();
     }
 
-    public void OptionClickHandler()
+    public void BackButtonClickHandler()
     {
-        if (!decisionIsMade)
+        if (!_isDecisionIsMade)
         {
-            decisionIsMade = true;
-
-            //define picked option
-            int pickedOption;
-            switch (EventSystem.current.currentSelectedGameObject.tag)
-            {
-                case "DecisionOption1":
-                    pickedOption = 1;
-                    break;
-                case "DecisionOption2":
-                    pickedOption = 2;
-                    break;
-                case "DecisionOption3":
-                    pickedOption = 3;
-                    break;
-                case "DecisionOption4":
-                    pickedOption = 4;
-                    break;
-                default:
-                    pickedOption = -1;
-                    break;
-            }
-            GameManager.Instance.UpdateCharacteristics(_currentDecision.characteristicUpdates[pickedOption - 1]);
-
-            DataManager.PlayerData.madeDecisions[DataManager.PlayerData.chapterID].value[DataManager.PlayerData.decisionID] = pickedOption;
-
-            //start removing modal and background animation
-            _blackBackground.LeanAlpha(0, 0.8f).setOnComplete(() => { _blackBackground.gameObject.SetActive(false); });
-            transform.LeanMoveLocal(new Vector2(0, -Screen.height), 0.8f).setEaseOutQuart().setOnComplete(DisableModal);
+            _decisionPanel.transform.LeanMoveY(-Screen.height / 2, _panelAnimationTime).setEaseOutQuart();
+            Exit();
         }
-    }
-
-    //on disable
-    private void DisableModal()
-    {
-        //set unactive all options button
-        for (int i = 0; i < _optionButton.Length; i++)
-        {
-            _optionButton[i].gameObject.SetActive(false);
-        }
-        //event unsubscription
-        _typewriter.OnWritingFinished -= DisplayOptions;
-
-        DataManager.PlayerData.decisionID++;
-        DataManager.SaveData();
-        GameManager.Instance.LoadMainScene();
-
-        gameObject.SetActive(false);
     }
 }

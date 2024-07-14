@@ -6,7 +6,7 @@
     "madeChoices": [
         {
             "value": [
-                1,
+                2,
                 -1,
                 -1,
                 -1,
@@ -1048,8 +1048,8 @@
     "madeDecisions": [
         {
             "value": [
-                3,
-                -1,
+                4,
+                2,
                 -1,
                 -1,
                 -1,
@@ -2088,8 +2088,8 @@
         }
     ],
     "characteristics": {
-        "budget": 900000,
-        "navy": 70,
+        "budget": 2200000,
+        "navy": 30,
         "airForces": 50,
         "infantry": 50,
         "machinery": 50,
@@ -2103,7 +2103,7 @@
         "welfare": 50,
         "education": 50,
         "medicine": 50,
-        "ecology": 60,
-        "infrastructure": 50
+        "ecology": 40,
+        "infrastructure": 100
     }
 }

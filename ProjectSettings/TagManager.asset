@@ -14,6 +14,8 @@ TagManager:
   - InternationalButton
   - ArmyButton
   - MainMenuButton
+  - AcceptHint
+  - DeclineHint
   layers:
   - Default
   - TransparentFX

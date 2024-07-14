@@ -5,20 +5,20 @@ public class Characteristics
 {
     public int budget;
 
-    public sbyte navy;
-    public sbyte airForces;
-    public sbyte infantry;
-    public sbyte machinery;
-    public sbyte europeanUnion;
-    public sbyte china;
-    public sbyte africa;
-    public sbyte unitedKingdom;
-    public sbyte CIS;
-    public sbyte OPEC;
-    public sbyte science;
-    public sbyte welfare;
-    public sbyte education;
-    public sbyte medicine;
-    public sbyte ecology;
-    public sbyte infrastructure;
+    public int navy;
+    public int airForces;
+    public int infantry;
+    public int machinery;
+    public int europeanUnion;
+    public int china;
+    public int africa;
+    public int unitedKingdom;
+    public int CIS;
+    public int OPEC;
+    public int science;
+    public int welfare;
+    public int education;
+    public int medicine;
+    public int ecology;
+    public int infrastructure;
 }
