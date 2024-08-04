@@ -2,215 +2,141 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    /*---------------------------UI SECTION---------------------------*/
     [SerializeField]
     private RawImage _backgroundImage;
 
-    /*---------------------------Dialogue UI Elements---------------------------*/
     [SerializeField]
-    private GameObject _dialogueBox;
+    private GameObject _dialoguePanel;
     [SerializeField]
-    private Image _characterImage;
+    private GameObject _choicePanel;
+
     [SerializeField]
-    private TextMeshProUGUI _characterName;
+    private Image _dialogueCharacterImage;
+    [SerializeField]
+    private TextMeshProUGUI _dialogueCharacterName;
     [SerializeField]
     private TextMeshProUGUI _dialogueText;
-    /*---------------------------End Dialogue Section---------------------------*/
+    [SerializeField]
+    private TextMeshProUGUI _choice1Text;
+    [SerializeField]
+    private TextMeshProUGUI _choice2Text;
+    /*---------------------------END UI SECTION---------------------------*/
 
-    /*---------------------------Choice UI Elements---------------------------*/
-    [SerializeField]
-    private GameObject _choiceBox;
-    [SerializeField]
-    private TextMeshProUGUI _option1Text;
-    [SerializeField]
-    private TextMeshProUGUI _option2Text;
-    /*---------------------------End Choice Section---------------------------*/
+    /*----------------------OTHER PARAMETERS SECTION----------------------*/
+    private Dialogue _currentDialogue;
+
+    private SubReplica[] _currentSubReplicas;
 
     private Typewriter _typewriter;
 
-    private Dialogue _currentDialogue;
-    private SubDialogue _currentSubDialogue;
-
+    private bool _showSubReplicas;
     private int _replicaIndex;
     private int _subReplicaIndex;
-    //field to iterate within SubDialogue array in _currentDialogue object
-    private int _subDialogueIndex;
+    /*--------------------END OTHER PARAMETERS SECTION--------------------*/
 
-    private bool _displayChoice;
-    private bool _displaySubDialogue;
-
-    void Start()
+    private void Start()
     {
-        _replicaIndex = 0;
-        _subDialogueIndex = 0;
-
         _currentDialogue = GameManager.Instance.GetNextDialogue();
         _typewriter = new Typewriter(_dialogueText);
+        _replicaIndex = 0;
 
-        if (_currentDialogue.backgroundImageName != "")
-        {
-            _backgroundImage.texture = Resources.Load<Texture>("Textures/Backgrounds/" + _currentDialogue.backgroundImageName);
-        }
+        _backgroundImage.texture = Resources.Load<Texture>("Textures/Backgrounds/" + _currentDialogue.backgroundImageName);
 
-        _dialogueBox.SetActive(true);
-        DialogueClickHandler();
+        /*------------------------initializing the first replica------------------------*/
+        _dialogueCharacterImage.sprite = Resources.Load<Sprite>("Textures/Characters/" + _currentDialogue.replicas[_replicaIndex].imageName);
+        _dialogueCharacterName.text = _currentDialogue.replicas[_replicaIndex].characterName;
+        _dialogueText.text = _currentDialogue.replicas[_replicaIndex].replicaText;
+        _typewriter.StartWriting();
+        /*------------------------------------------------------------------------------*/
     }
 
-    public void DialogueClickHandler()
+    private void LoadNextReplica()
     {
-        //if text is writing, skip writing and return
-        if (_typewriter.IsWriting)
+        //if needs to show specific subreplicas after made choice
+        if (_showSubReplicas)
         {
-            _typewriter.SkipWriting();
-
-            return;
-        }
-
-        //if needs to display choice
-        if (_displayChoice)
-        {
-            //show choice with choiceID which is stored in choiceID[_replicaIndex] and return
-            _displayChoice = false;
-            ShowNextChoice(_currentDialogue.choiceID[_replicaIndex]);
-
-            return;
-        }
-
-        //if needs to display SubDialogue
-        if (_displaySubDialogue)
-        {
-            //if all sub replicas was displayed, set _displaySubDialogue to false and load next main dialogue replica
-            if (_subReplicaIndex == _currentSubDialogue.replicas.Length)
+            if (_subReplicaIndex >= _currentSubReplicas.Length)
             {
-                _displaySubDialogue = false;
-                _replicaIndex++;
-            }
-            //else show sub replica, load next sub replica and return
-            else
-            {
-                ShowNextReplica();
-                _subReplicaIndex++;
+                _showSubReplicas = false;
 
+                LoadNextReplica();
                 return;
             }
-        }
 
-        /*---------------------------MAIN DIALOGUE REPLICAS BLOCK---------------------------*/
-        //if all main replicas was displayed, exit scene
-        if (_replicaIndex >= _currentDialogue.replicas.Length)
-        {
-            ExitScene();
-            return;
+            _dialogueCharacterImage.sprite = Resources.Load<Sprite>("Textures/Characters/" + _currentSubReplicas[_subReplicaIndex].imageName);
+            _dialogueCharacterName.text = _currentSubReplicas[_subReplicaIndex].characterName;
+            _dialogueText.text = _currentSubReplicas[_subReplicaIndex].subReplicaText;
+
+            _subReplicaIndex++;
         }
-        //show next main dialogue replica
-        ShowNextReplica();
-        //if needs to display choice after current replica, set _displayChoice to true
-        if (_currentDialogue.choiceID[_replicaIndex] != -1)
-        {
-            _displayChoice = true;
-        }
-        //else load next main dialogue replica
+        //if needs to show main replicas chain
         else
         {
             _replicaIndex++;
-        }
-        /*---------------------------END BLOCK---------------------------*/
-    }
 
-    //display next SubDialogue or Dialogue replica if exists
-    private void ShowNextReplica()
-    {
-        try
-        {
-            _characterImage.sprite = Resources.Load<Sprite>("Textures/Characters/" + (_displaySubDialogue ? _currentSubDialogue.imageName[_subReplicaIndex] : _currentDialogue.imageName[_replicaIndex]));
-            _characterName.text = _displaySubDialogue ? _currentSubDialogue.characterName[_subReplicaIndex] : _currentDialogue.characterName[_replicaIndex];
-            _dialogueText.text = _displaySubDialogue ? _currentSubDialogue.replicas[_subReplicaIndex] : _currentDialogue.replicas[_replicaIndex];
-        }
-        catch (Exception e)
-        {
-            Debug.LogError(e.Message + $" Error! Check indexes for imageName, characterName and replicas arrays in Dialogue or SubDialogue object");
-            return;
+            if (_replicaIndex >= _currentDialogue.replicas.Length)
+            {
+                DataManager.PlayerData.dialogueID++;
+                DataManager.SaveData();
+                GameManager.Instance.LoadMainScene();
+                return;
+            }
+
+            _dialogueCharacterImage.sprite = Resources.Load<Sprite>("Textures/Characters/" + _currentDialogue.replicas[_replicaIndex].imageName);
+            _dialogueCharacterName.text = _currentDialogue.replicas[_replicaIndex].characterName;
+            _dialogueText.text = _currentDialogue.replicas[_replicaIndex].replicaText;
         }
 
         _typewriter.StartWriting();
     }
 
-    public void ChoiceClickHandler()
+    public void DialogueClickHandler()
     {
-        int pickedOption;
-        sbyte choiceID = _currentDialogue.choiceID[_replicaIndex];
-
-        //save player choice and update characteristics
-        if (EventSystem.current.currentSelectedGameObject.CompareTag("ChoiceOption1"))
+        if (_typewriter.IsWriting)
         {
-            pickedOption = 1;
-            DataManager.UpdateCharacteristics(GameManager.Instance.GetChoice(choiceID).characteristicsUpdateOption1);
-        }
-        else
-        {
-            pickedOption = 2;
-            DataManager.UpdateCharacteristics(GameManager.Instance.GetChoice(choiceID).characteristicsUpdateOption2);
-        }
-        DataManager.PlayerData.madeChoices[DataManager.PlayerData.chapterID].value[choiceID] = pickedOption;
-
-        //load SubDialogue after choice if exists
-        try
-        {
-            //if there is no subdialogues after current choice, skip to next replica
-            if (_currentDialogue.subDialogueOption1.Length == 0)
-            {
-                _replicaIndex++;
-            }
-            else
-            {
-                _currentSubDialogue = pickedOption == 1 ? _currentDialogue.subDialogueOption1[_subDialogueIndex] : _currentDialogue.subDialogueOption2[_subDialogueIndex];
-                _subReplicaIndex = 0;
-                _displaySubDialogue = true;
-            }
-
-            // if there are replicas to show, change modals
-            if (_replicaIndex < _currentDialogue.replicas.Length)
-            {
-                ChangeModals();
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError(e.Message + $" SubDialogue object with ID {_subDialogueIndex} does not exist!");
+            _typewriter.SkipWriting();
             return;
         }
 
-        //incement index of SubDialogue objects array
-        _subDialogueIndex++;
+        //if subreplicas are not showing right now and there is choice to show - display choice modal
+        if (!_showSubReplicas && _currentDialogue.replicas[_replicaIndex].choiceID != -1)
+        {
+            _choice1Text.text = GameManager.Instance.GetChoice(_currentDialogue.replicas[_replicaIndex].choiceID).option1;
+            _choice2Text.text = GameManager.Instance.GetChoice(_currentDialogue.replicas[_replicaIndex].choiceID).option2;
+
+            _dialoguePanel.SetActive(false);
+            _choicePanel.SetActive(true);
+
+            return;
+        }
+
+        LoadNextReplica();
+    }
+
+    public void ChoiceClickHandler()
+    {
+        int _pickedChoiceOption = EventSystem.current.currentSelectedGameObject.tag == "ChoiceOption1" ? 1 : 2;
+        Characteristics characteristicsToUpdate = _pickedChoiceOption == 1 ? GameManager.Instance.GetChoice(_currentDialogue.replicas[_replicaIndex].choiceID).characteristicsUpdateOption1 :
+            GameManager.Instance.GetChoice(_currentDialogue.replicas[_replicaIndex].choiceID).characteristicsUpdateOption2;
+
+        DataManager.UpdateCharacteristics(characteristicsToUpdate);
+        DataManager.PlayerData.madeChoices[DataManager.PlayerData.chapterID].value[_currentDialogue.replicas[_replicaIndex].choiceID] = _pickedChoiceOption;
+
+        //subreplicas numeration starts from 0 in every Replica object
+        _currentSubReplicas = _pickedChoiceOption == 1 ? _currentDialogue.replicas[_replicaIndex].subreplicasOption1 : _currentDialogue.replicas[_replicaIndex].subreplicasOption2;
+        _showSubReplicas = true;
+        _subReplicaIndex = 0;
+
+        _choicePanel.SetActive(false);
+        _dialoguePanel.SetActive(true);
 
         DialogueClickHandler();
-    }
 
-    //load text from Choice object if exists
-    void ShowNextChoice(sbyte choiceID)
-    {
-        _option1Text.text = GameManager.Instance.GetChoice(choiceID).option1;
-        _option2Text.text = GameManager.Instance.GetChoice(choiceID).option2;
-
-        ChangeModals();
-    }
-
-    //changing between choice and dialogue modals
-    void ChangeModals()
-    {
-        _dialogueBox.SetActive(!_dialogueBox.activeSelf);
-        _choiceBox.SetActive(!_choiceBox.activeSelf);
-    }
-
-    //increment index of Dialogues array, save data into file and exit scene
-    void ExitScene()
-    {
-        DataManager.PlayerData.dialogueID++;
-        DataManager.SaveData();
-        GameManager.Instance.LoadMainScene();
+        //якщо діалог закінчуєтсья на чойсі без продовження фраз або підфраз - перед виходом зі сцени залишаються текстурки попереднього діалогу. В теорії фікситсья анімацією
     }
 }

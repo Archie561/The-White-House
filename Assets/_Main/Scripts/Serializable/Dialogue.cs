@@ -12,11 +12,5 @@ public class Dialogue
 
     public string backgroundImageName;
 
-    public string[] imageName;
-    public string[] characterName;
-    public string[] replicas;
-    public sbyte[] choiceID;
-
-    public SubDialogue[] subDialogueOption1;
-    public SubDialogue[] subDialogueOption2;
+    public Replica[] replicas;
 }

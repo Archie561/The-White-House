@@ -23,12 +23,14 @@ public class StoryFlowManager : MonoBehaviour
             DataManager.PlayerData.dialogueID++;
             DataManager.SaveData();
             UpdateMechanicsStatus();
+            return;
         }
         if (!GameManager.Instance.IsDecisionLocked() && !GameManager.Instance.IsConditionMet(GameManager.Instance.GetNextDecision().condition))
         {
             DataManager.PlayerData.decisionID++;
             DataManager.SaveData();
             UpdateMechanicsStatus();
+            return;
         }
 
         GameObject.Find("Canvas").GetComponent<UIHandler>().SetMechanicMarks();

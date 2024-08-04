@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public Choice GetChoice(sbyte ID)
+    public Choice GetChoice(int ID)
     {
         try
         {
