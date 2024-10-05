@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Music Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Music Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5d5488200437c7143ab66f4474a82fa9
+  m_SerializeEntries:
+  - m_GUID: 3e89ff178262ae346acaeb8dc2f7bd58
+    m_Address: Audio/Music/background-patriotic-6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a4c287eabdca824499a021a2b5b69693
+    m_Address: Audio/Music/background-motivational-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ff5da312c616395479bf18f0d16c01a6
+    m_Address: Audio/Music/background-tense-1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ec17bc59bc3a6834c9e607d16fc847e2
+    m_Address: Audio/Music/background-calm-6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0437520f6d495f7469d0b27f8fe07417
+    m_Address: Audio/Music/background-patriotic-4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d525aac21c464dc4abbd29a73f166170
+    m_Address: Audio/Music/background-sad-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e25f568586a367f43ab62cd515263319
+    m_Address: Audio/Music/background-patriotic-3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1e967bbd24e0e2d4aaa4ba06c4c40786
+    m_Address: Audio/Music/background-tense-6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 35629eb238aa69941a4cedfb067fd496
+    m_Address: Audio/Music/main-theme
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 552ddf6f93aa62c4fad5578bfc0ecf80
+    m_Address: Audio/Music/background-motivational-3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1a9e37f320349bd40b6eae8acf211a12
+    m_Address: Audio/Music/background-motivational-4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 055b0c135a1b90a4c9e9e2ba6fc23f8a
+    m_Address: Audio/Music/background-calm-5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0acd011a97cc9cc42b0ad0a58eaea2d3
+    m_Address: Audio/Music/background-calm-1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fab5428700bc9de4db18b99946498475
+    m_Address: Audio/Music/background-calm-3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5b9c60528b0bbb74f88a4a73c09ca10f
+    m_Address: Audio/Music/background-sad-3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8f3bcb9a61d69134ebdbd9401bbbfd39
+    m_Address: Audio/Music/background-sad-1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2d5b2f3eb7fe3c746889b8cc740e5c5f
+    m_Address: Audio/Music/background-tense-9
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e87aeaa20a0f38a45bd7a82099c4b163
+    m_Address: Audio/Music/background-tense-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c7e880621e1c4854fa510df1f8daae44
+    m_Address: Audio/Music/background-changes-1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3ee7deab6af0b6b4ba97ca63016ab151
+    m_Address: Audio/Music/background-calm-4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 72daecaf13d1bbc4da951c3a4080d176
+    m_Address: Audio/Music/background-tense-8
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 615e98fc992d5b04985f32a9145ea095
+    m_Address: Audio/Music/background-calm-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 815e3b5b76d2267449cfa54b1d763e52
+    m_Address: Audio/Music/background-changes-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c329e5a5df0f6df4ab5e1a8b8f391722
+    m_Address: Audio/Music/background-patriotic-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ceefd116fb0b5454dad27f98b9209904
+    m_Address: Audio/Music/background-tense-5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7391e9a98341d2b44bc539dbe86b3416
+    m_Address: Audio/Music/background-motivational-1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 764406adb8c6e284e9bcef35b5d103f2
+    m_Address: Audio/Music/background-patriotic-1.1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cee1dee2517730f4c874204a9a726f35
+    m_Address: Audio/Music/background-patriotic-1.2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 79958826ac928de408933e5dec554f48
+    m_Address: Audio/Music/background-tense-3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f261dbb349ccf9b4b86e2fe18f33732c
+    m_Address: Audio/Music/background-tense-7
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b8602137770413843a53d1c15e03926f
+    m_Address: Audio/Music/background-tense-4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1a9887f3c997e9d41af5618c396809ac
+    m_Address: Audio/Music/background-patriotic-5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4a7392970d901df40abc73df9f45559b
+    m_Address: Audio/Music/background-music
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 368f01d9028a0874f8f6f3ed646a56e8, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2e80fa20d09a7ab4db40fb41df811ecf, type: 2}
+    - {fileID: 11400000, guid: 2a1331e9836f70742b814e6c26394553, type: 2}

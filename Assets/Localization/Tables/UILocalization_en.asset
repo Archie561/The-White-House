@@ -1,0 +1,336 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UILocalization_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 8c5e1d084d2840b41b61a4f15e53bfc6, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 28666732544
+    m_Localized: Tap to continue...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71008231424
+    m_Localized: Possible answers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 107112800256
+    m_Localized: Ken Rothwell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 684707485032448
+    m_Localized: Businessman, oligarch, philantropist.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 685194653442048
+    m_Localized: Ken Rothwell, a former tech titan, shifted from business to politics,
+      using his expertise to address economic issues and promote innovation. His
+      philanthropy and leadership reflect his vision for a progressive future, making
+      him a respected figure in both arenas.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 685387545288704
+    m_Localized: Economy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 685609776291840
+    m_Localized: Ecology
+    m_Metadata:
+      m_Items: []
+  - m_Id: 685700213874688
+    m_Localized: boost of economic growth and prosperity.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 685806422040576
+    m_Localized: environmental damage is reduced by 50%.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686421529305088
+    m_Localized: Backstory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686491700011008
+    m_Localized: Bonuses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686739541434368
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1074988092989440
+    m_Localized: Are you sure?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1075131571740672
+    m_Localized: This will erase all your progress with the current president. This
+      action cannot be undone.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1075248739622912
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1075273297272832
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1360427542618112
+    m_Localized: Melissa Powers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1360453660549120
+    m_Localized: Media personality, activist, influencer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1360666064297984
+    m_Localized: Melissa Powers used her media influence to champion environmental
+      causes, simplifying issues to rally support. Her shift from media to politics
+      was driven by her passion for sustainability, making her a beloved figure among
+      environmental advocates.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1362319333105664
+    m_Localized: Jay B. Foster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1362388270686208
+    m_Localized: Diplomat, negotiator, statesman.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1362420864622592
+    m_Localized: "Jay B. Foster\u2019s legacy as U.S. Secretary of State is defined
+      by his dedication to diplomacy and education. His efforts forged lasting alliances
+      and prevented crises, while his education policies strengthened infrastructure
+      and promoted global academic exchanges."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1362973829079040
+    m_Localized: Tom Padilla
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1367166677655552
+    m_Localized: Military general, strategist, leader.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1367265470291968
+    m_Localized: General Tom Padilla rose to fame for his decisive leadership in
+      a key operation in Iran. Now, he advocates for infrastructure supporting both
+      civilians and the military. His move from military service to politics embodies
+      leadership and national resilience.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1368118914686976
+    m_Localized: Earl Anderson
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1368179094560768
+    m_Localized: Earl Anderson, as governor and congressman, has prioritized welfare
+      and healthcare reform. His policies address immediate needs while laying foundations
+      for long-term solutions. Anderson's dedication to public service aims to improve
+      life for all Americans.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1368148081876992
+    m_Localized: Congressman, reformer, advocate.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1381470600667136
+    m_Localized: Do you really want to skip the scene? You might miss some details
+      of the story and lose understanding of the storyline.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1390886993502208
+    m_Localized: Domestic policy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1391200345759744
+    m_Localized: Science
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1391255127564288
+    m_Localized: Level of technology
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1411000681865216
+    m_Localized: Welfare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1411051927871488
+    m_Localized: Unemployment rate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1411620428029952
+    m_Localized: Education
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1411647233826816
+    m_Localized: Population's intelligence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412014411587584
+    m_Localized: Medicine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412049585020928
+    m_Localized: Hospitals and clinics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412381388021760
+    m_Localized: Ecology
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412409192062976
+    m_Localized: Environmental pollution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412826374316032
+    m_Localized: Infrastructure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412857701572608
+    m_Localized: Roads, lighting, buildings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413463413596160
+    m_Localized: Foreign policy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413525078253568
+    m_Localized: European Union
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413888430809088
+    m_Localized: Relations with the EU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414307198509056
+    m_Localized: Asia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414333178028032
+    m_Localized: Relations with Asian countries
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414641371291648
+    m_Localized: Africa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414668080619520
+    m_Localized: Relations with Africa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415013183758336
+    m_Localized: Great Britain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415143102324736
+    m_Localized: Relations with Great Britain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415461529690112
+    m_Localized: CIS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415485323976704
+    m_Localized: Relations with CIS organization
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415758402527232
+    m_Localized: OPEC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415774483488768
+    m_Localized: Relations with OPEC cartel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1417281421418496
+    m_Localized: Army
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1417470995570688
+    m_Localized: Infantry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1417500414418944
+    m_Localized: Number and skill of soldiers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1417742635474944
+    m_Localized: Armament
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1417774315053056
+    m_Localized: Combat vehicles, missiles, etc.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1418019782500352
+    m_Localized: Air Force
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1418067190718464
+    m_Localized: Airplanes, jets, bombers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1418343729569792
+    m_Localized: Navy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1418375660806144
+    m_Localized: Cruisers, fregates, submarines
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1813792802185216
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1813932204072960
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814196902404096
+    m_Localized: SFX volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814423394820096
+    m_Localized: Music volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814561798463488
+    m_Localized: 'Support our small team:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814730585645056
+    m_Localized: Follow us
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814860470657024
+    m_Localized: Follow the latest news and take part in polls on the next games.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1815004549193728
+    m_Localized: Rate us
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1815128788672512
+    m_Localized: Good feedback motivates us to create new games for you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1815353905356800
+    m_Localized: Exit to menu
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

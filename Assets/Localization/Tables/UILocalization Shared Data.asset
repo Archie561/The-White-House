@@ -1,0 +1,324 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UILocalization Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UILocalization
+  m_TableCollectionNameGuidString: 8c5e1d084d2840b41b61a4f15e53bfc6
+  m_Entries:
+  - m_Id: 28666732544
+    m_Key: TapToContinue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71008231424
+    m_Key: PossibleAnswers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 107112800256
+    m_Key: KenRothwell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 684707485032448
+    m_Key: KenRothwellDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 685194653442048
+    m_Key: KenRothwellBackstory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 685387545288704
+    m_Key: BonusEconomy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 685609776291840
+    m_Key: BonusEcology
+    m_Metadata:
+      m_Items: []
+  - m_Id: 685700213874688
+    m_Key: BonusEconomyDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 685806422040576
+    m_Key: BonusEcologyDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686421529305088
+    m_Key: Backstory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686491700011008
+    m_Key: Bonuses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686739541434368
+    m_Key: PlayButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1074988092989440
+    m_Key: AreYouSure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1075131571740672
+    m_Key: RestartGameWarning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1075248739622912
+    m_Key: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1075273297272832
+    m_Key: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1360427542618112
+    m_Key: MelissaPowers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1360453660549120
+    m_Key: MelissaPowersDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1360666064297984
+    m_Key: MelissaPowersBackstory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1362319333105664
+    m_Key: JayBFoster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1362388270686208
+    m_Key: JayBFosterDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1362420864622592
+    m_Key: JayBFosterBackstory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1362973829079040
+    m_Key: TomPadilla
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1367166677655552
+    m_Key: TomPadillaDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1367265470291968
+    m_Key: TomPadillaBackstory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1368118914686976
+    m_Key: EarlAnderson
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1368148081876992
+    m_Key: EarlAndersonDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1368179094560768
+    m_Key: EarlAndersonBackstory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1381470600667136
+    m_Key: SkipCutsceneWarning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1390886993502208
+    m_Key: DomesticPolicy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1391200345759744
+    m_Key: Science
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1391255127564288
+    m_Key: ScienceDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1411000681865216
+    m_Key: Welfare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1411051927871488
+    m_Key: WelfareDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1411620428029952
+    m_Key: Education
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1411647233826816
+    m_Key: EducationDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412014411587584
+    m_Key: Medicine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412049585020928
+    m_Key: MedicineDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412381388021760
+    m_Key: Ecology
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412409192062976
+    m_Key: EcologyDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412826374316032
+    m_Key: Infrastructure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412857701572608
+    m_Key: InfrastructureDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413463413596160
+    m_Key: ForeignPolicy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413525078253568
+    m_Key: EuropeanUnion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413888430809088
+    m_Key: EuropeanUnionDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414307198509056
+    m_Key: Asia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414333178028032
+    m_Key: AsiaDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414641371291648
+    m_Key: Africa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414668080619520
+    m_Key: AfricaDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415013183758336
+    m_Key: GreatBritain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415143102324736
+    m_Key: GreatBritainDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415461529690112
+    m_Key: CIS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415485323976704
+    m_Key: CISDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415758402527232
+    m_Key: OPEC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415774483488768
+    m_Key: OPECDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1417281421418496
+    m_Key: Army
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1417470995570688
+    m_Key: Infantry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1417500414418944
+    m_Key: InfantryDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1417742635474944
+    m_Key: Armament
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1417774315053056
+    m_Key: ArmamentDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1418019782500352
+    m_Key: AirForce
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1418067190718464
+    m_Key: AirForceDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1418343729569792
+    m_Key: Navy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1418375660806144
+    m_Key: NavyDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1813792802185216
+    m_Key: LanguageHeader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1813932204072960
+    m_Key: LanguageName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814196902404096
+    m_Key: SFXHeader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814423394820096
+    m_Key: MusicHeader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814561798463488
+    m_Key: SupportHeader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814730585645056
+    m_Key: InstagramHeader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814860470657024
+    m_Key: InstagramDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1815004549193728
+    m_Key: RateUsHeader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1815128788672512
+    m_Key: RateUsDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1815353905356800
+    m_Key: ExitToMenu
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 3016838268118368284
+  references:
+    version: 2
+    RefIds:
+    - rid: 3016838268118368284
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1726844081582
