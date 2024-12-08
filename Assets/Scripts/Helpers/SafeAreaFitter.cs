@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(RectTransform))]
 public class SafeAreaFitter : MonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
         var rectTransform = GetComponent<RectTransform>();
         var safeArea = Screen.safeArea;

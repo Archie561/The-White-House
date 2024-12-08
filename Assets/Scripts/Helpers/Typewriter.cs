@@ -61,10 +61,6 @@ public class Typewriter
         }
 
         IsWriting = false;
-
-        if (OnWritingFinished != null)
-        {
-            OnWritingFinished();
-        }
+        OnWritingFinished?.Invoke();
     }
 }

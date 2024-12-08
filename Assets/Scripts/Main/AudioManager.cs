@@ -7,14 +7,11 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
-    [SerializeField]
-    private AudioSource _musicSource;
-    [SerializeField]
-    private AudioSource _sfxSource;
-    [SerializeField]
-    private AudioClip _backgroundMusic;
+    [SerializeField] private AudioSource _musicSource;
+    [SerializeField] private AudioSource _sfxSource;
+    [SerializeField] private AudioClip _backgroundMusic;
 
-    private float _fadeDuration = 1f;
+    private const float FADE_DURATION = 1f;
 
     private void Awake()
     {
@@ -71,14 +68,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void SetMusicVolume(float volume)
-    {
-        _musicSource.volume = volume;
-    }
-    public void SetSFXVolume(float volume)
-    {
-        _sfxSource.volume = volume;
-    }
+    public void SetMusicVolume(float volume) => _musicSource.volume = volume;
+
+    public void SetSFXVolume(float volume) => _sfxSource.volume = volume;
 
     private IEnumerator PlayAudio(AudioClip clip)
     {
@@ -98,9 +90,9 @@ public class AudioManager : MonoBehaviour
     {
         float initialVolume = _musicSource.volume;
         float timeElapsed = 0f;
-        while (timeElapsed < _fadeDuration)
+        while (timeElapsed < FADE_DURATION)
         {
-            _musicSource.volume = Mathf.Lerp(initialVolume, 0, timeElapsed / _fadeDuration);
+            _musicSource.volume = Mathf.Lerp(initialVolume, 0, timeElapsed / FADE_DURATION);
             timeElapsed += Time.deltaTime;
             yield return null;
         }

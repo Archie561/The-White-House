@@ -3,7 +3,6 @@ using System;
 [Serializable]
 public class Chapter
 {
-    public string title;
     public string theme;
 
     public Dialogue[] dialogues;

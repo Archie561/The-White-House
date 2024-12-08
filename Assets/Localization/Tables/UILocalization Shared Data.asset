@@ -311,6 +311,26 @@ MonoBehaviour:
     m_Key: ExitToMenu
     m_Metadata:
       m_Items: []
+  - m_Id: 23945795064594432
+    m_Key: Month0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23945822356930560
+    m_Key: Month1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25705707633410048
+    m_Key: MonthIsOver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25705832841773056
+    m_Key: MonthIsOverDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25706097531715584
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

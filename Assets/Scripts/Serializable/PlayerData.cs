@@ -3,11 +3,14 @@ using System;
 [Serializable]
 public class PlayerData
 {
-    public byte chapterID;
+    public int chapterID;
 
-    public byte dialogueID;
-    public byte lawID;
-    public byte decisionID;
+    public int dialogueID;
+    public int lawID;
+    public int decisionID;
+
+    public bool startingCutscenesShown;
+    public bool gameOver;
 
     public MadeAction[] madeChoices;
     public MadeAction[] madeDecisions;

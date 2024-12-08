@@ -1,96 +1,76 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.Localization.Settings;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
-    /*-----------------------------UI SECTION-----------------------------*/
-    [SerializeField]
-    private CanvasGroup _loadingScreen;
-    [SerializeField]
-    private CanvasGroup _blackoutScreen;
-    [SerializeField]
-    private Button _backButton;
+    [SerializeField] private BlackoutScreen _blackoutScreen;
+    [SerializeField] private GameObject _pausePanel;
+    [SerializeField] private Slider _sfxSlider;
+    [SerializeField] private Slider _musicSlider;
 
-    [SerializeField]
-    private GameObject _pausePanel;
-    [SerializeField]
-    private Slider _sfxSlider;
-    [SerializeField]
-    private Slider _musicSlider;
-    /*---------------------------END UI SECTION---------------------------*/
+    private const float PANEL_ANIMATION_TIME = 0.8f;
 
-    /*--------------------ANIMATION PARAMETERS SECTION--------------------*/
-    private bool _isAnimationFinished;
-    private float _loadingScreenAnimationTime = 0.8f;
-    private float _blackoutScreenAnimationTime = 0.8f;
-    private float _panelAnimationTime = 0.8f;
-    private float _backButtonAnimationTime = 0.8f;
-    /*------------------END ANIMATION PARAMETERS SECTION------------------*/
-
-    /*----------------------OTHER PARAMETERS SECTION----------------------*/
     private bool _languageChangingIsInProcess;
     private int _languageIndex;
     private string _languageCode;
-    /*--------------------END OTHER PARAMETERS SECTION--------------------*/
+    private int languages_count;
 
-    void OnEnable()
+    private void Start() => SetUpPause();
+
+    private void SetUpPause()
     {
+        languages_count = LocalizationSettings.AvailableLocales.Locales.Count;
+
         _languageIndex = LocalizationSettings.AvailableLocales.Locales.IndexOf(LocalizationSettings.SelectedLocale);
         _languageCode = PlayerPrefs.GetString("gameLanguage");
 
         _sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume", 0.8f);
         _musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 0.8f);
+    }
 
-        _isAnimationFinished = false;
+    public void PauseClickHandler()
+    {
+        if (GameManager.Instance.State == GameState.Default)
+        {
+            GameManager.Instance.ChangeGameState(GameState.Pause);
+            ShowPausePanel();
+        }
+    }
 
-        //blackout screen animation
-        _blackoutScreen.gameObject.SetActive(true);
-        _blackoutScreen.LeanAlpha(1, _blackoutScreenAnimationTime);
+    private void ShowPausePanel()
+    {
+        _blackoutScreen.SetPosition(BlackoutScreenPosition.overBudgetBox);
+        _blackoutScreen.OnClick += ExitPause;
+        _blackoutScreen.FadeIn();
 
-        //back button animation
-        Vector2 _backButtonDefaultPosition = _backButton.transform.position;
-        _backButton.transform.position = new Vector2(_backButton.transform.position.x, Screen.height + _backButton.GetComponent<RectTransform>().rect.size.y * _backButton.GetComponent<RectTransform>().lossyScale.y);
-        _backButton.gameObject.SetActive(true);
-        _backButton.transform.LeanMove(_backButtonDefaultPosition, _backButtonAnimationTime).setEaseOutQuart();
-
-        //pause panel animation
-        _pausePanel.transform.localScale = Vector2.zero;
         _pausePanel.gameObject.SetActive(true);
-        _pausePanel.LeanScale(Vector2.one, _panelAnimationTime).setEaseOutQuart().setOnComplete(() => _isAnimationFinished = true);
+        _pausePanel.transform.localScale = Vector3.zero;
+        _pausePanel.LeanScale(Vector3.one, PANEL_ANIMATION_TIME).setEaseOutQuart();
     }
 
-    public void RightLanguageButtonClickHandler()
+    public void ChangeLanguageButtonClickHandler(bool leftButtonClicked)
     {
-        if (_languageChangingIsInProcess)
-        {
-            return;
-        }
+        if (_languageChangingIsInProcess) return;
+
         AudioManager.Instance.PlaySFX("button");
-        _languageIndex = _languageIndex == LocalizationSettings.AvailableLocales.Locales.Count - 1 ? 0 : _languageIndex + 1;
+
+        if (leftButtonClicked) _languageIndex = (_languageIndex - 1 + languages_count) % languages_count;
+        else _languageIndex = (_languageIndex + 1) % languages_count;
+
         StartCoroutine(ChangeLanguage(_languageIndex));
     }
-    public void LeftLanguageButtonClickHandler()
-    {
-        if (_languageChangingIsInProcess)
-        {
-            return;
-        }
-        AudioManager.Instance.PlaySFX("button");
-        _languageIndex = _languageIndex == 0 ? LocalizationSettings.AvailableLocales.Locales.Count - 1 : _languageIndex - 1;
-        StartCoroutine(ChangeLanguage(_languageIndex));
-    }
+
     private IEnumerator ChangeLanguage(int index)
     {
         _languageChangingIsInProcess = true;
+
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
         PlayerPrefs.SetString("gameLanguage", LocalizationSettings.AvailableLocales.Locales[index].Identifier.Code);
+
         _languageChangingIsInProcess = false;
     }
 
@@ -99,11 +79,13 @@ public class PauseManager : MonoBehaviour
         AudioManager.Instance.SetSFXVolume(_sfxSlider.value);
         PlayerPrefs.SetFloat("sfxVolume", _sfxSlider.value);
     }
+
     public void ChangeMusicVolume()
     {
         AudioManager.Instance.SetMusicVolume(_musicSlider.value);
         PlayerPrefs.SetFloat("musicVolume", _musicSlider.value);
     }
+
     public void TestSFXVolume()
     {
         AudioManager.Instance.PlaySFX("button");
@@ -115,14 +97,15 @@ public class PauseManager : MonoBehaviour
         Application.OpenURL("https://www.instagram.com/");
     }
 
-    public void BackButtonClickHandler()
+    public void RateUsClickHandler()
     {
-        if (!_isAnimationFinished || _languageChangingIsInProcess)
-        {
-            return;
-        }
-        _isAnimationFinished = false;
         AudioManager.Instance.PlaySFX("button");
+        Application.OpenURL("https://play.google.com/store/");
+    }
+
+    public void ExitPause()
+    {
+        if (_languageChangingIsInProcess) return;
 
         //if language was changed - reload scene and load translated chapter
         if (_languageCode != PlayerPrefs.GetString("gameLanguage"))
@@ -131,49 +114,24 @@ public class PauseManager : MonoBehaviour
             return;
         }
 
-        //blackout screen animation
-        _blackoutScreen.LeanAlpha(0, _blackoutScreenAnimationTime);
+        _pausePanel.LeanScale(Vector3.zero, PANEL_ANIMATION_TIME).setEaseOutQuart().setOnComplete(() => _pausePanel.gameObject.SetActive(true));
 
-        //back button animation
-        Vector2 backButtonDefaultPosition = _backButton.transform.position;
-        _backButton.transform.LeanMoveY(Screen.height + _backButton.GetComponent<RectTransform>().rect.size.y * _backButton.GetComponent<RectTransform>().lossyScale.y, _backButtonAnimationTime).setEaseOutQuart();
-
-        //pause panel animation
-        Vector2 panelDefaultPosition = _pausePanel.transform.position;
-        _pausePanel.LeanMoveY(-Screen.height / 2, _panelAnimationTime).setEaseOutQuart().setOnComplete(() =>
-        {
-            _blackoutScreen.gameObject.SetActive(false);
-            _backButton.gameObject.SetActive(false);
-            _pausePanel.SetActive(false);
-            
-            _pausePanel.transform.position = panelDefaultPosition;
-            _backButton.transform.position = backButtonDefaultPosition;
-
-            gameObject.SetActive(false);
-        });
-    }
-
-    public void ExitToMenuClickHandler()
-    {
-        AudioManager.Instance.PlaySFX("button");
-
-        _loadingScreen.gameObject.SetActive(true);
-        _loadingScreen.LeanAlpha(1, _loadingScreenAnimationTime).setOnComplete(() =>
-        {
-            AudioManager.Instance.StopPlaying();
-            SceneManager.LoadScene(0);
-            Destroy(GameManager.Instance.gameObject);
-        });
+        _blackoutScreen.OnClick -= ExitPause;
+        _blackoutScreen.FadeOut(() => GameManager.Instance.ChangeGameState(GameState.Default));
     }
 
     private void ReloadSceneAfterLanguageChange()
     {
-        _loadingScreen.gameObject.SetActive(true);
-        _loadingScreen.LeanAlpha(1, _loadingScreenAnimationTime).setOnComplete(() =>
-        {
-            AudioManager.Instance.StopPlaying();
-            SceneManager.LoadScene(1);
-            Destroy(GameManager.Instance.gameObject);
-        });
+        var playerDataManager = ServiceLocator.GetService<PlayerDataManager>();
+        var chapterDataManager = new ChapterDataManager(playerDataManager.ActivePresident, playerDataManager.ChapterID);
+        ServiceLocator.RegisterService(chapterDataManager);
+
+        LevelManager.Instance.LoadScene("Main", playerDataManager.ActivePresident, playerDataManager.ChapterID.ToString());
+    }
+
+    public void ExitToMenu()
+    {
+        AudioManager.Instance.PlaySFX("button");
+        LevelManager.Instance.LoadScene("Menu");
     }
 }
