@@ -30,7 +30,10 @@ public class DecisionManager : MonoBehaviour
     public void DecisionsClickHandler()
     {
         if (!_isDecisionLocked && GameManager.Instance.State == GameState.Default)
+        {
+            AudioManager.Instance.PlaySFX("phone");
             GameManager.Instance.ChangeGameState(GameState.ActiveDecisions);
+        }
     }
 
     //handles game state change. If Default - updates decisions status, if ActiveDecisions - initializes decision, else - return

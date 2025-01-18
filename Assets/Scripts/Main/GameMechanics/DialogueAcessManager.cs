@@ -31,7 +31,10 @@ public class DialogueAcessManager : MonoBehaviour
     public void DialogueClickHandler()
     {
         if (!_isDialogueLocked && GameManager.Instance.State == GameState.Default)
+        {
+            AudioManager.Instance.PlaySFX("door");
             GameManager.Instance.ChangeGameState(GameState.ActiveDialogues);
+        }
     }
 
     //defines whether dialogue is locked or not: if dialogue isn't locked but condition for it isn't met, increment dialogue id and invokes method again

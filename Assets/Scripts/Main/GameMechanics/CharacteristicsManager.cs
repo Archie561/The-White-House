@@ -36,6 +36,8 @@ public class CharacteristicsManager : MonoBehaviour
     {
         if (GameManager.Instance.State == GameState.Default)
         {
+            AudioManager.Instance.PlaySFX("button");
+
             _currentCharacteristicPanel = _characteristicsPanels[characteristicsGroupId];
             _currentCharacteristicPanel.Initialize(_playerDataManager.Characteristics, CHARACTERISTIC_CRITICAL_VALUE);
 

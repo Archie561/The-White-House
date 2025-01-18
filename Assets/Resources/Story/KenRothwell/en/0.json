@@ -16,7 +16,7 @@
         "decisionID": 0,
         "decisionValue": 0
       },
-      "backgroundImageName": "background01",
+      "backgroundImageName": "background04",
       "backgroundMusic": "",
       "replicas": [
         {
@@ -131,74 +131,6 @@
           "imageName": "PaulCarey",
           "characterName": "Paul Carey, Vice President",
           "replicaText": "That's the spirit, Mr. President. Let's make America great again.",
-          "choiceID": -1,
-          "subreplicasOption1": [],
-          "subreplicasOption2": []
-        },
-        {
-          "imageName": "PaulCarey",
-          "characterName": "Paul Carey, Vice President",
-          "replicaText": "I'll deal with the big construction plan. I have already engaged experts who will help us. And you should get used to your new office.",
-          "choiceID": -1,
-          "subreplicasOption1": [],
-          "subreplicasOption2": []
-        },
-        {
-          "imageName": "PaulCarey",
-          "characterName": "Paul Carey, Vice President",
-          "replicaText": "Your documents are on the table. These are the laws that the senate sent you to sign. You should carefully read and familiarize yourself with the bill proposed by the Senate.",
-          "choiceID": -1,
-          "subreplicasOption1": [],
-          "subreplicasOption2": []
-        },
-        {
-          "imageName": "PaulCarey",
-          "characterName": "Paul Carey, Vice President",
-          "replicaText": "If you think it is appropriate, just sign it. Then the secretary will do everything for you.",
-          "choiceID": -1,
-          "subreplicasOption1": [],
-          "subreplicasOption2": []
-        },
-        {
-          "imageName": "PaulCarey",
-          "characterName": "Paul Carey, Vice President",
-          "replicaText": "And if you think that the law that congressmen are lobbying for is not beneficial for our country, veto it. Thus, it will go back to the senate for finalization.",
-          "choiceID": 4,
-          "subreplicasOption1": [
-            {
-              "imageName": "PaulCarey",
-              "characterName": "Paul Carey, Vice President",
-              "subReplicaText": "Unfortunately, not."
-            }
-          ],
-          "subreplicasOption2": [
-            {
-              "imageName": "PaulCarey",
-              "characterName": "Paul Carey, Vice President",
-              "subReplicaText": "And one more thing."
-            }
-          ]
-        },
-        {
-          "imageName": "PaulCarey",
-          "characterName": "Paul Carey, Vice President",
-          "replicaText": "I think many influential people will want to meet you today. Senators, ministers, businessmen.",
-          "choiceID": -1,
-          "subreplicasOption1": [],
-          "subreplicasOption2": []
-        },
-        {
-          "imageName": "PaulCarey",
-          "characterName": "Paul Carey, Vice President",
-          "replicaText": "Talk to them, accept greetings, make promises of close cooperation and all in this spirit. All of them will often turn to you to discuss important issues.",
-          "choiceID": -1,
-          "subreplicasOption1": [],
-          "subreplicasOption2": []
-        },
-        {
-          "imageName": "PaulCarey",
-          "characterName": "Paul Carey, Vice President",
-          "replicaText": "Oh yeah. And don’t forget to follow the indicators of our country. All of them will be displayed in the corresponding tabs, which can be accessed from the right menu.",
           "choiceID": -1,
           "subreplicasOption1": [],
           "subreplicasOption2": []
@@ -1302,7 +1234,7 @@
       "option1": "Absolutely. I'm ready to hit the ground running. What's first on our list?",
       "option2": "And I wanted to rest a little more.",
       "characteristicsUpdateOption1": {
-        "budget": 100,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -1321,7 +1253,7 @@
         "infrastructure": 0
       },
       "characteristicsUpdateOption2": {
-        "budget": -100,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -1345,7 +1277,7 @@
       "option1": "Right, the factories.",
       "option2": "Can you remind me? My head is swimming with these elections.",
       "characteristicsUpdateOption1": {
-        "budget": 200,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -1364,7 +1296,7 @@
         "infrastructure": 0
       },
       "characteristicsUpdateOption2": {
-        "budget": -200,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -1388,7 +1320,7 @@
       "option1": "And the crisis in 2023 made itself felt. Many factories closed due to bankruptcy.",
       "option2": "So what?",
       "characteristicsUpdateOption1": {
-        "budget": 500,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -1407,7 +1339,7 @@
         "infrastructure": 0
       },
       "characteristicsUpdateOption2": {
-        "budget": -500,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -1431,7 +1363,7 @@
       "option1": "Well, let's get to work then.",
       "option2": "We've got a lot of promises to keep.",
       "characteristicsUpdateOption1": {
-        "budget": 1000,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -1450,7 +1382,7 @@
         "infrastructure": 0
       },
       "characteristicsUpdateOption2": {
-        "budget": -1000,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -1474,7 +1406,7 @@
       "option1": "And this is all the work of the president of the United States?",
       "option2": "Got it. Easy-peasy.",
       "characteristicsUpdateOption1": {
-        "budget": 10000,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -1493,7 +1425,7 @@
         "infrastructure": 0
       },
       "characteristicsUpdateOption2": {
-        "budget": -10000,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -1517,7 +1449,7 @@
       "option1": "Really? And I was thinking of doing a full renovation.",
       "option2": "The spirit of capitalism is preserved.",
       "characteristicsUpdateOption1": {
-        "budget": 10,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -1536,7 +1468,7 @@
         "infrastructure": 0
       },
       "characteristicsUpdateOption2": {
-        "budget": -10,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -1560,7 +1492,7 @@
       "option1": "I'm intrigued.",
       "option2": "I'll take a double shot.",
       "characteristicsUpdateOption1": {
-        "budget": 50,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -1579,7 +1511,7 @@
         "infrastructure": 0
       },
       "characteristicsUpdateOption2": {
-        "budget": -50,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -2419,90 +2351,7 @@
   "decisions": [
     {
       "decisionID": 0,
-      "lockedByDialogue": 2,
-      "lockedByLaw": -1,
-      "condition": {
-        "isUsed": false,
-        "characteristicName": "",
-        "characteristicValue": 0,
-        "choiceChapterID": -1,
-        "choiceID": 0,
-        "choiceValue": 0,
-        "decisionChapterID": -1,
-        "decisionID": 0,
-        "decisionValue": 0
-      },
-      "imageName": "BorisAbramov",
-      "characterName": "Boris Abramov, President of Russia",
-      "text": "President Rothwell, I extend my warm congratulations on your recent election as the new President of the United States. Your leadership will undoubtedly have a significant impact on our nations and the world. I look forward to future opportunities for constructive dialogue and cooperation between our countries. Please accept my best wishes for a successful tenure.",
-      "options": [
-        "Thank you, President Abramov.",
-        "I'm grateful for your congratulations.",
-        "Your message is noted."
-      ],
-      "characteristicUpdates": [
-        {
-          "budget": 5000,
-          "navy": 0,
-          "airForces": 0,
-          "infantry": 0,
-          "machinery": 0,
-          "europeanUnion": 0,
-          "china": 0,
-          "africa": 0,
-          "unitedKingdom": 0,
-          "CIS": 0,
-          "OPEC": 0,
-          "science": 0,
-          "welfare": 0,
-          "education": 0,
-          "medicine": 0,
-          "ecology": 0,
-          "infrastructure": 0
-        },
-        {
-          "budget": -5000,
-          "navy": 0,
-          "airForces": 0,
-          "infantry": 0,
-          "machinery": 0,
-          "europeanUnion": 0,
-          "china": 0,
-          "africa": 0,
-          "unitedKingdom": 0,
-          "CIS": 0,
-          "OPEC": 0,
-          "science": 0,
-          "welfare": 0,
-          "education": 0,
-          "medicine": 0,
-          "ecology": 0,
-          "infrastructure": 0
-        },
-        {
-          "budget": 0,
-          "navy": 0,
-          "airForces": 0,
-          "infantry": 0,
-          "machinery": 0,
-          "europeanUnion": 0,
-          "china": 0,
-          "africa": 0,
-          "unitedKingdom": 0,
-          "CIS": 0,
-          "OPEC": 0,
-          "science": 0,
-          "welfare": 0,
-          "education": 0,
-          "medicine": 0,
-          "ecology": 0,
-          "infrastructure": 0
-        }
-      ]
-    },
-    {
-      "decisionID": 1,
-      "lockedByDialogue": 3,
+      "lockedByDialogue": 0,
       "lockedByLaw": -1,
       "condition": {
         "isUsed": false,
@@ -2517,15 +2366,15 @@
       },
       "imageName": "EdgarGildon",
       "characterName": "Edgar Gildon, Prime Minister of the United Kingdom",
-      "text": "President Rothwell, I offer my sincere congratulations on your election as President of the United States. The United Kingdom and the United States share a special and enduring partnership. I am confident that, under your leadership, our countries will continue to work closely together on global issues and strengthen our friendship. I wish you a productive and successful term.",
+      "text": "President Rothwell, congratulations once again on your remarkable victory. I am confident that, under your leadership, the bond between our two great nations will grow even stronger. As you know, the United Kingdom and the United States have long shared a special relationship, built on trust, mutual respect, and shared values.\nTo further deepen this bond, I propose a significant trade agreement that would prioritize UK exports to the US, particularly in key sectors like technology, pharmaceuticals, and renewable energy. This agreement could bring substantial economic benefits to both our nations and send a clear message to the world about our unwavering partnership.\nHowever, this deal would require your administration to relax certain tariffs on British goods, which may face opposition from some of your domestic industries. I understand it’s a challenging decision, but I believe the benefits of reinforcing our alliance far outweigh the drawbacks. Together, we can showcase what true global leadership looks like. What do you say, Mr. President?",
       "options": [
-        "I appreciate your warm words.",
-        "I'm grateful for your congratulations.",
-        "Let's strengthen UK-US ties together."
+        "Agreed, let's strengthen ties.",
+        "I must decline, sorry.",
+        "I prefer more stable partners."
       ],
       "characteristicUpdates": [
         {
-          "budget": 50000,
+          "budget": 60000,
           "navy": 0,
           "airForces": 0,
           "infantry": 0,
@@ -2584,7 +2433,7 @@
       ]
     },
     {
-      "decisionID": 2,
+      "decisionID": 1,
       "lockedByDialogue": 5,
       "lockedByLaw": -1,
       "condition": {
@@ -2667,7 +2516,7 @@
       ]
     },
     {
-      "decisionID": 3,
+      "decisionID": 2,
       "lockedByDialogue": 6,
       "lockedByLaw": -1,
       "condition": {
@@ -2750,7 +2599,7 @@
       ]
     },
     {
-      "decisionID": 4,
+      "decisionID": 3,
       "lockedByDialogue": 7,
       "lockedByLaw": -1,
       "condition": {
@@ -2833,7 +2682,7 @@
       ]
     },
     {
-      "decisionID": 5,
+      "decisionID": 4,
       "lockedByDialogue": 8,
       "lockedByLaw": -1,
       "condition": {
@@ -2920,14 +2769,14 @@
     {
       "lawID": 0,
       "lockedByDecision": -1,
-      "lockedByDialogue": 4,
+      "lockedByDialogue": 0,
       "lawType": 1,
       "header": "Proposal",
       "mainText": "Increase Funding for Public Schools and Universities",
       "detailedText": "This proposal calls for significantly increasing funding to improve educational quality and access. Enhanced resources will boost academic programs, infrastructure, and educator support, fostering a more knowledgeable generation.",
       "preparedBy": "Nicole Elmers,\nMinister of Education",
       "characteristicsUpdateWhenApplied": {
-        "budget": 23478,
+        "budget": -45000,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -2938,15 +2787,15 @@
         "unitedKingdom": 0,
         "CIS": 0,
         "OPEC": 0,
-        "science": 0,
-        "welfare": 0,
-        "education": 0,
+        "science": 6,
+        "welfare": 8,
+        "education": 12,
         "medicine": 0,
         "ecology": 0,
-        "infrastructure": 0
+        "infrastructure": 5
       },
       "characteristicsUpdateWhenDeclined": {
-        "budget": -2346,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -2975,7 +2824,7 @@
       "detailedText": "In response to environmental concerns, this proposal suggests implementing stricter vehicle emission standards. These measures aim to reduce air pollution, address climate change, and protect public health.",
       "preparedBy": "Rosa Martin,\nhead of the EP departament",
       "characteristicsUpdateWhenApplied": {
-        "budget": 23498,
+        "budget": -24000,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -2985,16 +2834,16 @@
         "africa": 0,
         "unitedKingdom": 0,
         "CIS": 0,
-        "OPEC": 0,
+        "OPEC": -8,
         "science": 0,
         "welfare": 0,
         "education": 0,
-        "medicine": 0,
-        "ecology": 0,
-        "infrastructure": 0
+        "medicine": 7,
+        "ecology": 16,
+        "infrastructure": 4
       },
       "characteristicsUpdateWhenDeclined": {
-        "budget": -2378,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -3023,26 +2872,26 @@
       "detailedText": "To boost economic growth, this proposal advocates for policies supporting entrepreneurship, including tax incentives and incubation centers. Encouraging startups will create jobs, enhance competitiveness, and drive national progress.",
       "preparedBy": "Russ Madron,\nMinister of Finance",
       "characteristicsUpdateWhenApplied": {
-        "budget": 231,
+        "budget": -90000,
         "navy": 0,
-        "airForces": 0,
+        "airForces": 4,
         "infantry": 0,
-        "machinery": 0,
+        "machinery": 8,
         "europeanUnion": 0,
         "china": 0,
         "africa": 0,
         "unitedKingdom": 0,
         "CIS": 0,
         "OPEC": 0,
-        "science": 0,
-        "welfare": 0,
+        "science": 7,
+        "welfare": 5,
         "education": 0,
         "medicine": 0,
         "ecology": 0,
-        "infrastructure": 0
+        "infrastructure": 3
       },
       "characteristicsUpdateWhenDeclined": {
-        "budget": -321,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -3071,7 +2920,7 @@
       "detailedText": "This proposal seeks to expand legal aid, establish community justice centers, and enhance pro bono services. These measures aim to ensure fair access to justice and protect citizens' rights.",
       "preparedBy": "Madeline Clifford,\nMinister of Justice",
       "characteristicsUpdateWhenApplied": {
-        "budget": 23,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -3090,7 +2939,7 @@
         "infrastructure": 0
       },
       "characteristicsUpdateWhenDeclined": {
-        "budget": -2,
+        "budget": 0,
         "navy": 0,
         "airForces": 0,
         "infantry": 0,
@@ -3165,99 +3014,6 @@
   ],
   "startingCutscenes": [
     {
-      "sceneID": 0,
-      "condition": {
-        "isUsed": false,
-        "characteristicName": "navy",
-        "characteristicValue": 10,
-        "choiceChapterID": -1,
-        "choiceID": 0,
-        "choiceValue": 0,
-        "decisionChapterID": -1,
-        "decisionID": 0,
-        "decisionValue": 0
-      },
-      "voiceFileName": "voicetest2",
-      "frames": [
-        {
-          "backgroundImage": "background03",
-          "frameDuration": 10.6,
-          "animationType": "moveUp",
-          "particlesType": "rain",
-          "characterNames": [],
-          "characterDurations": [],
-          "characterPositions": [],
-          "characterSubtitles": []
-        },
-        {
-          "backgroundImage": "background06",
-          "frameDuration": 103,
-          "animationType": "moveDown",
-          "particlesType": "snow",
-          "characterNames": [
-            "PaulCarey",
-            "KenRothwell",
-            "PaulCarey",
-            "KenRothwell",
-            "PaulCarey",
-            "KenRothwell",
-            "PaulCarey",
-            "KenRothwell",
-            "PaulCarey",
-            "KenRothwell",
-            "PaulCarey",
-            "KenRothwell",
-            "PaulCarey"
-          ],
-          "characterDurations": [
-            7.3,
-            2.3,
-            21.7,
-            6.2,
-            1.6,
-            8,
-            1.6,
-            4.1,
-            11.1,
-            5.9,
-            11,
-            6.5,
-            12.6
-          ],
-          "characterPositions": [
-            "left",
-            "right",
-            "left",
-            "right",
-            "left",
-            "right",
-            "left",
-            "right",
-            "left",
-            "right",
-            "left",
-            "right",
-            "left"
-          ],
-          "characterSubtitles": [
-            "Vice President: Ken, I fucking found it! I found a goddamn way to save our nuclear power plant and keep that factory from fucking bankruptcy.",
-            "President Ken Rothwell: And how the hell did you manage that, Paul?",
-            "Vice President: To be more precise, I didn't find a way. I found a person who knows a way. And that person's name is Nikolai Petrov, one of the richest sons of bitches in the whole damn country. He's got a hard-on for us, believes in our cause, and claims he can fix this mess. In fact, he said that he came to you earlier and said that he would help you solve any issue. Why didn't you tell me about him right away?",
-            "President Ken Rothwell: That sneaky son of a bitch? You sure we want to get mixed up with him? We'll end up owing that conniving bastard big time.",
-            "Vice President: What can he do, anyway?",
-            "President Ken Rothwell: At some time he will come and demand a piece of America from us. He will ask for a favor. And favors are never small with people like him.",
-            "Vice President: So what? Refuse him.",
-            "President Ken Rothwell: To refuse? Don't you know the rules of this game? You don't refuse such people.",
-            "Vice President: Ken, we're fucking backed into a corner here. We don't have a goddamn choice. This is our last shot. Petrov may be a cunning son of a bitch, but he's our best goddamn bet at saving our asses.",
-            "President Ken Rothwell: Fine, Paul. Tell me, how the fuck is this oligarch gonna save the day? I hope you're not feeding me some bullshit.",
-            "Vice President: Look, Ken, I don't fucking know the specifics. All I know is Petrov claims he's got the answers. And at this point, does it fucking matter how he does it? We need a goddamn result, and we need it now.",
-            "President Ken Rothwell: You better be right about this, Paul. I don't want us selling our souls to the devil just to keep this goddamn factory alive.",
-            "Vice President: I'm really fuckin' sick of this, Ken. My head is pounding. He'll call you later today. And I recommend you take him up on his offer. Because if you don't, you're going to have to find another way out of this. And there is no other way."
-          ]
-        }
-      ]
-    },
-    {
       "sceneID": 1,
       "condition": {
         "isUsed": false,
@@ -3273,10 +3029,10 @@
       "voiceFileName": "voicetest",
       "frames": [
         {
-          "backgroundImage": "background05",
+          "backgroundImage": "background03",
           "frameDuration": 13.3,
-          "animationType": "zoomIn",
-          "particlesType": "snow",
+          "animationType": "moveUp",
+          "particlesType": "",
           "characterNames": [],
           "characterDurations": [],
           "characterPositions": [],
@@ -3288,15 +3044,15 @@
           "animationType": "zoomOut",
           "particlesType": "dust",
           "characterNames": [
-            "EdwardScott",
+            "KenRothwell",
             "MaconFarrell",
-            "EdwardScott",
+            "KenRothwell",
             "MaconFarrell",
-            "EdwardScott",
+            "KenRothwell",
             "MaconFarrell",
-            "EdwardScott",
+            "KenRothwell",
             "MaconFarrell",
-            "EdwardScott",
+            "KenRothwell",
             "MaconFarrell"
           ],
           "characterDurations": [

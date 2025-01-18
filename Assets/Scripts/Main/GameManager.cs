@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
 
     private void HandleFirstLoading()
     {
+        //for diploma
+        if (!AudioManager.Instance.IsMusicPlaying) AudioManager.Instance.SetMusic("background-music");
+
         if (!_playerDataManager.StartingCutscenesShown && _chapterDataManager.GetStartingCutscenes().Length > 0)
         {
             LevelManager.Instance.LoadScene("Cutscene");

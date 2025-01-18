@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
+    public bool IsMusicPlaying => _musicSource.isPlaying;
+
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioSource _sfxSource;
     [SerializeField] private AudioClip _backgroundMusic;

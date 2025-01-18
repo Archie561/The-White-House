@@ -48,7 +48,10 @@ public class LawManager : MonoBehaviour
     public void LawClickHandler()
     {
         if (!_isLawLocked && GameManager.Instance.State == GameState.Default)
+        {
+            AudioManager.Instance.PlaySFX("document");
             GameManager.Instance.ChangeGameState(GameState.ActiveLaws);
+        }
     }
 
     //handles game state change. If Default - updates laws status, if ActiveLaws - initializes laws, else - return

@@ -78,8 +78,8 @@ public class CutsceneManager : MonoBehaviour
 
     private List<string> _subtitlesFragments = new List<string>();
     private Typewriter _typewriter;
-    private int _maxSymbols = 130;
-    private int _minSymbols = 90;
+    private int _maxSymbols = 120;
+    private int _minSymbols = 80;
 
 
     private bool _isPaused;

@@ -35,6 +35,7 @@ public class PauseManager : MonoBehaviour
     {
         if (GameManager.Instance.State == GameState.Default)
         {
+            AudioManager.Instance.PlaySFX("button");
             GameManager.Instance.ChangeGameState(GameState.Pause);
             ShowPausePanel();
         }
@@ -122,11 +123,15 @@ public class PauseManager : MonoBehaviour
 
     private void ReloadSceneAfterLanguageChange()
     {
+        AudioManager.Instance.StopPlaying();
+
         var playerDataManager = ServiceLocator.GetService<PlayerDataManager>();
         var chapterDataManager = new ChapterDataManager(playerDataManager.ActivePresident, playerDataManager.ChapterID);
         ServiceLocator.RegisterService(chapterDataManager);
 
-        LevelManager.Instance.LoadScene("Main", playerDataManager.ActivePresident, playerDataManager.ChapterID.ToString());
+        string translatedPresidentName = LocalizationSettings.StringDatabase.GetLocalizedString("UILocalization", playerDataManager.ActivePresident);
+        string translatedChapterName = LocalizationSettings.StringDatabase.GetLocalizedString("UILocalization", $"Month{playerDataManager.ChapterID}");
+        LevelManager.Instance.LoadScene("Main", translatedPresidentName, translatedChapterName);
     }
 
     public void ExitToMenu()
