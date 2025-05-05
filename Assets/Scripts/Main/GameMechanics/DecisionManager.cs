@@ -57,7 +57,7 @@ public class DecisionManager : MonoBehaviour
     //initializes decision panel with data
     private void LoadDecision()
     {
-        _decisionData = _chapterDataManager.GetDecision(_playerDataManager.DecisionID);
+        //_decisionData = _chapterDataManager.GetDecision(_playerDataManager.DecisionID);
         _currentDecisionPanel = Instantiate(_decisionPanelPrefab, _decisionsPanelsTransform);
         _currentDecisionPanel.Initialize(_decisionData);
         _currentDecisionPanel.OnDecisionMade += OptionClickHandler;
@@ -77,10 +77,10 @@ public class DecisionManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX("button");
 
-        _playerDataManager.SaveDecision(_decisionData.decisionID, pickedOption);
+/*        _playerDataManager.SaveDecision(_decisionData.decisionID, pickedOption);
         _playerDataManager.UpdateDecisionID(_decisionData.decisionID + 1);
         _playerDataManager.UpdateCharacteristics(_decisionData.characteristicUpdates[pickedOption - 1]);
-        _budgetBox.UpdateBudget(_decisionData.characteristicUpdates[pickedOption - 1].budget);
+        _budgetBox.UpdateBudget(_decisionData.characteristicUpdates[pickedOption - 1].Budget);*/
 
         Exit();
     }
@@ -99,13 +99,13 @@ public class DecisionManager : MonoBehaviour
     //defines whether decision is locked or not: if decision isn't locked but condition for it isn't met, increment decision id and invokes method again
     private void UpdateDecisionsStatus()
     {
-        int decisionID = _playerDataManager.DecisionID;
+        /*int decisionID = _playerDataManager.DecisionID;
 
         _isDecisionLocked =
             decisionID >= _chapterDataManager.GetDecisionsLength() ||
             _chapterDataManager.GetDecision(decisionID).lockedByLaw >= _playerDataManager.LawID ||
-            _chapterDataManager.GetDecision(decisionID).lockedByDialogue >= _playerDataManager.DialogueID;
-
+            _chapterDataManager.GetDecision(decisionID).lockedByDialogue >= _playerDataManager.DialogueID;*/
+/*
         if (!_isDecisionLocked && !_playerDataManager.IsConditionMet(_chapterDataManager.GetDecision(decisionID).condition))
         {
             _playerDataManager.UpdateDecisionID(decisionID + 1);
@@ -113,6 +113,6 @@ public class DecisionManager : MonoBehaviour
             return;
         }
 
-        _decisionsMark.SetActive(!_isDecisionLocked);
+        _decisionsMark.SetActive(!_isDecisionLocked);*/
     }
 }

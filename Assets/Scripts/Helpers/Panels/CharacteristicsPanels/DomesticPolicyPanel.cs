@@ -21,11 +21,11 @@ public class DomesticPolicyPanel : BaseCharacteristicPanel
     [SerializeField] private TextMeshProUGUI _totalDomesticValue;
 
     //initializes domestic policy panel with players characteristics
-    public override void Initialize(Characteristics characteristics, int characteristicCriticalValue)
+    public override void Initialize(Characteristic characteristics, int characteristicCriticalValue)
     {
         base.Initialize(characteristics, characteristicCriticalValue);
 
-        FormatCharacteristic(characteristics.science, _scienceValue, _scienceSlider);
+/*        FormatCharacteristic(characteristics.science, _scienceValue, _scienceSlider);
         FormatCharacteristic(characteristics.welfare, _welfareValue, _welfareSlider);
         FormatCharacteristic(characteristics.education, _educationValue, _educationSlider);
         FormatCharacteristic(characteristics.medicine, _medicineValue, _medicineSlider);
@@ -35,6 +35,6 @@ public class DomesticPolicyPanel : BaseCharacteristicPanel
         int totalValue = (characteristics.science + characteristics.welfare + characteristics.education + characteristics.medicine +
             characteristics.ecology + characteristics.infrastructure) / 6;
 
-        FormatCharacteristic(totalValue, _totalDomesticValue, _totalDomesticSlider);
+        FormatCharacteristic(totalValue, _totalDomesticValue, _totalDomesticSlider);*/
     }
 }

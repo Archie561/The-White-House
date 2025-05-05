@@ -39,7 +39,7 @@ public class CharacteristicsManager : MonoBehaviour
             AudioManager.Instance.PlaySFX("button");
 
             _currentCharacteristicPanel = _characteristicsPanels[characteristicsGroupId];
-            _currentCharacteristicPanel.Initialize(_playerDataManager.Characteristics, CHARACTERISTIC_CRITICAL_VALUE);
+            //_currentCharacteristicPanel.Initialize(_playerDataManager.Characteristics, CHARACTERISTIC_CRITICAL_VALUE);
 
             GameManager.Instance.ChangeGameState(GameState.ActiveCharacteristics);
         }
@@ -66,7 +66,7 @@ public class CharacteristicsManager : MonoBehaviour
     //activates the warning sign next to the button of each characteristics group if any of its characteristics is below the critical value
     private void UpdateCharacteristicsMarks()
     {
-        Characteristics characteristics = _playerDataManager.Characteristics;
+        /*Characteristics characteristics = _playerDataManager.Characteristics;
 
         _domesticPolicyMark.SetActive(
             characteristics.science <= CHARACTERISTIC_CRITICAL_VALUE ||
@@ -88,7 +88,7 @@ public class CharacteristicsManager : MonoBehaviour
             characteristics.navy <= CHARACTERISTIC_CRITICAL_VALUE ||
             characteristics.airForces <= CHARACTERISTIC_CRITICAL_VALUE ||
             characteristics.infantry <= CHARACTERISTIC_CRITICAL_VALUE ||
-            characteristics.machinery <= CHARACTERISTIC_CRITICAL_VALUE);
+            characteristics.machinery <= CHARACTERISTIC_CRITICAL_VALUE);*/
     }
 
     //closes characteristics panel and sets default game state

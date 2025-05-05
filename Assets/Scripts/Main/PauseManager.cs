@@ -126,12 +126,12 @@ public class PauseManager : MonoBehaviour
         AudioManager.Instance.StopPlaying();
 
         var playerDataManager = ServiceLocator.GetService<PlayerDataManager>();
-        var chapterDataManager = new ChapterDataManager(playerDataManager.ActivePresident, playerDataManager.ChapterID);
-        ServiceLocator.RegisterService(chapterDataManager);
+        //var chapterDataManager = new ChapterDataManager(playerDataManager.ActivePresident, playerDataManager.ChapterID);
+        //ServiceLocator.RegisterService(chapterDataManager);
 
         string translatedPresidentName = LocalizationSettings.StringDatabase.GetLocalizedString("UILocalization", playerDataManager.ActivePresident);
-        string translatedChapterName = LocalizationSettings.StringDatabase.GetLocalizedString("UILocalization", $"Month{playerDataManager.ChapterID}");
-        LevelManager.Instance.LoadScene("Main", translatedPresidentName, translatedChapterName);
+        //string translatedChapterName = LocalizationSettings.StringDatabase.GetLocalizedString("UILocalization", $"Month{playerDataManager.ChapterID}");
+        //LevelManager.Instance.LoadScene("Main", translatedPresidentName, translatedChapterName);
     }
 
     public void ExitToMenu()

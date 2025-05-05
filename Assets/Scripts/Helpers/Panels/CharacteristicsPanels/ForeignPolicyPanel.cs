@@ -21,11 +21,11 @@ public class ForeignPolicyPanel : BaseCharacteristicPanel
     [SerializeField] private TextMeshProUGUI _totalForeignlValue;
 
     //initializes foreign policy panel with players characteristics
-    public override void Initialize(Characteristics characteristics, int characteristicCriticalValue)
+    public override void Initialize(Characteristic characteristics, int characteristicCriticalValue)
     {
         base.Initialize(characteristics, characteristicCriticalValue);
 
-        FormatCharacteristic(characteristics.europeanUnion, _europeanUnioneValue, _europeanUnionSlider);
+/*        FormatCharacteristic(characteristics.europeanUnion, _europeanUnioneValue, _europeanUnionSlider);
         FormatCharacteristic(characteristics.china, _chinaValue, _chinaSlider);
         FormatCharacteristic(characteristics.africa, _africaValue, _africaSlider);
         FormatCharacteristic(characteristics.unitedKingdom, _unitedKingdomValue, _unitedKingdomSlider);
@@ -35,6 +35,6 @@ public class ForeignPolicyPanel : BaseCharacteristicPanel
         int totalValue = (characteristics.europeanUnion + characteristics.china + characteristics.africa + characteristics.unitedKingdom +
             characteristics.CIS + characteristics.OPEC) / 6;
 
-        FormatCharacteristic(totalValue, _totalForeignlValue, _totalForeignlSlider);
+        FormatCharacteristic(totalValue, _totalForeignlValue, _totalForeignlSlider);*/
     }
 }

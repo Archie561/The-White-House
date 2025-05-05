@@ -63,15 +63,15 @@ public class PresidentSelectorManager : MonoBehaviour
 
         var selectedPresident = _presidents[_presidentIndex].nameKey;
         var playerDataManager = new PlayerDataManager(selectedPresident, _presidents[_presidentIndex].chaptersAmount);
-        var chapterDataManager = new ChapterDataManager(selectedPresident, playerDataManager.ChapterID);
+        //var chapterDataManager = new ChapterDataManager(selectedPresident, playerDataManager.ChapterID);
 
         ServiceLocator.RegisterService(playerDataManager);
-        ServiceLocator.RegisterService(chapterDataManager);
+        //ServiceLocator.RegisterService(chapterDataManager);
 
         string localizedPresidentName = LocalizationSettings.StringDatabase.GetLocalizedString("UILocalization", selectedPresident);
-        string localizedMonthName = LocalizationSettings.StringDatabase.GetLocalizedString("UILocalization", $"Month{playerDataManager.ChapterID}");
+        //string localizedMonthName = LocalizationSettings.StringDatabase.GetLocalizedString("UILocalization", $"Month{playerDataManager.ChapterID}");
 
-        LevelManager.Instance.LoadScene("Main", localizedPresidentName, localizedMonthName);
+        LevelManager.Instance.LoadScene("Main", localizedPresidentName, "localizedMonthName");
     }
 
     //animates reset panel appearing on click on reset button

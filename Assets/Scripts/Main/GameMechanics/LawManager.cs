@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LawManager : MonoBehaviour
+/*public class LawManager : MonoBehaviour
 {
     [SerializeField] private BudgetBox _budgetBox;
     [SerializeField] private GameObject _lawsMark;
@@ -84,7 +84,7 @@ public class LawManager : MonoBehaviour
             return;
         }
 
-        _lawData = _chapterDataManager.GetLaw(_playerDataManager.LawID);
+        //_lawData = _chapterDataManager.GetLaw(_playerDataManager.LawID);
         _currentLawPanel = Instantiate(_lawPanelPrefab, _lawsPanelsTransform);
         _currentLawPanel.Initialize(_lawData);
         _currentLawPanel.OnPanelDrag += OnPanelDrag;
@@ -143,11 +143,11 @@ public class LawManager : MonoBehaviour
     private void HandleLawSigning(bool isSigned)
     {
         AudioManager.Instance.PlaySFX(isSigned ? "signed-1" : "decline");
-        Characteristics characteristics = isSigned ? _lawData.characteristicsUpdateWhenApplied : _lawData.characteristicsUpdateWhenDeclined;
+        //Characteristic characteristics = isSigned ? _lawData.characteristicsUpdateWhenApplied : _lawData.characteristicsUpdateWhenDeclined;
 
-        _playerDataManager.UpdateLawID(_lawData.lawID + 1);
+*//*        _playerDataManager.UpdateLawID(_lawData.lawID + 1);
         _playerDataManager.UpdateCharacteristics(characteristics);
-        _budgetBox.UpdateBudget(characteristics.budget);
+        _budgetBox.UpdateBudget(characteristics.budget);*//*
         UpdateLawsStatus();
 
         _currentLawPanel.transform.LeanMoveX(isSigned ? PANEL_OFFSCREEN_RIGHT : PANEL_OFFSCREEN_LEFT, PANEL_ANIMATION_TIME)
@@ -162,14 +162,14 @@ public class LawManager : MonoBehaviour
     //defines whether decision is locked or not
     public void UpdateLawsStatus()
     {
-        int lawID = _playerDataManager.LawID;
+        *//*int lawID = _playerDataManager.LawID;
 
         _isLawLocked =
             lawID >= _chapterDataManager.GetLawsLength() ||
             _chapterDataManager.GetLaw(lawID).lockedByDialogue >= _playerDataManager.DialogueID ||
             _chapterDataManager.GetLaw(lawID).lockedByDecision >= _playerDataManager.DecisionID;
 
-        _lawsMark.SetActive(!_isLawLocked);
+        _lawsMark.SetActive(!_isLawLocked);*//*
     }
 
     //unsubscribes from events, disables hints, destroys law panel and sets default game state
@@ -205,4 +205,4 @@ public class LawManager : MonoBehaviour
         _acceptHint.alpha = Mathf.Clamp01((panelPositionX - SCREEN_CENTER) / (ACCEPT_HINT_PEAK_AREA - SCREEN_CENTER));
         _declineHint.alpha = Mathf.Clamp01((panelPositionX - SCREEN_CENTER) / (DECLINE_HINT_PEAK_AREA - SCREEN_CENTER));
     }
-}
+}*/

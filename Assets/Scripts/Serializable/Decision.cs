@@ -16,5 +16,5 @@ public class Decision
 
     public string[] options;
 
-    public Characteristics[] characteristicUpdates;
+    public Characteristic[] characteristicUpdates;
 }

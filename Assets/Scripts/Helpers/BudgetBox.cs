@@ -23,7 +23,7 @@ public class BudgetBox : MonoBehaviour
 
     private void Start()
     {
-        _playerDataManager = ServiceLocator.GetService<PlayerDataManager>();
+        //_playerDataManager = ServiceLocator.GetService<PlayerDataManager>();
 
         _budgetTextTransform = _budgetText.transform;
         _budgetTextDefaultPositionY = _budgetTextTransform.position.y;
@@ -31,8 +31,9 @@ public class BudgetBox : MonoBehaviour
         _budgetTextBottomPositionY = _budgetTextDefaultPositionY - _budgetText.rectTransform.rect.height * _budgetTextTransform.lossyScale.y;
 
         //initialise current budget & set color
-        _budgetText.text = BudgetToString(_playerDataManager.Characteristics.budget);
-        _budgetText.color = _playerDataManager.Characteristics.budget < 0 ? _expensesColor : _defaultBudgetColor;
+        var budget = GameDataManager.PlayerData.GetCharacteristic(Characteristic.Budget);
+        _budgetText.text = BudgetToString(budget);
+        _budgetText.color = budget < 0 ? _expensesColor : _defaultBudgetColor;
     }
 
     /// <summary>
@@ -43,15 +44,17 @@ public class BudgetBox : MonoBehaviour
     {
         if (value == 0) return;
 
+        var budget = GameDataManager.PlayerData.GetCharacteristic(Characteristic.Budget);
+
         //add sfx sound
         _budgetText.color = value < 0 ? _expensesColor : _revenuesColor;
 
         _budgetTextTransform.LeanMoveY(_budgetTextTopPositionY, BUDGET_TEXT_ANIMATION_TIME).setEaseInQuart().setOnComplete(() =>
         {
-            _budgetText.text = BudgetToString(_playerDataManager.Characteristics.budget);
+            _budgetText.text = BudgetToString(budget);
             _budgetTextTransform.position = new Vector3(_budgetTextTransform.position.x, _budgetTextBottomPositionY, _budgetTextTransform.position.z);
             _budgetTextTransform.LeanMoveY(_budgetTextDefaultPositionY, BUDGET_TEXT_ANIMATION_TIME).setEaseOutQuart()
-            .setOnComplete(() => _budgetText.color = _playerDataManager.Characteristics.budget < 0 ? _expensesColor : _defaultBudgetColor);
+            .setOnComplete(() => _budgetText.color = budget < 0 ? _expensesColor : _defaultBudgetColor);
         });
     }
 

@@ -7,7 +7,7 @@ public abstract class BaseCharacteristicPanel : MonoBehaviour
     private readonly Color WARNING_CHARACTERISTIC_COLOR = new Color(0.623f, 0.133f, 0.157f);
     private readonly Color DEFAULT_CHARACTERISTIC_COLOR = new Color(0.831f, 0.788f, 0.659f);
 
-    protected Characteristics _characteristics;
+    protected Characteristic _characteristics;
     protected int _characteristicCriticalValue;
 
     /// <summary>
@@ -15,7 +15,7 @@ public abstract class BaseCharacteristicPanel : MonoBehaviour
     /// </summary>
     /// <param name="characteristics">Players characteristics</param>
     /// <param name="characteristicCriticalValue">If the characteristic is less than it, a warning is displayed and the color changes to red</param>
-    public virtual void Initialize(Characteristics characteristics, int characteristicCriticalValue)
+    public virtual void Initialize(Characteristic characteristics, int characteristicCriticalValue)
     {
         _characteristics = characteristics;
         _characteristicCriticalValue = characteristicCriticalValue;

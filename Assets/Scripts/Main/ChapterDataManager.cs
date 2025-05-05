@@ -1,14 +1,26 @@
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ChapterDataManager
 {
     private Chapter _chapter;
+    private Dictionary<ActivityType, int>[] _batches;
 
     public ChapterDataManager(string presidentName, int chapterID)
     {
-        TextAsset jsonData = Resources.Load<TextAsset>("Story/" + presidentName + "/" + PlayerPrefs.GetString("gameLanguage", "en") + "/" + chapterID);
+        TextAsset jsonData = Resources.Load<TextAsset>($"Story/{presidentName}/{chapterID}/{PlayerPrefs.GetString("gameLanguage", "en")}/{chapterID}");
+        TextAsset batchesJsonData = Resources.Load<TextAsset>($"Story/{presidentName}/{chapterID}/batches");
+
         _chapter = JsonUtility.FromJson<Chapter>(jsonData.text);
+        _batches = JsonConvert.DeserializeObject<Dictionary<ActivityType, int>[]>(batchesJsonData.text);
     }
+
+    public Dictionary<ActivityType, int> GetBatch(int ID) => _batches[ID];
+
+    public int GetBatchesLength() => _batches.Length;
 
     public Dialogue GetDialogue(int ID) => _chapter.dialogues[ID];
 

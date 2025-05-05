@@ -35,7 +35,7 @@ public class DialogueManager : MonoBehaviour
     private void SetUpMechanic()
     {
         _replicaID = 0;
-        _currentDialogue = _chapterDataManager.GetDialogue(_playerDataManager.DialogueID);
+        //_currentDialogue = _chapterDataManager.GetDialogue(_playerDataManager.DialogueID);
         _localizedPresidentName = LocalizationSettings.StringDatabase.GetLocalizedString("UILocalization", _playerDataManager.ActivePresident);
 
         LoadCharactersSprites();
@@ -152,9 +152,9 @@ public class DialogueManager : MonoBehaviour
 
         var characteristicsToUpdate = pickedChoice == 1 ? choice.characteristicsUpdateOption1 : choice.characteristicsUpdateOption2;
 
-        _playerDataManager.SaveChoice(choice.choiceID, pickedChoice);
-        _playerDataManager.UpdateCharacteristics(characteristicsToUpdate);
-        _budgetBox.UpdateBudget(characteristicsToUpdate.budget);
+/*        _playerDataManager.SaveChoice(choice.choiceID, pickedChoice);
+        _playerDataManager.UpdateCharacteristics(characteristicsToUpdate);*/
+        //_budgetBox.UpdateBudget(characteristicsToUpdate.budget);
 
         _currentSubreplicas = pickedChoice == 1 ? replica.subreplicasOption1 : replica.subreplicasOption2;
 
@@ -173,7 +173,7 @@ public class DialogueManager : MonoBehaviour
         _dialoguePanel.OnReplicaClick -= ReplicaClickHandler;
         _dialoguePanel.OnChoiceClick -= ChoiceClickHandler;
 
-        _playerDataManager.UpdateDialogueID(_currentDialogue.dialogueID + 1);
+        //_playerDataManager.UpdateDialogueID(_currentDialogue.dialogueID + 1);
         LevelManager.Instance.LoadScene("Main");
     }
 }

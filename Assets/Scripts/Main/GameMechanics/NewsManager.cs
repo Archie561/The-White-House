@@ -53,12 +53,12 @@ class NewsManager : MonoBehaviour
             return;
         }
 
-        if (!_playerDataManager.IsConditionMet(_news[_newsIndex].condition))
+/*        if (!_playerDataManager.IsConditionMet(_news[_newsIndex].condition))
         {
             _newsIndex++;
             LoadNextNews();
             return;
-        }
+        }*/
 
         _currentNewsPanel = Instantiate(_newsPanelPrefabs[_news[_newsIndex].newsPaperType - 1], _newsPanelsTransform);
         _currentNewsPanel.Initialize(_news[_newsIndex]);

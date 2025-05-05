@@ -40,20 +40,20 @@ public class DialogueAcessManager : MonoBehaviour
     //defines whether dialogue is locked or not: if dialogue isn't locked but condition for it isn't met, increment dialogue id and invokes method again
     private void UpdateDialoguesStatus()
     {
-        int dialogueID = _playerDataManager.DialogueID;
+/*        int dialogueID = _playerDataManager.DialogueID;
 
         _isDialogueLocked =
             dialogueID >= _chapterDataManager.GetDialoguesLength() ||
             _chapterDataManager.GetDialogue(dialogueID).lockedByLaw >= _playerDataManager.LawID ||
-            _chapterDataManager.GetDialogue(dialogueID).lockedByDecision >= _playerDataManager.DecisionID;
+            _chapterDataManager.GetDialogue(dialogueID).lockedByDecision >= _playerDataManager.DecisionID;*/
 
-        if (!_isDialogueLocked && !_playerDataManager.IsConditionMet(_chapterDataManager.GetDialogue(dialogueID).condition))
+/*        if (!_isDialogueLocked && !_playerDataManager.IsConditionMet(_chapterDataManager.GetDialogue(dialogueID).condition))
         {
             _playerDataManager.UpdateDialogueID(dialogueID + 1);
             UpdateDialoguesStatus();
             return;
-        }
+        }*/
 
-        _dialoguesMark.SetActive(!_isDialogueLocked);
+        //_dialoguesMark.SetActive(!_isDialogueLocked);
     }
 }

@@ -8,6 +8,6 @@ public class Choice
     public string option1;
     public string option2;
 
-    public Characteristics characteristicsUpdateOption1;
-    public Characteristics characteristicsUpdateOption2;
+    public Characteristic characteristicsUpdateOption1;
+    public Characteristic characteristicsUpdateOption2;
 }

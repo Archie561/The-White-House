@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System.IO;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public class PlayerDataManager
     public string ActivePresident { get; private set; }
     public int ChaptersAmount { get; private set; }
 
-    private PlayerData _playerData;
+    //private PlayerData _playerData;
 
     public PlayerDataManager(string presidentName, int chaptersAmount)
     {
@@ -14,30 +15,36 @@ public class PlayerDataManager
         ChaptersAmount = chaptersAmount;
 
         string playerDataPath = Application.persistentDataPath + $"/{presidentName}PlayerData.json";
-        if (File.Exists(playerDataPath)) _playerData = JsonUtility.FromJson<PlayerData>(File.ReadAllText(playerDataPath));
-        else _playerData = GenerateNewPlayerData();
+        //if (File.Exists(playerDataPath)) _playerData = JsonConvert.DeserializeObject<PlayerData>(File.ReadAllText(playerDataPath));
+        //else _playerData = GenerateNewPlayerData();
     }
 
-    public int ChapterID => _playerData.chapterID;
-    public void UpdateChapterID(int ID) => _playerData.chapterID = ID;
+    //public int GetActivityID(ActivityType activity) => _playerData.activityID[activity];
+    //public void SetActivityID(ActivityType activity, int ID) => _playerData.activityID[activity] = ID;
 
-    public int DialogueID => _playerData.dialogueID;
-    public void UpdateDialogueID(int ID) => _playerData.dialogueID = ID;
+    //public int ChapterID => _playerData.chapterID;
+    //public void UpdateChapterID(int ID) => _playerData.chapterID = ID;
 
-    public int LawID => _playerData.lawID;
-    public void UpdateLawID(int ID) => _playerData.lawID = ID;
+    //public int BatchID => _playerData.batchID;
+    //public void UpdateBatchID(int ID) => _playerData.batchID = ID;
 
-    public int DecisionID => _playerData.decisionID;
-    public void UpdateDecisionID(int ID) => _playerData.decisionID = ID;
+    //public int DialogueID => _playerData.dialogueID;
+    //public void UpdateDialogueID(int ID) => _playerData.dialogueID = ID;
 
-    public bool StartingCutscenesShown => _playerData.startingCutscenesShown;
-    public void UpdateStartingCutscenesShown(bool isShown) => _playerData.startingCutscenesShown = isShown;
+    //public int LawID => _playerData.lawID;
+    //public void UpdateLawID(int ID) => _playerData.lawID = ID;
 
-    public bool GameOver => _playerData.gameOver;
-    public void UpdateGameOver(bool isOver) => _playerData.gameOver = isOver;
+    //public int DecisionID => _playerData.decisionID;
+    //public void UpdateDecisionID(int ID) => _playerData.decisionID = ID;
 
-    public Characteristics Characteristics => _playerData.characteristics;
-    public void UpdateCharacteristics(Characteristics characteristicsToAdd)
+    //public bool StartingCutscenesShown => _playerData.startingCutscenesShown;
+    //public void UpdateStartingCutscenesShown(bool isShown) => _playerData.startingCutscenesShown = isShown;
+
+    //public bool GameOver => _playerData.gameOver;
+    //public void UpdateGameOver(bool isOver) => _playerData.gameOver = isOver;
+
+    //public Characteristics Characteristics => _playerData.characteristics;
+/*    public void UpdateCharacteristics(Characteristics characteristicsToAdd)
     {
         _playerData.characteristics.budget += characteristicsToAdd.budget;
         _playerData.characteristics.navy = Mathf.Clamp(_playerData.characteristics.navy + characteristicsToAdd.navy, 0, 100);
@@ -56,15 +63,15 @@ public class PlayerDataManager
         _playerData.characteristics.medicine = Mathf.Clamp(_playerData.characteristics.medicine + characteristicsToAdd.medicine, 0, 100);
         _playerData.characteristics.ecology = Mathf.Clamp(_playerData.characteristics.ecology + characteristicsToAdd.ecology, 0, 100);
         _playerData.characteristics.infrastructure = Mathf.Clamp(_playerData.characteristics.infrastructure + characteristicsToAdd.infrastructure, 0, 100);
-    }
+    }*/
 
-    public void SaveChoice(int ID, int value) => _playerData.madeChoices[_playerData.chapterID].value[ID] = value;
+    //public void SaveChoice(int ID, int value) => _playerData.madeChoices[_playerData.chapterID].value[ID] = value;
 
-    public void SaveDecision(int ID, int value) => _playerData.madeDecisions[_playerData.chapterID].value[ID] = value;
+    //public void SaveDecision(int ID, int value) => _playerData.madeDecisions[_playerData.chapterID].value[ID] = value;
 
     //public void SaveLaw(int ID, int value) => _playerData.madeLaws[_playerData.chapterID].value[ID] = value;
 
-    public bool IsConditionMet(Condition condition)
+    /*public bool IsConditionMet(Condition condition)
     {
         if (!condition.isUsed) return true;
 
@@ -145,20 +152,20 @@ public class PlayerDataManager
         }
 
         return isConditionMet;
-    }
+    }*/
 
-    public void SaveData()
+/*    public void SaveData()
     {
-        File.WriteAllText(Application.persistentDataPath + "/" + ActivePresident + "PlayerData.json", JsonUtility.ToJson(_playerData, true));
+        File.WriteAllText(Application.persistentDataPath + "/" + ActivePresident + "PlayerData.json", JsonConvert.SerializeObject(_playerData, Formatting.Indented));
         PlayerPrefs.SetFloat(ActivePresident, _playerData.chapterID / (float)ChaptersAmount);
 
         if (_playerData.chapterID == 0)
         {
             PlayerPrefs.SetFloat(ActivePresident, 0.04f);
         }
-    }
+    }*/
 
-    private PlayerData GenerateNewPlayerData()
+/*    private PlayerData GenerateNewPlayerData()
     {
         PlayerData playerData = new PlayerData();
 
@@ -206,5 +213,5 @@ public class PlayerDataManager
         playerData.madeChoices = madeActions;
 
         return playerData;
-    }
+    }*/
 }

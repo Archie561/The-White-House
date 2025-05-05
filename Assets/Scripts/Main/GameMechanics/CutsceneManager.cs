@@ -172,19 +172,19 @@ public class CutsceneManager : MonoBehaviour
     {
         if (_sceneIndex >= _cutscenes.Length)
         {
-            _playerDataManager.UpdateStartingCutscenesShown(true);
+            //_playerDataManager.UpdateStartingCutscenesShown(true);
             SceneManager.LoadScene("Main");
             return;
         }
 
-        _currentCutscene = _cutscenes[_sceneIndex];
+/*        _currentCutscene = _cutscenes[_sceneIndex];
         if (!_playerDataManager.IsConditionMet(_currentCutscene.condition))
         {
             _sceneIndex++;
             GetNextCutscene();
 
             return;
-        }
+        }*/
 
         ResetDefaultFrameSettings();
 
