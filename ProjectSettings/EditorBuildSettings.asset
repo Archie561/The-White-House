@@ -12,23 +12,29 @@ EditorBuildSettings:
     path: Assets/_Main/Scenes/MainMenu.unity
     guid: c949bf3c720331e4abfd535e3a96e2ab
   - enabled: 1
-    path: Assets/Level/General/Scenes/Menu.unity
+    path: Assets/Level/Start Menu/Menu.unity
     guid: 93b8b70599960784ca807211ce73efe8
   - enabled: 1
-    path: Assets/Level/General/Scenes/Main.unity
+    path: Assets/Level/Main Scene/Main.unity
     guid: abca27d964a69fd4fa9cc474c84242db
   - enabled: 1
-    path: Assets/Level/General/Scenes/Dialogue.unity
+    path: Assets/Level/General/TEMP Scenes/Dialogue_OLD.unity
     guid: 18beee91cb14a984dbdde4950a03f3d4
   - enabled: 0
     path: Assets/_Main/Scenes/Meetings.unity
     guid: 1476e6b0eae8bd94d84cb83eb008d54c
   - enabled: 1
-    path: Assets/Level/General/Scenes/Cutscene.unity
+    path: Assets/Level/General/TEMP Scenes/Cutscene.unity
     guid: cf014ad0cb0423c47bdb3aeeea625bba
   - enabled: 0
     path: Assets/_Main/Scenes/Laws.unity
     guid: f3bc249a20833c447a1ab2b6f857ad55
+  - enabled: 1
+    path: Assets/Level/Activities/Law/Laws.unity
+    guid: e667182cc90c7094f8549c23f62393ae
+  - enabled: 1
+    path: Assets/Level/Activities/Dialogue/Dialogue.unity
+    guid: 11ffe2f091268744baf93ab91de46cfd
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e992afca520a971429d4c4390ab4c995, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 3182a3e54bf1ad64fa548e08eecb6f85, type: 2}

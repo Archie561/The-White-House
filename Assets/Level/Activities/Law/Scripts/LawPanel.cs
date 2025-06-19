@@ -33,16 +33,24 @@ public class LawPanel : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         _parentCanvas = GetComponentInParent<Canvas>();
     }
 
+    /// <summary>
+    /// Initializes the LawPanel with the provided law data.
+    /// </summary>
+    /// <param name="law">Data to initialize</param>
     public void Initialize(Law law)
     {
         LawData = law;
 
-        _headerText.text = $"{LawData.header} (Law ID: {LawData.lawID})";
+        _headerText.text = LawData.header;
         _mainText.text = LawData.mainText;
         _detailsText.text = LawData.detailedText;
         _signatureText.text = LawData.preparedBy;
     }
 
+    /// <summary>
+    /// Plays the apeearing animation for the panel.
+    /// </summary>
+    /// <param name="duration"></param>
     public void AnimateAppearing(float duration)
     {
         _isInteractable = false;
@@ -50,6 +58,13 @@ public class LawPanel : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         _rectTransform.DOScale(Vector3.one, duration).SetEase(Ease.OutQuart).OnComplete(() => _isInteractable = true);
     }
 
+    /// <summary>
+    /// Moves the panel to the specified position over a given duration.
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="duration"></param>
+    /// <param name="allowInterruption">Determines whether the animation can be interrupted</param>
+    /// <param name="onComplete">Callback to invoke on complete</param>
     public void MoveTo(Vector2 position, float duration, bool allowInterruption = false, Action onComplete = null)
     {
         _isInteractable = allowInterruption;

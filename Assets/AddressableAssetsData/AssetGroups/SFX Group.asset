@@ -16,39 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 01328abd1cf8f1841b160179a52236e9
-  m_SerializeEntries:
-  - m_GUID: 50cb622e96b4cd949838faefa70d860e
-    m_Address: Audio/SFX/document
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 9acea69c2dd1d344f9503ecd7201b29e
-    m_Address: Audio/SFX/phone
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 26e7a1173590a95459e1d3a1f4f4a16a
-    m_Address: Audio/SFX/button
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: f1f5054d9b3774d4ab7f826e89e75690
-    m_Address: Audio/SFX/signed-1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 7627a54eaecbeae4fa911cf6630df0fc
-    m_Address: Audio/SFX/door
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: d49f0b08d52470341b051b8ca51be8ce
-    m_Address: Audio/SFX/decline
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 40ea5438ab518b7448889cf11a1e3446
-    m_Address: Audio/SFX/typing
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: faa84d85db4920a4f861bb31119df986
-    m_Address: Audio/SFX/signed-2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 368f01d9028a0874f8f6f3ed646a56e8, type: 2}
   m_SchemaSet:

@@ -1,0 +1,242 @@
+[
+  {
+    "lawID": 0,
+    "header": "Reform Act",
+    "mainText": "Increase science funding by cutting medical subsidies.",
+    "detailedText": "This law aims to enhance scientific research, but at the cost of reducing subsidies for public healthcare.",
+    "preparedBy": "Alan Peters,\nMinister of Innovation",
+    "affectedCharacteristics": {
+      "Science": 10,
+      "Medicine": -5,
+      "Education": -3
+    }
+  },
+  {
+    "lawID": 1,
+    "header": "Reform Act",
+    "mainText": "Build new highways by reducing ecological regulations.",
+    "detailedText": "Accelerates infrastructure growth but may negatively impact natural ecosystems and air quality.",
+    "preparedBy": "Linda Moore,\nSecretary of Transport",
+    "affectedCharacteristics": {
+      "Infrastructure": 12,
+      "Ecology": -7,
+      "Science": -2
+    }
+  },
+  {
+    "lawID": 2,
+    "header": "Reform Act",
+    "mainText": "Mandate standardized tests and cut optional courses.",
+    "detailedText": "Intended to raise education metrics but limits student freedom and curriculum variety.",
+    "preparedBy": "Natalie Reed,\nEducation Committee Head",
+    "affectedCharacteristics": {
+      "Education": 8,
+      "Ecology": -3,
+      "Medicine": -3
+    }
+  },
+  {
+    "lawID": 3,
+    "header": "Reform Act",
+    "mainText": "Reduce emissions by shutting down old factories.",
+    "detailedText": "Improves environmental quality, but job losses are expected in several industrial sectors.",
+    "preparedBy": "Carlos Mendez,\nMinister of Ecology",
+    "affectedCharacteristics": {
+      "Ecology": 12,
+      "Employment": -7,
+      "Infrastructure": -3
+    }
+  },
+  {
+    "lawID": 4,
+    "header": "Reform Act",
+    "mainText": "Increase hospital staff by slashing science grants.",
+    "detailedText": "Boosts medical sector capabilities but reduces the budget for scientific exploration.",
+    "preparedBy": "Lisa Grant,\nHealth Department Advisor",
+    "affectedCharacteristics": {
+      "Medicine": 10,
+      "Science": -7,
+      "Education": -2
+    }
+  },
+  {
+    "lawID": 5,
+    "header": "Reform Act",
+    "mainText": "Build educational centers in rural regions.",
+    "detailedText": "Improves access to education but consumes funds from employment stimulus programs.",
+    "preparedBy": "Natalie Reed,\nEducation Committee Head",
+    "affectedCharacteristics": {
+      "Education": 10,
+      "Employment": -5,
+      "Infrastructure": -3
+    }
+  },
+  {
+    "lawID": 6,
+    "header": "Reform Act",
+    "mainText": "Launch green cities initiative.",
+    "detailedText": "Promotes eco-friendly urban planning at the cost of short-term infrastructure delays.",
+    "preparedBy": "Carlos Mendez,\nMinister of Ecology",
+    "affectedCharacteristics": {
+      "Ecology": 8,
+      "Infrastructure": -3,
+      "Employment": -2
+    }
+  },
+  {
+    "lawID": 7,
+    "header": "Reform Act",
+    "mainText": "Upgrade public transport, limit car use.",
+    "detailedText": "Improves urban infrastructure and reduces pollution, but may disrupt employment.",
+    "preparedBy": "Linda Moore,\nSecretary of Transport",
+    "affectedCharacteristics": {
+      "Infrastructure": 10,
+      "Ecology": 3,
+      "Employment": -7
+    }
+  },
+  {
+    "lawID": 8,
+    "header": "Reform Act",
+    "mainText": "Subsidize medical school tuition.",
+    "detailedText": "Helps grow the number of trained doctors, though funding is cut from other areas.",
+    "preparedBy": "Lisa Grant,\nHealth Department Advisor",
+    "affectedCharacteristics": {
+      "Medicine": 7,
+      "Education": 5,
+      "Science": -5
+    }
+  },
+  {
+    "lawID": 9,
+    "header": "Reform Act",
+    "mainText": "Fund national AI research center.",
+    "detailedText": "Elevates scientific standing globally but reallocates money from public education.",
+    "preparedBy": "Alan Peters,\nMinister of Innovation",
+    "affectedCharacteristics": {
+      "Science": 10,
+      "Education": -3,
+      "Medicine": -3
+    }
+  },
+  {
+    "lawID": 10,
+    "header": "Reform Act",
+    "mainText": "Launch tree-planting program nationwide.",
+    "detailedText": "Positive environmental impact but job creation may be minimal and expensive.",
+    "preparedBy": "Carlos Mendez,\nMinister of Ecology",
+    "affectedCharacteristics": {
+      "Ecology": 13,
+      "Employment": -3,
+      "Science": -2
+    }
+  },
+  {
+    "lawID": 11,
+    "header": "Reform Act",
+    "mainText": "Open tech hubs in industrial areas.",
+    "detailedText": "Boosts employment and scientific collaboration in declining sectors.",
+    "preparedBy": "Alan Peters,\nMinister of Innovation",
+    "affectedCharacteristics": {
+      "Employment": 8,
+      "Science": 7,
+      "Ecology": -5
+    }
+  },
+  {
+    "lawID": 12,
+    "header": "Reform Act",
+    "mainText": "Digitize public health records.",
+    "detailedText": "Increases efficiency in healthcare, but cuts from infrastructure projects.",
+    "preparedBy": "Lisa Grant,\nHealth Department Advisor",
+    "affectedCharacteristics": {
+      "Medicine": 8,
+      "Infrastructure": -5,
+      "Education": -2
+    }
+  },
+  {
+    "lawID": 13,
+    "header": "Reform Act",
+    "mainText": "Mandatory environmental education.",
+    "detailedText": "Raises ecological awareness through education programs, but costly to implement.",
+    "preparedBy": "Natalie Reed,\nEducation Committee Head",
+    "affectedCharacteristics": {
+      "Ecology": 5,
+      "Education": 8,
+      "Employment": -3
+    }
+  },
+  {
+    "lawID": 14,
+    "header": "Reform Act",
+    "mainText": "Build nuclear energy plants.",
+    "detailedText": "Advances science and energy independence but risks ecological backlash.",
+    "preparedBy": "Alan Peters,\nMinister of Innovation",
+    "affectedCharacteristics": {
+      "Science": 8,
+      "Infrastructure": 5,
+      "Ecology": -8
+    }
+  },
+  {
+    "lawID": 15,
+    "header": "Reform Act",
+    "mainText": "Open mental health clinics in suburbs.",
+    "detailedText": "Boosts public health support but reallocated funds affect education.",
+    "preparedBy": "Lisa Grant,\nHealth Department Advisor",
+    "affectedCharacteristics": {
+      "Medicine": 10,
+      "Education": -3,
+      "Employment": -2
+    }
+  },
+  {
+    "lawID": 16,
+    "header": "Reform Act",
+    "mainText": "Launch national job guarantee program.",
+    "detailedText": "Greatly improves employment rates, but with cuts to science and infrastructure.",
+    "preparedBy": "Linda Moore,\nSecretary of Transport",
+    "affectedCharacteristics": {
+      "Employment": 12,
+      "Science": -5,
+      "Infrastructure": -3
+    }
+  },
+  {
+    "lawID": 17,
+    "header": "Reform Act",
+    "mainText": "Upgrade all rural medical facilities.",
+    "detailedText": "Improves healthcare accessibility but expensive and delays infrastructure plans.",
+    "preparedBy": "Lisa Grant,\nHealth Department Advisor",
+    "affectedCharacteristics": {
+      "Medicine": 12,
+      "Infrastructure": -7,
+      "Education": -2
+    }
+  },
+  {
+    "lawID": 18,
+    "header": "Reform Act",
+    "mainText": "Ban plastic packaging in retail.",
+    "detailedText": "Supports environmental goals but increases logistic costs and product prices.",
+    "preparedBy": "Carlos Mendez,\nMinister of Ecology",
+    "affectedCharacteristics": {
+      "Ecology": 10,
+      "Employment": -3,
+      "Infrastructure": -3
+    }
+  },
+  {
+    "lawID": 19,
+    "header": "Reform Act",
+    "mainText": "Cut defense budget to fund science grants.",
+    "detailedText": "A bold investment in science that might leave infrastructure plans underfunded.",
+    "preparedBy": "Alan Peters,\nMinister of Innovation",
+    "affectedCharacteristics": {
+      "Science": 12,
+      "Infrastructure": -5,
+      "Medicine": -3
+    }
+  }
+]

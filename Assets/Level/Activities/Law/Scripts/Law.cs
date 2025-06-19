@@ -11,5 +11,5 @@ public class Law
     public string detailedText;
     public string preparedBy;
 
-    public Dictionary<InternalCharacteristic, int> affectedCharacteristics;
+    public Dictionary<Characteristic, int> affectedCharacteristics;
 }

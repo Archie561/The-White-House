@@ -1,0 +1,10 @@
+[
+    {
+        "requiredDialogueIndex": 2,
+        "requiredProceededLaws": 3
+    },
+    {
+        "requiredDialogueIndex": 4,
+        "requiredProceededLaws": 6
+    }
+]

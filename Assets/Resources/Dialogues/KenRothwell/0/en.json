@@ -1,0 +1,311 @@
+[
+  {
+    "requiredResponseId": "",
+    "backgoundMusic": "",
+    "backgroundImage": "",
+    "lines": [
+      {
+        "requiredResponseId": "",
+        "characterName": "Alim Madani",
+        "characterImage": "AlimMadani",
+        "text": "Ну що мій друже, настав час єбати тебе в жопу. Що ти про це думаєш?",
+        "responses": [
+          {
+            "id": "a69c613e-2286-4578-890c-b41e962bc8df",
+            "text": "А чи не охуїв ти часом?"
+          },
+          {
+            "id": "1d831771-1205-4bf6-a9d6-bc32c817524f",
+            "text": "Ну, обіцянка є обіцянка."
+          },
+          {
+            "id": "e03f30f6-c984-4819-be5f-114e06371b73",
+            "text": "Я тебе наєбав, ніякої єблі не буде"
+          }
+        ]
+      },
+      {
+        "requiredResponseId": "a69c613e-2286-4578-890c-b41e962bc8df",
+        "characterName": "Alim Madani",
+        "characterImage": "AlimMadani",
+        "text": "Ти шо бичара? ми ж домовлялись уйобок",
+        "responses": []
+      },
+      {
+        "requiredResponseId": "a69c613e-2286-4578-890c-b41e962bc8df",
+        "characterName": "Humphrey Smiths",
+        "characterImage": "HumphreySmiths",
+        "text": "Так, ви реально домовлялись, я пам'ятаю",
+        "responses": [
+          {
+            "id": "bd3c9b32-bc6c-4810-9ea6-6d2647801533",
+            "text": "Бля, ну раз домовлялись то треба..."
+          }
+        ]
+      },
+      {
+        "requiredResponseId": "1d831771-1205-4bf6-a9d6-bc32c817524f",
+        "characterName": "Alim Madani",
+        "characterImage": "AlimMadani",
+        "text": "Радий що ти тримаєш своє слово.",
+        "responses": []
+      },
+      {
+        "requiredResponseId": "e03f30f6-c984-4819-be5f-114e06371b73",
+        "characterName": "Alim Madani",
+        "characterImage": "AlimMadani",
+        "text": "Ну ти і уйобок звичайно.",
+        "responses": []
+      },
+      {
+        "requiredResponseId": "e03f30f6-c984-4819-be5f-114e06371b73",
+        "characterName": "Alim Madani",
+        "characterImage": "AlimMadani",
+        "text": "Ти ж викупає що я в тебе ядеркою єбану? Давай не пизди і знімай нагавиці.",
+        "responses": [
+          {
+            "id": "461608c8-0e98-45e7-a253-60deac98eac1",
+            "text": "Добре, але ти все одно уйобок"
+          },
+          {
+            "id": "411d6794-698f-4850-bb85-9707f4e155b8",
+            "text": "Здається в мене немає вибору..."
+          }
+        ]
+      },
+      {
+        "requiredResponseId": "461608c8-0e98-45e7-a253-60deac98eac1",
+        "characterName": "Alim Madani",
+        "characterImage": "AlimMadani",
+        "text": "Я такий.",
+        "responses": []
+      },
+      {
+        "requiredResponseId": "",
+        "characterName": "Alim Madani",
+        "characterImage": "AlimMadani",
+        "text": "Ну тоді погнали!",
+        "responses": []
+      }
+    ]
+  },
+  {
+    "requiredResponseId": "",
+    "backgoundMusic": "",
+    "backgroundImage": "",
+    "lines": [
+      {
+        "requiredResponseId": "",
+        "characterName": "Gustav von Shizer",
+        "characterImage": "MaconFarrell",
+        "text": "Містер Президент, сьогодні ми обговоримо... секретний план 'Фіолетовий Борщ'. Ви готові?",
+        "responses": [
+          {
+            "id": "31f8e85c-588e-4b2f-b1cb-95a2f6769d7e",
+            "text": "Я народився готовим. Давайте срачку!"
+          },
+          {
+            "id": "2ab9d7f9-6db5-47a4-8120-9bc2a59161b5",
+            "text": "Що це ще за борщ? Я просив тільки червоний!"
+          },
+          {
+            "id": "d492c91e-e028-4b56-b774-2c1cc9a749c7",
+            "text": "Густаве, ти знову щось нюхав?"
+          }
+        ]
+      },
+      {
+        "requiredResponseId": "31f8e85c-588e-4b2f-b1cb-95a2f6769d7e",
+        "characterName": "Gustav von Shizer",
+        "characterImage": "MaconFarrell",
+        "text": "Це я люблю. Операція починається прямо зараз. Спочатку ми закидаємо Канаду пластиковими лебедями.",
+        "responses": []
+      },
+      {
+        "requiredResponseId": "2ab9d7f9-6db5-47a4-8120-9bc2a59161b5",
+        "characterName": "Gustav von Shizer",
+        "characterImage": "MaconFarrell",
+        "text": "Пане Президенте, світ вже не той. Борщ буває різних кольорів і політичних підтекстів.",
+        "responses": []
+      },
+      {
+        "requiredResponseId": "d492c91e-e028-4b56-b774-2c1cc9a749c7",
+        "characterName": "Gustav von Shizer",
+        "characterImage": "MaconFarrell",
+        "text": "Це офіційна лікарська таємниця. Але якщо чесно — трохи нюхав, так...",
+        "responses": [
+          {
+            "id": "8f9f6b1c-5c64-4b65-8b39-0c2e17973cf5",
+            "text": "Поділишся, брате?"
+          },
+          {
+            "id": "ec7d05bb-07ef-41f6-a38a-0ea004f1347f",
+            "text": "Я викличу службу етики!"
+          }
+        ]
+      },
+      {
+        "requiredResponseId": "8f9f6b1c-5c64-4b65-8b39-0c2e17973cf5",
+        "characterName": "Gustav von Shizer",
+        "characterImage": "MaconFarrell",
+        "text": "Звісно, у мене є цілий пакет, підписаний Сенатом!",
+        "responses": []
+      },
+      {
+        "requiredResponseId": "ec7d05bb-07ef-41f6-a38a-0ea004f1347f",
+        "characterName": "Gustav von Shizer",
+        "characterImage": "MaconFarrell",
+        "text": "Служба етики? Вона вже в мене вдома. Ми граємо в покер щоп’ятниці.",
+        "responses": []
+      },
+      {
+        "requiredResponseId": "",
+        "characterName": "Gustav von Shizer",
+        "characterImage": "MaconFarrell",
+        "text": "До речі, Китай запитує, що ви мали на увазі під 'пельмені — це змова'.",
+        "responses": [
+          {
+            "id": "4e9c9946-e738-4098-872f-9b7fcead1f21",
+            "text": "Я мав на увазі, що вони занадто смачні, щоб бути справжніми!"
+          },
+          {
+            "id": "7adf3178-1ba3-4ad0-9a2b-1d49f9a6a8a4",
+            "text": "Це була метафора... для корупції."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "requiredResponseId": "",
+    "backgoundMusic": "",
+    "backgroundImage": "",
+    "lines": [
+      {
+        "requiredResponseId": "",
+        "characterName": "Agnes Croftoon",
+        "characterImage": "AgnesCroftoon",
+        "text": "Пане Президент, ви в курсі що чай — це не просто напій, а змова Пентагону?",
+        "responses": [
+          {
+            "id": "b0834f47-11c2-4649-95b6-97a491620372",
+            "text": "Я завжди казав, що кава — єдина правда."
+          },
+          {
+            "id": "3df5c54e-93de-4c90-a292-04542ccf2395",
+            "text": "Що ти куриш, Агнес?"
+          },
+          {
+            "id": "c419420a-1964-48b6-b29e-2c35edab19e4",
+            "text": "Пентагон вже вкрав моє молоко. Чаю не віддам!"
+          }
+        ]
+      },
+      {
+        "requiredResponseId": "b0834f47-11c2-4649-95b6-97a491620372",
+        "characterName": "Agnes Croftoon",
+        "characterImage": "AgnesCroftoon",
+        "text": "Ваша вірність кофеїну буде занесена в аннали Святої Мокко-Церкви!",
+        "responses": []
+      },
+      {
+        "requiredResponseId": "3df5c54e-93de-4c90-a292-04542ccf2395",
+        "characterName": "Agnes Croftoon",
+        "characterImage": "AgnesCroftoon",
+        "text": "Те, що пахне лавандою і світиться в темряві. Не дякуй.",
+        "responses": [
+          {
+            "id": "88b7b32b-6d5d-43a3-b931-f19f11a122e0",
+            "text": "Дай два!"
+          }
+        ]
+      },
+      {
+        "requiredResponseId": "88b7b32b-6d5d-43a3-b931-f19f11a122e0",
+        "characterName": "Agnes Croftoon",
+        "characterImage": "AgnesCroftoon",
+        "text": "Буде зроблено. Але підпиши мені указ про легалізацію молекулярної алхімії.",
+        "responses": []
+      },
+      {
+        "requiredResponseId": "c419420a-1964-48b6-b29e-2c35edab19e4",
+        "characterName": "Alice Rothwell",
+        "characterImage": "AliceRothwell",
+        "text": "Я бачила, як вони запихали ваше молоко в ангар номер 7!",
+        "responses": [
+          {
+            "id": "f90f7a71-d54b-4f6a-a2ec-8f8a8db4d2b5",
+            "text": "Збирай загін. Ми йдемо за молоком."
+          }
+        ]
+      },
+      {
+        "requiredResponseId": "f90f7a71-d54b-4f6a-a2ec-8f8a8db4d2b5",
+        "characterName": "Alice Rothwell",
+        "characterImage": "AliceRothwell",
+        "text": "Так! Час для контрнаступу з лактозною перевагою!",
+        "responses": []
+      }
+    ]
+  },
+  {
+    "requiredResponseId": "",
+    "backgoundMusic": "",
+    "backgroundImage": "",
+    "lines": [
+      {
+        "requiredResponseId": "",
+        "characterName": "Connon Freeman",
+        "characterImage": "ConnonFreeman",
+        "text": "Президенте, голосуйте: передаємо Марс під контроль ящірок чи залишаємо його як туристичну зону?",
+        "responses": [
+          {
+            "id": "faebc0bb-9d6c-4b4a-a104-6c72caa1f86b",
+            "text": "Я за ящірок. Вони хоча б не вимагають субсидій."
+          },
+          {
+            "id": "19435b37-d70e-4d6f-9bfb-2b1f2e631f92",
+            "text": "Туризм! Я мрію про готель із видом на кратер."
+          },
+          {
+            "id": "8d11c6a2-c38a-455e-9e95-26231f4ffab6",
+            "text": "А може просто підірвемо Марс? Щоб не дістався нікому."
+          }
+        ]
+      },
+      {
+        "requiredResponseId": "faebc0bb-9d6c-4b4a-a104-6c72caa1f86b",
+        "characterName": "Hector Mina",
+        "characterImage": "HectorMina",
+        "text": "Ящірки вдячні вам. Вони вже написали вам гімн.",
+        "responses": []
+      },
+      {
+        "requiredResponseId": "19435b37-d70e-4d6f-9bfb-2b1f2e631f92",
+        "characterName": "Asmita Hari",
+        "characterImage": "AsmitaHari",
+        "text": "Тоді треба терміново розробити космічну інфраструктуру та TikTok-стратегію!",
+        "responses": [
+          {
+            "id": "c4415b67-e09c-4fbd-beb8-58d1ed07c1bc",
+            "text": "Погоджено. Я хочу космічних інфлюенсерів вже завтра."
+          }
+        ]
+      },
+      {
+        "requiredResponseId": "8d11c6a2-c38a-455e-9e95-26231f4ffab6",
+        "characterName": "Boris Abramov",
+        "characterImage": "BorisAbramov",
+        "text": "Ви знову з бомбами, пане Президент. Це надихає.",
+        "responses": []
+      },
+      {
+        "requiredResponseId": "c4415b67-e09c-4fbd-beb8-58d1ed07c1bc",
+        "characterName": "Asmita Hari",
+        "characterImage": "AsmitaHari",
+        "text": "Гарно. Я вже бачу хештег: #MarsIsTheNewMalibu",
+        "responses": []
+      }
+    ]
+  }
+]
