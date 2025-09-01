@@ -27,5 +27,6 @@ public class CharacteristicIcon : MonoBehaviour
             .OnComplete(() => _fillImage.color = _originalIconColor);
     }
 
+    //краще зробити так щоб цей клас не залежав від GameDataManager
     private float GetNormalizedCharacteristicValue() => GameDataManager.GetCharacteristicValue(_characteristic) / 100f;
 }

@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Initialize()
     {
-        if (!GameDataManager.TryGetData<Dialogue>(out var dialogue))
+        if (!GameDataManager.TryGetNextDialogue(out var dialogue))
         {
             ShowNoDialogueText();
             return;
@@ -88,6 +88,7 @@ public class DialogueManager : MonoBehaviour
     private void InitializeResponsePanel()
     {
         _responsePanel.SetPresidentImage(Resources.Load<Sprite>($"Textures/Characters/{GameDataManager.ActivePresident}"));
+        //подивитися чи не можна зробити це через UnityEvent
         _responsePanel.OnResponseSelected += ResponseClickHandler;
     }
 
@@ -132,8 +133,6 @@ public class DialogueManager : MonoBehaviour
     public void ResponseClickHandler(string id)
     {
         GameDataManager.SaveResponse(id);
-        //GameDataManager.Save();
-
         HandleNextLineDisplay();
     }
 
@@ -145,7 +144,6 @@ public class DialogueManager : MonoBehaviour
 
     public void ExitActivity()
     {
-        //dialogueIndex++
         GameDataManager.FinishDialogue();
         GameDataManager.Save();
         LevelManager.Instance.LoadScene("Main");

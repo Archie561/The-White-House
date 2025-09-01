@@ -7,21 +7,17 @@ using System.Linq;
 
 public static class GameDataManager
 {
-    private static PlayerData _playerData;
+    public static string ActivePresident { get; private set; }
 
+    private static PlayerData _playerData;
     private static List<ChapterBatch> _chapterBatches;
 
-    private static Dictionary<Type, object> _activities;
-
-    //for debug purposes
-    private static List<Dialogue> _dialogues;
-
-    public static string ActivePresident { get; private set; }
-    public static bool IsChapterCompleted;
+    private static DialogueActivity _dialogueActivity;
+    private static LawActivity _lawActivity;
 
     private static ChapterBatch CurrentBatch => _chapterBatches[_playerData.BatchIndex];
 
-    public static void Load(string activePresident)
+    public static void LoadPlayerData(string activePresident)
     {
         ActivePresident = activePresident;
         string path = Application.persistentDataPath + $"/{activePresident}.json";
@@ -42,6 +38,9 @@ public static class GameDataManager
             Characteristics = Enum.GetValues(typeof(Characteristic))
                 .Cast<Characteristic>()
                 .ToDictionary(c => c, _ => 50),
+            TradeObjects = Enum.GetValues(typeof(TradeObjectType))
+                .Cast<TradeObjectType>()
+                .ToDictionary(t => t, _ => new TradeObjectData(50, 100)),
             UsedLawIds = new HashSet<int>(),
             PickedResponses = new HashSet<string>(),
             ProceededLawsCount = 0,
@@ -53,17 +52,18 @@ public static class GameDataManager
     {
         string gameLanguage = PlayerPrefs.GetString("gameLanguage", "en");
 
-        _chapterBatches = LoadJsonResource<List<ChapterBatch>>($"Dialogues/{ActivePresident}/{_playerData.ChapterID}/batches");
+        _chapterBatches = LoadJsonResource<List<ChapterBatch>>($"Batches/{ActivePresident}/{_playerData.ChapterID}");
 
-        _dialogues = LoadJsonResource<List<Dialogue>>($"Dialogues/{ActivePresident}/{_playerData.ChapterID}/{gameLanguage}");
+        var dialogues = LoadJsonResource<List<Dialogue>>($"Dialogues/{ActivePresident}/{_playerData.ChapterID}/{gameLanguage}");
         var allLaws = LoadJsonResource<List<Law>>($"Laws/{gameLanguage}");
         var availableLaws = allLaws.Where(law => !_playerData.UsedLawIds.Contains(law.lawID)).ToList();
 
-        _activities = new Dictionary<Type, object>
-        {
-            { typeof(Dialogue), new DialogueActivity(_dialogues) },
-            { typeof(Law), new LawActivity(availableLaws) }
-        };
+        _dialogueActivity = new DialogueActivity(dialogues);
+        _lawActivity = new LawActivity(availableLaws);
+
+
+        //for debug purposes
+        _dialoguesCount = dialogues.Count;
     }
 
     private static T LoadJsonResource<T>(string path)
@@ -80,132 +80,92 @@ public static class GameDataManager
         return result;
     }
 
+    /// <summary>
+    /// Saves all the player data to a JSON file
+    /// </summary>
     public static void Save()
     {
-        TryProceedToNextBatch();
-
         string jsonData = JsonConvert.SerializeObject(_playerData, Formatting.Indented);
         string path = Application.persistentDataPath + $"/{ActivePresident}.json";
         File.WriteAllText(path, jsonData);
     }
 
-    private static void TryProceedToNextBatch()
+    public static bool TryMoveToNextBatch()
     {
-        if (!AreBatchRequirementsMet(CurrentBatch)) return;
-
-        var nextIndex = _playerData.BatchIndex + 1;
-        if (nextIndex < _chapterBatches.Count)
+        if (_playerData.BatchIndex < _chapterBatches.Count - 1)
         {
-            _playerData.BatchIndex = nextIndex;
+            _playerData.BatchIndex++;
+            return true;
         }
-        else
-        {
-            Debug.Log("All batches completed. Proceed to next chapter if needed.");
-            //_playerData.ChapterID++;
-            //_playerData.BatchIndex = 0;
-            //додати змінну яка буде визначати чи можна переходити до наступної глави
-        }
-    }
-
-    private static bool AreBatchRequirementsMet(ChapterBatch batch)
-    {
-        return _playerData.DialogueIndex >= batch.requiredDialogueIndex &&
-               _playerData.ProceededLawsCount >= batch.requiredProceededLaws;
-    }
-
-    public static bool IsPending<T>()
-    {
-        if (_activities.TryGetValue(typeof(T), out var activity))
-        {
-            if (activity is IGameActivity<T> a)
-            {
-                return a.IsPending(_playerData, CurrentBatch);
-            }
-
-            Debug.LogError($"Activity for type {typeof(T)} does not implement IGameActivity<{typeof(T).Name}>.");
-            return false;
-        }
-        Debug.LogError($"No activity found for type {typeof(T)}");
         return false;
     }
 
-    public static bool TryGetData<T>(out T data)
+    /// <summary>
+    /// Determines if the activity is currently pending
+    /// </summary>
+    /// <returns></returns>
+    public static bool IsPending(ActivityType activityType)
     {
-        data = default;
-        if (_activities.TryGetValue(typeof(T), out var activity))
+        return activityType switch
         {
-            if (activity is IGameActivity<T> a)
-            {
-                return a.TryGetData(_playerData, CurrentBatch, out data);
-            }
-
-            Debug.LogError($"Activity for type {typeof(T)} does not implement IGameActivity<{typeof(T).Name}>.");
-            return false;
-        }
-        Debug.LogError($"No activity found for type {typeof(T)}");
-        return false;
+            ActivityType.Dialogue => _dialogueActivity.IsPending(_playerData, CurrentBatch),
+            ActivityType.Law => _lawActivity.IsPending(_playerData, CurrentBatch),
+            _ => throw new Exception($"No data for activity {activityType}")
+        };
     }
 
-    public static void ApplyResult<T>(T data, object context)
-    {
-        if (_activities.TryGetValue(typeof(T), out var activity))
-        {
-            if (activity is IResultableActivity<T> a)
-            {
-                a.ApplyResult(_playerData, data, context);
-                return;
-            }
+    /// <summary>
+    /// returns the next dialogue if available
+    /// </summary>
+    public static bool TryGetNextDialogue(out Dialogue dialogue) =>
+        _dialogueActivity.TryGetNextDialogue(_playerData, CurrentBatch, out dialogue);
 
-            Debug.LogError($"Activity for type {typeof(T)} does not implement IResultableActivity<{typeof(T).Name}>.");
-            return;
-        }
-        Debug.LogError($"No activity found for type {typeof(T)}");
-    }
+    /// <summary>
+    /// saves the player's response
+    /// </summary>
+    public static void SaveResponse(string result) =>
+        _dialogueActivity.SaveResponse(_playerData, result);
+
+    /// <summary>
+    /// Returns the next law if available
+    /// </summary>
+    public static bool TryGetNextLaw(out Law law) =>
+        _lawActivity.TryGetNextLaw(_playerData, CurrentBatch, out law);
+
+    /// <summary>
+    /// Changes the player's characteristics based on the law decision, saves the law as used, and increments the proceeded laws count.
+    /// </summary>
+    public static void SaveLawDecision(Law law, bool accepted) =>
+        _lawActivity.SaveLawDecision(_playerData, law, accepted);
 
     public static int GetCharacteristicValue(Characteristic c) => _playerData.Characteristics[c];
-
-    public static void SaveResponse(string responseId) => _playerData.PickedResponses.Add(responseId);
 
     public static bool IsResponsePicked(string responseId) => _playerData.PickedResponses.Contains(responseId);
 
     public static void FinishDialogue() => _playerData.DialogueIndex++;
 
+    public static TradeObjectData GetTradeObjectData(TradeObjectType t) => _playerData.TradeObjects[t];
 
 
-    //Debug field to get dialogues count
-    public static int DialoguesCount => _dialogues.Count;
+
+    //for debug purposes
+    private static int _dialoguesCount = 0;
     //Debug field to get current dialogue ID
     public static int DialogueID => _playerData.DialogueIndex;
     // Debug function to modify the dialogue ID
     public static void ModifyDialogueId(int value)
     {
         var newId = _playerData.DialogueIndex + value;
-        if (newId < 0 || newId >= _dialogues.Count)
+        if (newId < 0 || newId >= _dialoguesCount)
             return;
 
         _playerData.PickedResponses.Clear(); // Clear responses when modifying dialogue ID
         _playerData.DialogueIndex = newId;
     }
 
-    //Debug function to clear the used law ids
-    public static void ClearUsedLawIds()
+    public static void ResetPlayerData()
     {
-        _playerData.UsedLawIds.Clear();
+        _playerData = GenerateNewPlayerData();
         LoadChapterData();
-    }
-
-    //Debug function to reset player characteristics
-    public static void ResetPlayerCharacteristics()
-    {
-        _playerData.Characteristics = new Dictionary<Characteristic, int>();
-        foreach (Characteristic characteristic in Enum.GetValues(typeof(Characteristic)))
-            _playerData.Characteristics[characteristic] = 20;
-    }
-
-    //Debug function to reset batch data
-    public static void ResetBatchData()
-    {
-        _playerData.BatchIndex = 0;
-        _playerData.ProceededLawsCount = 0;
     }
 }

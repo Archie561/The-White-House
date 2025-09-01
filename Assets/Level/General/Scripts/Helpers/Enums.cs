@@ -4,7 +4,8 @@ using System;
 public enum ActivityType
 {
     Dialogue,
-    Law
+    Law,
+    Trade
 }
 
 [Serializable]
@@ -18,6 +19,7 @@ public enum Characteristic
     Employment
 }
 
+[Serializable]
 public enum SFXType
 {
     Accept,
@@ -27,4 +29,13 @@ public enum SFXType
     Door,
     Ring,
     Typing
+}
+
+[Serializable]
+public enum TradeObjectType
+{
+    Oil,
+    Coal,
+    Gas,
+    Wood
 }

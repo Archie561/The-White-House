@@ -2,9 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class LawActivity : IResultableActivity<Law>
+public class LawActivity
 {
     private readonly List<Law> _laws;
+
     public LawActivity(List<Law> laws)
     {
         _laws = laws;
@@ -24,43 +25,35 @@ public class LawActivity : IResultableActivity<Law>
         return true;
     }
 
-    public bool TryGetData(PlayerData playerData, ChapterBatch batch, out Law data)
+    public bool TryGetNextLaw(PlayerData playerData, ChapterBatch batch, out Law law)
     {
-        if (IsPending(playerData, batch))
+        if (!IsPending(playerData, batch))
         {
-            int lastLawId = PlayerPrefs.GetInt("lastLawId", -1);
-            data = _laws.FirstOrDefault(l => l.lawID == lastLawId)
-                ?? _laws[Random.Range(0, _laws.Count)];
-
-            PlayerPrefs.SetInt("lastLawId", data.lawID);
-            PlayerPrefs.Save();
-
-            return true;
-        }
-        else
-        {
-            data = null;
+            law = null;
             return false;
         }
+
+        int lastLawId = PlayerPrefs.GetInt("lastLawId", -1);
+        law = _laws.FirstOrDefault(l => l.lawID == lastLawId)
+            ?? _laws[Random.Range(0, _laws.Count)];
+
+        PlayerPrefs.SetInt("lastLawId", law.lawID);
+        PlayerPrefs.Save();
+
+        return true;
     }
 
-    public void ApplyResult(PlayerData playerData, Law data, object context)
+    public void SaveLawDecision(PlayerData playerData, Law law, bool accepted)
     {
-        if (context is not bool accepted)
-        {
-            Debug.LogError("LawActivity ApplyResult: context must be a boolean indicating acceptance");
-            return;
-        }
-
-        foreach (var (characteristic, value) in data.affectedCharacteristics)
+        foreach (var (characteristic, value) in law.affectedCharacteristics)
         {
             int delta = accepted ? value : -value;
             playerData.Characteristics[characteristic] = Mathf.Clamp(
                 playerData.Characteristics[characteristic] + delta, 0, 100);
         }
 
-        _laws.Remove(data);
-        playerData.UsedLawIds.Add(data.lawID);
+        _laws.Remove(law);
+        playerData.UsedLawIds.Add(law.lawID);
         playerData.ProceededLawsCount++;
     }
 }

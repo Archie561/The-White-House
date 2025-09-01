@@ -1,10 +1,10 @@
-public interface IGameActivity<T>
+public interface IGameActivity
 {
+    /// <summary>
+    /// Determines if the activity is pending based on the player's data and the current chapter batch.
+    /// </summary>
+    /// <param name="playerData"></param>
+    /// <param name="batch"></param>
+    /// <returns></returns>
     bool IsPending(PlayerData playerData, ChapterBatch batch);
-    bool TryGetData(PlayerData playerData, ChapterBatch batch, out T data);
-}
-
-public interface IResultableActivity<T> : IGameActivity<T>
-{
-    void ApplyResult(PlayerData playerData, T data, object context);
 }

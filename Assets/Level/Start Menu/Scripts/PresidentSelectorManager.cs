@@ -62,7 +62,7 @@ public class PresidentSelectorManager : MonoBehaviour
         AudioManager.Instance.PlaySFX(SFXType.Click);
 
         var selectedPresident = _presidents[_presidentIndex].nameKey;
-        GameDataManager.Load(selectedPresident);
+        GameDataManager.LoadPlayerData(selectedPresident);
 
         LevelManager.Instance.LoadScene("Main");
     }

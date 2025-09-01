@@ -203,10 +203,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'when an unknown printer took a galley of type and scrambled it to make
+  m_text: when an unknown printer took a galley of type and scrambled it to make
     a type specimen book. It has survived not only five centuries, but also the leap
     into electronic typesetting, remaining essentially unchanged. It was popularised
-    in the 1960s '
+    in the 1960s. survived not only five centuries
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 309754b8ec6fb2e41b793feae60a3a0e, type: 2}
   m_sharedMaterial: {fileID: 3866813366152602010, guid: 309754b8ec6fb2e41b793feae60a3a0e, type: 2}
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem Ipsum
+  m_text: proposal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae2f15ce376bde64bb93c05c96e15989, type: 2}
   m_sharedMaterial: {fileID: 6595828783113764803, guid: ae2f15ce376bde64bb93c05c96e15989, type: 2}

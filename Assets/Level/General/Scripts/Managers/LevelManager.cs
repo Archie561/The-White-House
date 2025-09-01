@@ -18,16 +18,17 @@ public class LevelManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-
-            //TEMP
-            if (GameDataManager.ActivePresident == null)
-                GameDataManager.Load("KenRothwell");
         }
         else
         {
             Destroy(gameObject);
         }
-    }
+
+        //TEMP
+        if (string.IsNullOrEmpty(GameDataManager.ActivePresident))
+            GameDataManager.LoadPlayerData("KenRothwell");
+        //TEMP
+}
 
     public void LoadScene(string sceneName)
     {

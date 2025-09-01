@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
 
-public class DialogueActivity : IGameActivity<Dialogue>
+public class DialogueActivity
 {
     private readonly List<Dialogue> _dialogues;
 
@@ -26,19 +27,28 @@ public class DialogueActivity : IGameActivity<Dialogue>
         return false;
     }
 
-    public bool TryGetData(PlayerData playerData, ChapterBatch batch, out Dialogue data)
+    public bool TryGetNextDialogue(PlayerData playerData, ChapterBatch batch, out Dialogue dialogue)
     {
         while (playerData.DialogueIndex < batch.requiredDialogueIndex && playerData.DialogueIndex < _dialogues.Count)
         {
-            data = _dialogues[playerData.DialogueIndex];
+            dialogue = _dialogues[playerData.DialogueIndex];
 
-            if (string.IsNullOrEmpty(data.requiredResponseId) || playerData.PickedResponses.Contains(data.requiredResponseId))
+            if (string.IsNullOrEmpty(dialogue.requiredResponseId) || playerData.PickedResponses.Contains(dialogue.requiredResponseId))
                 return true;
 
             playerData.DialogueIndex++;
         }
 
-        data = null;
+        dialogue = null;
         return false;
+    }
+
+    public void SaveResponse(PlayerData playerData, string result)
+    {
+        if (string.IsNullOrEmpty(result))
+        {
+            throw new ArgumentException("Result must be a choice id!", nameof(result));
+        }
+        playerData.PickedResponses.Add(result);
     }
 }

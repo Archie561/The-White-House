@@ -22,7 +22,7 @@ public class LawManager : MonoBehaviour
 
     private void HandleNextLawDisplay()
     {
-        if (GameDataManager.TryGetData<Law>(out var law))
+        if (GameDataManager.TryGetNextLaw(out var law))
         {
             ShowLawPanel(law);
             return;
@@ -64,7 +64,7 @@ public class LawManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX(accepted ? SFXType.Accept : SFXType.Decline);
 
-        GameDataManager.ApplyResult(_currentLawPanel.LawData, accepted);
+        GameDataManager.SaveLawDecision(_currentLawPanel.LawData, accepted);
 
         foreach (var (characteristic, value) in _currentLawPanel.LawData.affectedCharacteristics)
             OnCharacteristicModified?.Invoke(characteristic, accepted ? value : -value);

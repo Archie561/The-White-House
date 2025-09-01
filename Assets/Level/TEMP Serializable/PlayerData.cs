@@ -7,6 +7,7 @@ public class PlayerData
     public int BatchIndex;
 
     public Dictionary<Characteristic, int> Characteristics;
+    public Dictionary<TradeObjectType, TradeObjectData> TradeObjects;
     public HashSet<int> UsedLawIds;
     public HashSet<string> PickedResponses;
     public int ProceededLawsCount;
